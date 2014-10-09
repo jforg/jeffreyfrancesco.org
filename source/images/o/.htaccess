@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteBase /images/o/
+
+RewriteCond %{HTTP_REFERER} ^$ [OR]
+RewriteCond %{HTTP_REFERER} !^http://blosxom.mbp.jf/ [NC]
+
+RewriteRule ^(.*)\.(jpg|gif|png)$ /r/$1.$2 [L]

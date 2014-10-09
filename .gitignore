@@ -1,0 +1,6 @@
+/data
+/home
+/vendor
+
+.bundle/
+.sass-cache

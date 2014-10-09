@@ -1,0 +1,11 @@
+Header set X-UA-Compatible "IE=edge"
+AddDefaultCharset utf-8
+
+RewriteEngine On
+RewriteBase /
+
+# Redirect Old tag links to New
+RewriteCond %{QUERY_STRING} tag=([^;]+)
+RewriteRule ^index\.html$ tags/%1/ [R=301,L]
+
+RewriteRule ^archives/tag/(.*)/$ tags/$1/ [R=301,L]
