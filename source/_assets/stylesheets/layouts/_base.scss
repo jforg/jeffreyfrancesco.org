@@ -1,0 +1,35 @@
+%landmark {
+  margin: {
+    left: -1em;
+    right: -1em;
+  }
+  padding: {
+    left: 1em;
+    right: 1em;
+  }
+}
+%landmark-inner {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  width: 47em;
+  max-width: 100%;
+}
+
+.site-banner {
+  @extend %landmark;
+  padding: {
+    top: 1em;
+    bottom: 1em;
+  }
+  border-top: 4px solid;
+  border-bottom: 1px solid;
+}
+
+.site-banner__content,
+.site-main__content,
+.site-nav__content,
+.site-footer__content {
+  @extend %landmark-inner;
+}

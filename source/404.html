@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>404 Not Found / JeffreyFrancesco.org</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Special+Elite&amp;text=40%20FNdeilnotu" media="all">
+<style>
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  line-height: 1.5;
+}
+a {
+  color: #36c;
+}
+fieldset {
+  border: 1px dotted #c0c0c0;
+  margin: 0 -1px;
+  padding: 0.35em 1em 1em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+button,
+input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+  text-transform: none;
+}
+button,
+html input[type="button"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+input, button {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.error-header {
+  margin: 0;
+  color: #333;
+  font-family: "Special Elite", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 200%;
+  line-height: 1;
+  text-align: center;
+}
+@media (width) {
+  .error-header {
+    position: relative;
+    font-size: 11.25vmin;
+  }
+}
+.error-code {
+  margin-top: .125em;
+  margin-bottom: -.1875em;
+  display: block;
+  font-size: 450%;
+}
+.error-content {
+  margin: 0 auto 2em;
+  width: 95%;
+  max-width: 40em;
+}
+.error-description {
+  margin: 1em;
+}
+@media (max-width: 640px) {
+  .error-content {
+    font-size: 81.25%;
+  }
+}
+.search-controls {
+  position: relative;
+}
+.search-query,
+.search-submission {
+  line-height: 1.5;
+}
+.search-query {
+  padding: .1875em .5em;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .05), rgba(0, 0, 0, 0));
+}
+.search-query:focus {
+  border-color: #36c;
+  background-image: none;
+  outline: none;
+}
+.search-submission {
+  padding: 0.1875em .5em;
+  border: 1px solid #999;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #f8f8f8;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(255, 255, 255, .05) 50%, rgba(0, 0, 0, .05) 50%, rgba(0, 0, 0, .2));
+}
+.search-submission:hover,
+.search-submission:focus,
+.search-submission:active,
+.search-query:focus + .search-submission {
+  border-color: #36c;
+  background-color: #48f;
+  color: #fff;
+}
+.search-submission:active,
+.search-query:active + .search-submission {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .05) 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .2));
+}
+:lang(ja) .search-query {
+  padding-right: 4.75em;
+  width: 100%;
+  height: 2em;
+}
+:lang(ja) .search-submission {
+  height: 2em;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+</style>
+</head>
+<body>
+<div class="error">
+  <h1 class="error-header"><span class="error-code">404</span> File Not Found</h1>
+  <div class="error-content">
+    <p class="error-description">要求されたページを私なりにがんばって探しましたが見つかりませんでした。<!-- 次の<a href="#search-form" id="focus-to-textfield">サイト内検索</a>をお試しいただくか、--><a href="/">TOP ページ</a>にある各種リンクをご利用下さい。</p>
+    <!-- form method="get" action="/index.html" id="search-form">
+      <fieldset>
+        <legend accesskey="f">
+          <label for="search-query">サイト内検索</label>
+        </legend>
+        <div class="search-controls">
+          <input type="search" name="find" size="20" placeholder="ex) css3, jazz, 舞鶴 etc." value="" id="search-query" class="search-query">
+          <button type="submit" id="search-submission" class="search-submission">search</button>
+        </div>
+      </fieldset>
+    </form -->
+  </div>
+</div>
+<!-- script>
+window.onload = function() {
+  document.getElementById('focus-to-textfield').onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('search-query').focus();
+  }
+  this.onresize = function() {
+    document.getElementsByTagName('h1')[0].style.zIndex = "1";
+  }
+};
+</script -->
+</body>
+</html>

@@ -1,0 +1,13 @@
+---
+title:  すべてのタグ一覧
+layout: page
+---
+{% assign all_tags = site.tags | sort_by_name %}
+<ul>
+  {% for tag in all_tags %}
+  <li>
+    <a href="{{ tag[0] | tag_to_url }}">{{ tag[0] }}</a>
+    <span>{{ tag[1] | size }} articles</span>
+  </li>
+  {% endfor %}
+</ul>

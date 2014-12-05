@@ -1,0 +1,12 @@
+---
+layout: page
+---
+{% assign curr_posts = site.tags[page.curr_tag] %}
+<ul>
+  {% for post in curr_posts %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+  </li>
+  {% endfor %}
+</ul>

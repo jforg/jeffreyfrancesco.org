@@ -1,0 +1,38 @@
+$grid-width: 3em;
+$grid-gutter: 1em;
+
+@mixin grid-span($_width: 1, $_float: none, $_isLast: false, $_grid: $grid-width, $_gutter: $grid-gutter) {
+  width: ( $_grid + $_gutter ) * $_width - $_gutter;
+  @if $_float == left {
+    float: left;
+    @if $_isLast == false {
+      margin-right: $_gutter;
+    }
+  }
+  @else if $_float == right {
+    float: right;
+    @if $_isLast == false {
+      margin-left: $_gutter;
+    }
+  }
+}
+.site-nav__content::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.site-nav__item--toc {
+  @media (min-width: 49em) {
+    @include grid-span(6, left);
+  }
+}
+.site-nav__item--archive {
+  @media (min-width: 49em) {
+    @include grid-span(2, left);
+  }
+}
+.site-nav__item--tag {
+  @media (min-width: 49em) {
+    @include grid-span(4, left, last);
+  }
+}

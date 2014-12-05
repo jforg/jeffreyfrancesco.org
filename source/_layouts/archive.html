@@ -1,0 +1,14 @@
+---
+layout: page
+---
+{% assign year = site.archives[page.curr_year] %}
+  {% for month in year %}
+    <h2>{{ month[0] }}月</h2>
+    <ul>
+      {% for post in month[1] %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+      </li>
+      {% endfor %}
+  </ul>{% endfor %}

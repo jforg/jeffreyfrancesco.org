@@ -1,0 +1,42 @@
+.nav-item__title {
+  margin: {
+    top: 2.5em;
+  }
+  font-size: 100%;
+  text-transform: uppercase;
+}
+//  Contents widget
+.contents-list {
+  dt {
+    margin: {
+      top: 0;
+    }
+    font: {
+      weight: bold;
+    }
+  }
+  dd {
+    margin: {
+      left: 0;
+    }
+  }
+}
+//  Archive widget
+.archive-list {
+  padding: {
+    left: 0;
+  }
+  list-style-type: none;
+}
+
+//  Top 20 tags widget
+.tag-list--top20 {
+  padding: {
+    left: 0;
+  }
+  list-style-type: none;
+  li {
+    display: inline;
+    margin-right: 1em;
+  }
+}

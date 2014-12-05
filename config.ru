@@ -1,8 +1,8 @@
+require "rack"
 require "rack-livereload"
+require "rack/contrib/try_static"
+require "rack/contrib/not_found"
 
 use Rack::LiveReload
-
-map "/" do
-  use Rack::Static, urls: [""], root: "home", index: "index.html"
-  run lambda {|env|}
-end
+use Rack::TryStatic, urls: ["/"], root: "gh-pages", try: ["index.html", "/index.html"]
+run Rack::NotFound.new("source/404.html")

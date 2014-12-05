@@ -4,5 +4,5 @@ guard 'jekyll-plus', :serve => true, :drafts => true, :future => true, :extensio
 end
 
 guard 'livereload' do
-  watch %r{^home/}
+  watch %r{^gh-pages/}
 end
