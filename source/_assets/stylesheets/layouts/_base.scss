@@ -23,13 +23,29 @@
     top: 1em;
     bottom: 1em;
   }
-  border-top: 4px solid;
-  border-bottom: 1px solid;
+}
+
+.site-nav {
+  margin: {
+    top: 2.5em;
+  }
+  @extend %landmark;
+}
+
+.site-footer {
+  @extend %landmark;
+}
+
+.site-footer__content {
+  @extend %landmark-inner;
+  padding: {
+    top: 2em;
+    bottom: 2em;
+  }
 }
 
 .site-banner__content,
 .site-main__content,
-.site-nav__content,
-.site-footer__content {
+.site-nav__content {
   @extend %landmark-inner;
 }

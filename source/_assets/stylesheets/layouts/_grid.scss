@@ -1,5 +1,13 @@
-$grid-width: 3em;
-$grid-gutter: 1em;
+$grid-width: 3rem;
+$grid-gutter: 1rem;
+
+%clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
 
 @mixin grid-span($_width: 1, $_float: none, $_isLast: false, $_grid: $grid-width, $_gutter: $grid-gutter) {
   width: ( $_grid + $_gutter ) * $_width - $_gutter;
@@ -16,23 +24,27 @@ $grid-gutter: 1em;
     }
   }
 }
-.site-nav__content::after {
-  content: '';
-  clear: both;
-  display: table;
+
+.site-nav__content,
+.site-footer__content {
+  @extend %clearfix;
 }
-.site-nav__item--toc {
-  @media (min-width: 49em) {
+
+@media (min-width: 49em) {
+  .site-nav__item--toc {
     @include grid-span(6, left);
   }
-}
-.site-nav__item--archive {
-  @media (min-width: 49em) {
+  .site-nav__item--archive {
     @include grid-span(2, left);
   }
-}
-.site-nav__item--tag {
-  @media (min-width: 49em) {
-    @include grid-span(4, left, last);
+  .site-nav__item--tag {
+    @include grid-span(4, left, last)
+  }
+  .site-footer__item--subscribe {
+    @include grid-span(6, left, last);
+  }
+  .site-footer__item--copyright {
+    @include grid-span(6, right, last);
+    text-align: right;
   }
 }

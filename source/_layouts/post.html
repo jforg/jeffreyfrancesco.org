@@ -6,7 +6,10 @@ layout: default
     <header class="page__header">
       <h1 class="page__title">{{ page.title }}</h1>
       <p class="page__description">{{ page.excerpt | strip_html | truncate: 128, '…' }}</p>
-      <p class="page__pub-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time></p>
+      <ul class="page__meta">
+        <li class="page__pub-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></li>
+        <li class="page__tags">Tags: {{ page.tags | tags_to_links | array_to_sentence_string }}</li>
+      </ul>
     </header>
     <div class="page__content">
       {{ content }}

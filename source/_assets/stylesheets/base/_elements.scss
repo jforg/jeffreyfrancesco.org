@@ -6,6 +6,10 @@ body {
   }
   font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   line-height: 1.75;
+
+  @media (max-width: 32rem) {
+    font-size: 81.25%;
+  }
 }
 
 // Heading
@@ -65,4 +69,19 @@ em {
 // Embedded
 img, object, iframe {
   vertical-align: bottom;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Interactive
+a {
+  color: #30c;
+
+  &:hover,
+  &:focus {
+    color: #b22222;
+  }
 }

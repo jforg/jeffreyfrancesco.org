@@ -1,56 +1,51 @@
 <nav role="navigation" aria-labelledby="#explore" class="site-nav">
   <div class="site-nav__content">
-    <h2 id="explore" class="site-nav__title">Explore JF</h2>
+    <h2 id="explore" class="site-nav__title">Explore this site</h2>
 
     <form role="search" action="http://google.com/cse" id="cse-search-box" class="search">
       <p class="search__content">
         <input type="hidden" name="cx" value="003420500518845442145:gpoe3wix7zk" />
         <input type="hidden" name="ie" value="UTF-8" />
-        <input type="search" name="q" size="24" value="" placeholder="" />
-        <input type="submit" name="sa" value="検索" />
+        <input type="search" name="q" size="24" value="" class="search__query" />
+        <input type="submit" name="sa" value="Search" class="search__submit" />
       </p>
     </form>
     <script src="//www.google.com/cse/brand?form=cse-search-box&amp;lang=ja"></script>
 
     <nav class="site-nav__item--toc nav-item">
-      <h3 class="nav-item__title">by Contents</h3>
+      <h3 class="nav-item__title">Table of Contents</h3>
       <dl class="nav-item__content contents-list">
-        <dt><a href="/about/">About</a></dt>
-        <dd>サイトの概略、ご利用案内、著者プロフィールなど。</dd>
-        <dt><a href="/info/">Information</a></dt>
-        <dd>出演予定 Live の日程など、演奏活動に関するお知らせ。</dd>
-        <dt><a href="/weblog/">Weblog</a></dt>
-        <dd>Web 制作やハモンドオルガン、地域の話題などに関する雑多なテキスト。</dd>
+        <dt class="contents-list__item"><a href="/about/">About</a></dt>
+        <dd class="contents-list__desc">サイトの概略、ご利用案内、著者プロフィールなど。</dd>
+        <dt class="contents-list__item"><a href="/info/">Information</a></dt>
+        <dd class="contents-list__desc">出演予定 Live の日程など、演奏活動に関するお知らせ。</dd>
+        <dt class="contents-list__item"><a href="/weblog/">Weblog</a></dt>
+        <dd class="contents-list__desc">Web 制作やハモンドオルガン、地域の話題などに関する雑多なテキスト。</dd>
       </dl>
     </nav>
 
     <nav class="site-nav__item--archive nav-item">
-      <h3 class="nav-item__title">by Year</h3>
-      <ul class="nav-item__content archive-list">
-        {% for year in site.archives reversed %}
-        <li><a href="/{{ year[0] }}/">{{ year[0] }}年</a></li>
-        {% endfor %}
+      <h3 class="nav-item__title">Archives</h3>
+      <ul class="nav-item__content archive-list">{% for year in site.archives reversed %}
+        <li class="archive-list__item"><a href="/{{ year[0] }}/">{{ year[0] }}年</a></li>{% endfor %}
       </ul>
     </nav>
 
     <nav class="site-nav__item--tag nav-item">
-      <h3 class="nav-item__title">by Popular Tags</h3>
-      <ol class="nav-item__content tag-list--top20">
-        {% assign popular_tags = site.tags | sort_by_popular %}
-        {% for tag in popular_tags limit:20 %}
-        <li><a href="{{ tag[0] | tag_to_url }}">{{ tag[0] }}</a></li>
-        {% endfor %}
+      <h3 class="nav-item__title">Top 20 Tags</h3>
+      <ol class="nav-item__content tag-list">{% assign popular_tags = site.tags | sort_by_popular %}{% for tag in popular_tags limit:20 %}
+        <li class="tag-list__item"><a href="{{ tag[0] | tag_to_url }}">{{ tag[0] }}</a></li>{% endfor %}
       </ol>
-      <p class="nav-item__content"><a href="/tags/">View <em>All</em> Tags</a></p>
+      <p class="nav-item__content tag-list__more"><a href="/tags/">View <em>All</em> Tags <span aria-hidden="true">→</span></a></p>
     </nav>
   </div>
 </nav>
 <footer role="contentinfo" class="site-footer">
   <div class="site-footer__content">
-    <p class="copyright">&copy; 2009-{{ site.time | date: '%Y' }} Jeffrey Francesco.</p>
-    <p class="subscribe">Subscribe via
-      <a href="/index.rss" class="subscribe__rss">RSS</a> ・
-      <a href="https://twitter.com/JForg" class="subscribe__tw">Twitter</a> ・
-      <a href="https://www.facebook.com/jeffreyfrancesco.org" class="subscribe__fb">Facebook</a></p>
+    <p class="site-footer__item site-footer__item--subscribe">Subscribe via
+      <a href="/index.rss">RSS</a>・<a href="https://twitter.com/JForg">Twitter</a>・<a href="https://www.facebook.com/jeffreyfrancesco.org">Facebook</a></p>
+    <p class="site-footer__item site-footer__item--copyright">
+      <small>Copyright &copy; 2009-{{ site.time | date: '%Y' }} Jeffrey Francesco.</small>
+    </p>
   </div>
 </footer>
