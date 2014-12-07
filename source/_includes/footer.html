@@ -1,6 +1,6 @@
 <nav role="navigation" aria-labelledby="#explore" class="site-nav">
   <div class="site-nav__content">
-    <h2 id="explore" class="site-nav__title">Explore this site</h2>
+    <h2 id="explore" class="site-nav__title">Explore JF</h2>
 
     <form role="search" action="http://google.com/cse" id="cse-search-box" class="search">
       <p class="search__content">
@@ -13,7 +13,7 @@
     <script src="//www.google.com/cse/brand?form=cse-search-box&amp;lang=ja"></script>
 
     <nav class="site-nav__item--toc nav-item">
-      <h3 class="nav-item__title">Table of contents</h3>
+      <h3 class="nav-item__title">by Contents</h3>
       <dl class="nav-item__content contents-list">
         <dt><a href="/about/">About</a></dt>
         <dd>サイトの概略、ご利用案内、著者プロフィールなど。</dd>
@@ -25,7 +25,7 @@
     </nav>
 
     <nav class="site-nav__item--archive nav-item">
-      <h3 class="nav-item__title">Archives</h3>
+      <h3 class="nav-item__title">by Year</h3>
       <ul class="nav-item__content archive-list">
         {% for year in site.archives reversed %}
         <li><a href="/{{ year[0] }}/">{{ year[0] }}年</a></li>
@@ -34,19 +34,23 @@
     </nav>
 
     <nav class="site-nav__item--tag nav-item">
-      <h3 class="nav-item__title">Top 20 tags</h3>
+      <h3 class="nav-item__title">by Popular Tags</h3>
       <ol class="nav-item__content tag-list--top20">
         {% assign popular_tags = site.tags | sort_by_popular %}
         {% for tag in popular_tags limit:20 %}
         <li><a href="{{ tag[0] | tag_to_url }}">{{ tag[0] }}</a></li>
         {% endfor %}
       </ol>
-      <p class="nav-item__content"><a href="/tags/">すべてのタグ</a></p>
+      <p class="nav-item__content"><a href="/tags/">View <em>All</em> Tags</a></p>
     </nav>
   </div>
 </nav>
 <footer role="contentinfo" class="site-footer">
   <div class="site-footer__content">
     <p class="copyright">&copy; 2009-{{ site.time | date: '%Y' }} Jeffrey Francesco.</p>
+    <p class="subscribe">Subscribe via
+      <a href="/index.rss" class="subscribe__rss">RSS</a> ・
+      <a href="https://twitter.com/JForg" class="subscribe__tw">Twitter</a> ・
+      <a href="https://www.facebook.com/jeffreyfrancesco.org" class="subscribe__fb">Facebook</a></p>
   </div>
 </footer>
