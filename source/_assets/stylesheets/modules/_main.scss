@@ -1,7 +1,13 @@
 .page__header {
+  padding-bottom: 2.5em;
   border-bottom: 4px solid #ecece9;
 }
 
 .page__title {
   margin-top: 1.25em;
+}
+
+.page__description,
+.page__meta {
+  margin-bottom: 0;
 }

@@ -12,7 +12,7 @@ module Jekyll
       @name = 'index.html'
 
       self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'archive.html')
+      self.read_yaml(File.join(base, '_layouts'), 'year.html')
 
       self.data['title'] = "#{year}年に公開された記事一覧"
       self.data['curr_year'] = year

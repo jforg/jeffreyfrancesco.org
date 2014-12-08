@@ -1,18 +1,18 @@
 ---
 layout: default
 ---
-<main role="main" class="site-main">
-  <div class="site-main__content page">
-    <header class="page__header">
-      <h1 class="page__title">{{ page.title }}</h1>
-      <p class="page__description">{{ page.excerpt | strip_html | truncate: 128, '…' }}</p>
-      <ul class="page__meta">
-        <li class="page__pub-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time></li>
-        <li class="page__tags">Tags: {{ page.tags | tags_to_links | array_to_sentence_string }}</li>
+<main role="main" class="site-main hentry">
+  <header class="page-header">
+    <div class="page-header__content">
+      <h1 class="page-header__title entry-title">{{ page.title }}</h1>
+      <p class="page-header__summary entry-summary">{{ page.excerpt | strip_html | truncate: 128, '…' }}</p>
+      <ul class="page-header__meta">
+        <li class="page-header__pubdate"><time datetime="{{ page.date | date_to_xmlschema }}" class="published">{{ page.date | date_to_long_string }}</time></li>
+        <li class="page-header__tags">Tags: {{ page.tags | tags_to_links | array_to_sentence_string }}</li>
       </ul>
-    </header>
-    <div class="page__content">
-      {{ content }}
     </div>
+  </header>
+  <div class="page-content entry-content">
+    {{ content }}
   </div>
 </main>

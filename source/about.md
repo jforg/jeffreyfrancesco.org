@@ -1,6 +1,7 @@
 ---
-layout: page
-title: About
+layout:    page
+title:     About
+excerpt:   サイトの概略、ご利用案内、著者プロフィールなど。
 permalink: /about/
 ---
 

@@ -20,8 +20,8 @@
 .site-banner {
   @extend %landmark;
   padding: {
-    top: 1em;
-    bottom: 1em;
+    top: 2em;
+    bottom: 1.5em;
   }
 }
 
@@ -42,6 +42,20 @@
     top: 2em;
     bottom: 2em;
   }
+}
+
+.page-header {
+  @extend %landmark;
+}
+.page-header__content {
+  @extend %landmark-inner;
+  padding: {
+    top: 2em;
+    bottom: 2em;
+  }
+}
+.page-content {
+  @extend %landmark-inner;
 }
 
 .site-banner__content,
