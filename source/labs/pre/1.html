@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>pre test 1</title>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+}
+#content {
+	margin: 0 auto;
+	width: 720px;
+}
+pre {
+	margin: 0 -10000px;
+	padding: 20px 10000px;
+	border-top: 3px #aaa solid;
+	border-bottom: 3px #aaa solid;
+	background-color: #eee;
+	color: #333;
+	
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+<div id="content">
+  <h1>テスト1</h1>
+  <p><code>pre</code> の背景をウィンドウ幅いっぱいに広げる見本1。コンテンツボックスを幅固定でセンタリングしているので、<code>pre</code> 要素に十分大きなパディングを付けて自身のボックス幅を広げ、かつ親ボックス内に収まるようパディングと同じだけのネガティブマージンを付けて戻している。ただしこの方法、<code>pre</code> 要素の幅がウィンドウ幅を超えてしまうため、当然のように横スクロールバーが発生してしまう。</p>
+  <pre><code>body {
+	margin: 0;
+	padding: 0;
+}
+#content {
+	margin: 0 auto;
+	width: 720px;
+}
+pre {
+	margin: 0 -10000px;
+	padding: 0 10000px;
+	border-top: 3px #aaa solid;
+	border-bottom: 3px #aaa solid;
+	background-color: #ddd;
+	color: #666;
+}</code></pre>
+</div>
+</body>
+</html>

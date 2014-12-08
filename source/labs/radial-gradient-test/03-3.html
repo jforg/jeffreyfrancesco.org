@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>CSS Radial Gradient Test: 03-3(-moz-calc() used)</title>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #2828be;
+	color: #f9f9f9;
+
+	background-image: -moz-radial-gradient(
+		-moz-calc(10% + 80px) 0,
+		circle,
+		rgba(255, 255, 255, 0.8),
+		rgba(255, 255, 255, 0.0) 250px,
+		rgba(255, 255, 255, 0.0)
+	);
+	background-repeat: no-repeat;
+}
+h1 {
+	margin: 0;
+	padding-top: 100px;
+	background: url(target-image.png) left top no-repeat;
+}
+h2 {
+	border-bottom: 1px inset rgba(255, 255, 127, 0.5);
+	color: #f2f2aa;
+}
+#wrapper {
+	margin: 0 auto;
+	width: 80%;
+}
+em {
+	font-style: normal;
+	font-weight: bold;
+	color: #f2f2aa;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+<h1><img src="sample-logo.png" alt="sample logo" width="165" height="105" /></h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue.</p>
+<h2>CSS</h2>
+<pre><code>body {
+    background-image: -moz-radial-gradient(
+        <em>-moz-calc(10% + 80px)</em> 0,
+        circle,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.0) 250px,
+        rgba(255, 255, 255, 0.0)
+    );
+    background-repeat: no-repeat;
+}</code></pre>
+</div>
+</body>
+</html>

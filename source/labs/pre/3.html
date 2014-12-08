@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>pre test 3</title>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#container {
+	width: 100%;
+	overflow-x: hidden;
+}
+#content {
+	margin: 0 auto;
+	width: 720px;
+}
+pre {
+	margin: 0 -10000px;
+	padding: 20px 10000px;
+	border-top: 3px #aaa solid;
+	border-bottom: 3px #aaa solid;
+	background-color: #eee;
+	color: #333;
+	
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<div id="content">
+  <h1>テスト3</h1>
+  <p><code>pre</code> の背景をウィンドウ幅いっぱいに広げる見本3。なので、<code>body</code> 直下の要素で全体（でなくてもいいんだがとにかく幅指定してる要素の外側）をラップして <code>width: 100%; overflow-x: hidden;</code> とするより、今のところ方法がない気がしている。</p>
+  <pre><code>body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#container {
+	width: 100%;
+	overflow-x: hidden;
+}
+#content {
+	margin: 0 auto;
+	width: 720px;
+}
+pre {
+	margin: 0 -10000px;
+	padding: 0 10000px;
+	border-top: 3px #aaa solid;
+	border-bottom: 3px #aaa solid;
+	background-color: #ddd;
+	color: #666;
+}</code></pre>
+  <p>これでようやく完全に横スクロールを抑止出来る。でもこうなってくると今度はウィンドウ幅がコンテンツ幅より狭かった場合でも横スクロールが出来なくなるので、これはこれで問題ではあるのだけど…</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</div>
+</body>
+</html>

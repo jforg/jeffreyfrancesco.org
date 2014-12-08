@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>button と img と Firefox 4 サンプル（解決版）</title>
+<style type="text/css">
+p {
+	margin-left: 50px;
+}
+button {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #f00;
+	background: none;
+	font-size: 100%;
+	vertical-align: top;
+}
+button#fixed::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+img {
+	display: block;
+}
+</style>
+</head>
+<body>
+	<form method="get" action="">
+		<p>Firefox だけ赤いボーダーとボタン画像の間に隙間が空く:<br />
+		<button type="submit"><img src="button.png" alt="送信" /></button></p>
+	</form>
+	<form method="get" action="">
+		<p><code>::-moz-focus-inner</code> のボーダーとパディングをリセットすると:<br />
+		<button id="fixed" type="submit"><img src="button.png" alt="送信" /></button></p>
+	</form>
+</body>
+</html>

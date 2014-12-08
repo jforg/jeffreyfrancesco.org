@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>pre test 2</title>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow-x: hidden;
+}
+#content {
+	margin: 0 auto;
+	width: 720px;
+}
+pre {
+	margin: 0 -10000px;
+	padding: 20px 10000px;
+	border-top: 3px #aaa solid;
+	border-bottom: 3px #aaa solid;
+	background-color: #eee;
+	color: #333;
+	
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+<div id="content">
+  <h1>テスト2</h1>
+  <p><code>pre</code> の背景をウィンドウ幅いっぱいに広げる見本2。<code>body</code> に <code>overflow-x: hidden;</code> を追加してみたけど、確かにこれで横方向のスクロールバーは出なくなるが、実際にはマウスホイールやカーソルキーでスクロールは出来てしまう。</p>
+  <pre><code>body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow-x: hidden;
+}
+#content {
+	margin: 0 auto;
+	width: 720px;
+}
+pre {
+	margin: 0 -10000px;
+	padding: 0 10000px;
+	border-top: 3px #aaa solid;
+	border-bottom: 3px #aaa solid;
+	background-color: #ddd;
+	color: #666;
+}</code></pre>
+  <p>このコードだとこうなっちゃうっていう見本画像。Mac Firefox 4 のスクリーンショット。</p>
+  <p><img src="shot.png" alt="shot" width="720" height="600" /></p>
+</div>
+</body>
+</html>

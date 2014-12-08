@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja" id="reset">
+<head>
+<meta charset="utf-8" />
+<title>Test Document</title>
+<style>
+#small, #large { font-size: 100%; }
+#small:target  { font-size: 80%;  }
+#large:target  { font-size: 120%; }
+
+dt { margin-bottom: 10px; }
+dd { margin: 0; padding: 0; }
+ul { margin: 0; padding: 0; list-style-type: none; overflow: hidden; }
+li { margin-right: 1px; float: left; border: 1px solid #999; }
+li a { display: block; width: 2em; height: 2em; background-color: #fff; color: #f66; line-height: 2em; text-decoration: none; text-align: center; }
+li a:hover { background-color: #333; color: #eee; }
+
+</style>
+</head>
+<body id="small">
+<div id="large">
+<dl>
+<dt>フォントサイズを変更</dt>
+<dd>
+ <ul>
+  <li><a href="#small" title="フォントサイズを小さくします">小</a></li>
+  <li><a href="#reset" title="フォントサイズを普通にします">中</a></li>
+  <li><a href="#large" title="フォントサイズを大きくします">大</a></li>
+ </ul>
+</dd>
+</dl>
+ <h1>Test Document</h1>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <a href="#">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</body>
+</html>

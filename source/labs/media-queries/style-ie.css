@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+h1, p {
+	text-align: center;
+}
+
+h1 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-stretch: condensed;
+}
+
+p {
+	font-family: Georgia, serif;
+}
+
+#page-top {
+	margin: auto;
+	width: 640px;
+}
+
+#page-content {
+	border: 10px solid #000;
+}
+
+#page-content p {
+	margin: 1em;
+	font-size: 120%;
+	line-height: 1.33;
+	text-align: justify;
+}
