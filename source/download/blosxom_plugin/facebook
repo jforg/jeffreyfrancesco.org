@@ -1,0 +1,270 @@
+# Blosxom Plugin: facebook
+# Author(s): Jeffrey Francesco, http://jeffreyfrancesco.org/
+# Version: 2012-05-10
+# Documentation: See the bottom of this file or type: perldoc facebook
+
+# このプラグインファイル自体のエンコーディング形式は UTF-8 です。
+
+package facebook;
+
+use strict;
+use Encode;
+
+# --- Configurable variables -----------
+
+# エントリファイルのエンコーディング形式 (blosxom 2.1.2 なら特にこのまま変更しなくても大丈夫なはず)
+my $encoding = $blosxom::blog_encoding;
+
+# permalink の URL 形式
+my $permalink = q|$blosxom::url$path/$fn.html|;
+
+# og:description の文字数
+my $length = 160;
+
+# いいねボタンの設定（see 'http://developers.facebook.com/docs/reference/plugins/like'）
+my $send_btn = 1;                # 'send'(送る)ボタンを表示するかどうか。1で表示、0で非表示。
+my $layout = 'button_count';     # ボタンのレイアウト。'standard', 'button_count', 'box_count' のいずれかを指定。
+my $width = 0;                   # ボタンの幅。指定しない（デフォルト値を使う）場合は0。
+my $show_faces = 0;              # プロフィール写真を表示するかどうか。1で表示、0で非表示。
+                                 # （この指定は 'standard' レイアウトでのみ有効です）
+my $action_to_recommend = 0;     # ボタンのラベルを'recommend'(おすすめ)にする場合は1、'いいね'の場合は0。
+my $colorscheme_to_dark = 0;     # 配色を'dark'に変更する場合は1、'light'の場合は0。
+my $font = '';                   # フォント指定をしない場合は空白。指定する場合は 'arial', 'lucida grande',  
+                                 # 'segoe ui', 'tahoma', 'trebuchet ms', 'vardana' のいずれかを指定。
+
+# OGP metadata のデフォルト設定
+my $og_type = "website";         # 'website' or 'blog'
+my $og_title = "$blosxom::blog_title";
+my $og_url = "$blosxom::url/";
+my $og_description = "$blosxom::blog_description";
+my $og_image = "$blosxom::url/images/default.png";
+my $og_locale = "ja_JP";
+my $og_site_name = "$blosxom::blog_title";
+my $fb_admins = "";              # 空白の場合は <meta property="fb:admins"> を出力しません。
+my $fb_app_id = "";              # 空白の場合は <meta property="fb:app_id"> を出力しません。
+
+# --- Plug-in package variables --------
+
+my $eo = find_encoding($encoding);
+
+my $is_permalink = 0;
+my $ogp_placeholder = '<!--#facebook:ogp -->';
+
+#our $ns = q|xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"|;
+our $ns = q|prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml"|;
+
+our $jssdk = << "_JSSDK_";
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+_JSSDK_
+
+our $ogp = $ogp_placeholder;
+our $like;
+
+# --------------------------------------
+
+# いいねボタンの独自データ属性を設定（data-href を除く）
+my %btn_attrs = (
+  'send'        => $send_btn ? 'true' : 'false',
+  'layout'      => $layout,
+  'width'       => $width,
+  'show-faces'  => $show_faces ? 'true' : 'false',
+  'action'      => $action_to_recommend ? 'recommend' : '',
+  'colorscheme' => $colorscheme_to_dark ? 'dark' : '',
+  'font'        => $font,
+);
+my $btn_attr = join ' ', map { my $val = $btn_attrs{$_}; qq(data-$_="$val") } grep { $btn_attrs{$_} } keys %btn_attrs;
+
+# --------------------------------------
+
+sub start {
+  return 0 if $blosxom::flavour eq 'rss';
+  return 1;
+}
+
+sub head {
+  my($pkg, $path, $head_ref) = @_;
+
+  # permalink かどうかを判別
+  $is_permalink = 1 if $path =~ m/\.$blosxom::flavour$/;
+
+  return 1;
+}
+
+sub story {
+  my($pkg, $path, $fn, $story_ref, $title_ref, $body_ref) = @_;
+
+  my $href = $permalink;
+  $href =~ s/((\$[\w:]+)|(\$\{[\w:]+\}))/$1 . "||''"/gee;
+
+  $like = qq|<div class="fb-like" data-href="$href" $btn_attr></div>|;
+  
+  if ($is_permalink) {
+    $og_type = 'article';
+    $og_title = $$title_ref;
+    $og_url   = $href;
+
+    if ($meta::excerpt) {
+      $og_description = $meta::excerpt;
+    } else {
+      my $text = $eo->decode($$body_ref);
+      $text =~ s!<[^>]*>!!g;
+      $text =~ s!\s+! !g;
+      $text =~ s!^ !!g;
+      $text = substr($text, 0, $length - 1) . $eo->decode('…');
+      $og_description = $eo->encode($text);
+    }
+  }
+
+  return 1;
+}
+
+sub last {
+	my $meta_admin = qq!<meta property="fb:admins" content="$fb_admins" />! if $fb_admins;
+	my $meta_appid = qq!<meta property="fb:app_id" content="$fb_app_id" />! if $fb_app_id;
+	my $ogp_metadata = << "_METADATA_";
+  <!-- Open Graph Protocol -->
+  <meta property="og:type" content="$og_type" />
+  <meta property="og:title" content="$og_title" />
+  <meta property="og:url" content="$og_url" />
+  <meta property="og:description" content="$og_description" />
+  <meta property="og:image" content="$og_image" />
+  <meta property="og:locale" content="$og_locale" />
+  <meta property="og:site_name" content="$og_site_name" />
+  $meta_admin
+  $meta_appid
+_METADATA_
+
+  $blosxom::output =~ s/$ogp_placeholder/$ogp_metadata/;
+  return 1;
+}
+
+1;
+
+__END__
+
+=head1 NAME
+
+Blosxom Plug-in: facebook
+
+=head1 SYNOPSIS
+
+Facebook の Like(いいね)ボタン(のHTML5版)を各エントリに出力するためのプラグインです。
+動作に必要な OGP(Open Graph Protocol)のメタデータ、JavaScript SDK を組み込むためのコード、
+HTML+RDFa 1.1 の prefix 属性出力用の変数も用意していますので、必要に応じてご利用下さい。
+
+=head1 AUTHOR
+
+Jeffrey Francesco, http://jeffreyfrancesco.org/
+
+=head1 INSTALLATION
+
+このプラグインファイルをプラグインディレクトリに置いて下さい。
+
+必要に応じて Configurable Variables の設定を編集して下さい。
+
+OGP メタデータを出力したい部分（通常は head.flavour 内の <head>…</head> の間）に
+$facebook::ogp を挿入して下さい。
+
+story.flavour 内の Like ボタンを表示させたい部分に $facebook::like を挿入して下さい。
+
+また $facebook::jssdk と記入した部分には JavaScript SDK 組込み用のコード、
+$facebook::ns と記入した部分に HTML+RDFa 1.1 の prefix 属性を出力します。
+必要に応じて flavour 内に記入してご利用下さい。
+通常は $facebook::jssdk は head.flavour もしくは foot.flavour 内のいずれか、
+$facebook::ns は head.flavour で`<html lang="ja" $facebook::ns>`とする事に
+なるかと思います。
+
+（どちらも flavour 直書で済むようなコードだけど、自分が内容をすぐ忘れるので準備した。涙）
+
+=head1 CONFIGURATION
+
+$encoding には weblog のエンコーディング形式を指定します。
+デフォルトでは $blosxom::blog_encoding をそのまま使用するようにしています。
+blosxom 本体に $blog_encoding 変数が準備されてないバージョンをご利用の方は、
+weblog に合わせたエンコーディング形式を指定して下さい。
+
+$permalink には、あなたの環境に合わせた permalink の URL 形式を指定して下さい。
+(おそらく多くの blosxommer さんはデフォルトの形式を使用されてると思うのですが)
+
+「いいねボタンの設定」の7項目は、ご自由に編集して下さい。
+それぞれの項目の動作に関してはコメント部分に記入してあります。
+おそらく $send_btn, $layout, $show_faces, $width あたりを弄れば十分だと思います。
+
+「OGP metadata のデフォルト設定」の9項目は(permalink 以外で表示される)metadata の初期値です。
+変数名の`prefix_foo`が meta タグの`<meta property="prefix:foo">`にそれぞれ対応しています。
+$og_image, $fb_admins, $fb_app_id 以外はデフォルト値でもほぼ問題ないとは思いますが、
+ご自由に変更して下さい。
+
+$fb_admins, $fb_app_id の2項目は、空白値を設定した場合は対応する meta タグを出力しませんが、
+それ以外の項目については空白だろうがなんだろうが meta タグを出力します。気を付けて下さい。
+
+また permalink 閲覧の場合は $og_type, $og_title, $og_url, $og_description の各項目が、
+それぞれ各エントリから拾われた内容に置き換えられます。
+
+=head1 REQUIREMENTS
+
+permalink 閲覧の際の og:description 作成用（指定文字数で切り詰めるため）に、
+Encode.pm を使用していますので、perl 5.8.x 以降の環境が必要かと思います。
+それ以前のバージョンでご利用になられる際は、がんばって書き換えて下さい。涙
+
+=head1 BUGS
+
+バグや脆弱性を発見された方はお手数ですが、
+
+* コンタクトフォーム: http://jeffreyfrancesco.org/contact/
+* Twitter アカウント: http://twitter.com/JForg
+
+からご連絡下さい。
+
+=head1 VERSION
+
+2012-05-10
+
+=head1 VERSION HISTORY
+
+=head2 2012-05-10
+
+* ボタンのコードを HTML5 版のコードに変更した。
+* Open Graph Protocol(OGP) metadata を出力できるようにした。
+* JavaScript SDK を出力するための変数を新設した。
+* HTML+RDFa 1.1 の prefix 属性を出力するための変数を新設した。
+
+=head2 2010-12-18
+
+最初のリリース。
+see: http://jeffreyfrancesco.org/weblog/2010121901
+
+=head1 SEE ALSO
+
+Blosxom Home/Docs/Licensing: http://www.blosxom.com/
+
+Blosxom Plugin Docs: http://www.blosxom.com/documentation/users/plugins.html
+
+=head1 LICENSE
+
+Copyright 2010, Jeffrey Francesco, http://jeffreyfrancesco.org/
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.

@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/* メイリオ -> ヒラギノ角ゴ */
+@font-face {
+	font-family: "メイリオ";
+	src: local("HiraKakuPro-W3");
+}
+@font-face {
+	font-family: "Meiryo";
+	src: local("HiraKakuPro-W3");
+}
+
+/* ＭＳ Ｐゴシック -> ヒラギノ角ゴ */
+@font-face {
+	font-family: "ＭＳ Ｐゴシック";
+	src: local("HiraKakuPro-W3");
+}
+@font-face {
+	font-family: "MS PGothic";
+	src: local("HiraKakuPro-W3");
+}
+
+/* ＭＳ ゴシック -> ヒラギノ角ゴ */
+@font-face {
+	font-family: "ＭＳ ゴシック";
+	src: local("HiraKakuPro-W3");
+}
+@font-face {
+	font-family: "MS Gothic";
+	src: local("HiraKakuPro-W3");
+}
+
+/* Osaka -> ヒラギノ角ゴ */
+@font-face {
+	font-family: "Osaka";
+	src: local("HiraKakuPro-W3");
+}
