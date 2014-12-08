@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<main role="main" class="site-main">
+  <div class="site-main__content page">
+    <header class="page__header">
+      <h1 class="page__title">{{ page.title }}</h1>
+      <p class="page__description">{{ page.excerpt }}</p>
+    </header>
+    <div class="page__content">{% assign posts = site.categories[page.curr_cat] %}
+      <ul class="article-list">{% for post in posts %}
+        <li class="article-list__item">
+          <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
+          <time datetime="{{ post.date | date_to_xmlschema }}" class="article-list__pubdate">{{ post.date | date_to_string }}</time>
+        </li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
