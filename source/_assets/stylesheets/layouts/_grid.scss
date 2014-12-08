@@ -41,10 +41,17 @@ $grid-gutter: 1rem;
     @include grid-span(4, left, last)
   }
   .site-footer__item--subscribe {
-    @include grid-span(6, left, last);
+    @include grid-span(8, left, last);
   }
   .site-footer__item--copyright {
-    @include grid-span(6, right, last);
-    text-align: right;
+    @include grid-span(4, right, last);
   }
+}
+
+.tag-list--all {
+  margin-right: -1em;
+  @extend %clearfix;
+}
+.tag-list--all__item {
+  @include grid-span(3, left);
 }

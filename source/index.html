@@ -20,8 +20,8 @@ layout: null
 
 <main role="main" class="site-main">
   <div class="site-main__content">
-    <section>
-      <h2>Latest 10 articles</h2>
+    <section class="home-content">
+      <h2 class="home-content__title">Latest 10 articles</h2>
       <ul class="article-list">{% for post in site.posts limit:10 %}
         <li class="article-list__item">
           <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
@@ -29,6 +29,7 @@ layout: null
         </li>{% endfor %}
       </ul>
     </section>
+    {% include adsense.html %}
   </div>
 </main>
 

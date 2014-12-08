@@ -4,11 +4,9 @@ layout: archives
 {% assign year = site.archives[page.curr_year] %}
   {% for month in year %}
     <h2>{{ month[0] }}月</h2>
-    <ul>
-      {% for post in month[1] %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-      </li>
-      {% endfor %}
+    <ul class="article-list">{% for post in month[1] %}
+      <li class="article-list__item">
+        <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
+        <time datetime="{{ post.date | date_to_xmlschema }}" class="article-list__pubdate">{{ post.date | date_to_string }}</time>
+      </li>{% endfor %}
   </ul>{% endfor %}

@@ -41,6 +41,15 @@ h5, h6 {
 h1, h2, h3, h4, h5, h6, p, pre, ul, ol, dl, blockquote, figure {
   margin-bottom: 0;
 }
+pre {
+  line-height: 1.25;
+}
+hr {
+  margin: {
+    top: 1.75em;
+    bottom: 1.75em;
+  }
+}
 
 // List
 ul, ol {
@@ -66,6 +75,14 @@ dd {
 em {
   font-style: normal;
   font-weight: bold;
+}
+strong {
+  border-bottom: 3px double;
+  color: #b22222;
+}
+
+code, samp, var, kbd {
+  font-size: 87.5%;
 }
 
 // Embedded

@@ -1,6 +1,10 @@
 //= require normalize-css
+//= require_self
+//= require highlightjs
+
 //  Base
 @import 'base/elements';
+@import 'base/typography';
 //  Layouts
 @import 'layouts/base';
 @import 'layouts/grid';

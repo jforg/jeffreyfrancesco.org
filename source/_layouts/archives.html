@@ -2,10 +2,17 @@
 layout: default
 ---
 <main role="main" class="site-main">
-  <div class="site-main__content page">
-    <h1 class="page__title">{{ page.title }}</h1>
-    <div class="page__content">
-      {{ content }}
+  <header class="page-header">
+    <div class="page-header__content">
+      <h1 class="page-header__title">{{ page.title }}</h1>
     </div>
+  </header>
+  <div class="page-content">
+    {{ content }}
+    {% include adsense.html %}
+    <p class="breadcrumbs-like">戻る:
+      <a href="/">ホーム</a>{% assign url_length = page.url | split: '/' | size %}{% if url_length == 4 %} /
+      <a href="/tags/">タグ一覧</a>{% endif %}
+    </p>
   </div>
 </main>

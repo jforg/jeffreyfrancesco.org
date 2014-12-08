@@ -2,11 +2,11 @@
 layout: archives
 ---
 {% assign curr_posts = site.tags[page.curr_tag] %}
-<ul>
+<ul class="article-list">
   {% for post in curr_posts %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+  <li class="article-list__item">
+    <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}" class="article-list__pubdate">{{ post.date | date_to_string }}</time>
   </li>
   {% endfor %}
 </ul>

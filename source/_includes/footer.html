@@ -35,8 +35,8 @@
       <h3 class="nav-item__title">Top 20 Tags</h3>
       <ol class="nav-item__content tag-list">{% assign popular_tags = site.tags | sort_by_popular %}{% for tag in popular_tags limit:20 %}
         <li class="tag-list__item"><a href="{{ tag[0] | tag_to_url }}">{{ tag[0] }}</a></li>{% endfor %}
+        <li class="tag-list__item tag-list__item--last"><a href="/tags/">all tags<span aria-hidden="true">…</span></a></li>
       </ol>
-      <p class="nav-item__content tag-list__more"><a href="/tags/">View <em>All</em> Tags <span aria-hidden="true">→</span></a></p>
     </nav>
   </div>
 </nav>
@@ -45,7 +45,7 @@
     <p class="site-footer__item site-footer__item--subscribe">Subscribe via
       <a href="/index.rss">RSS</a>・<a href="https://twitter.com/JForg">Twitter</a>・<a href="https://www.facebook.com/jeffreyfrancesco.org">Facebook</a></p>
     <p class="site-footer__item site-footer__item--copyright">
-      <small>Copyright &copy; 2009-{{ site.time | date: '%Y' }} Jeffrey Francesco.</small>
+      <small>&copy; 2009-{{ site.time | date: '%Y' }} Jeffrey Francesco.</small>
     </p>
   </div>
 </footer>
