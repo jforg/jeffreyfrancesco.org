@@ -1,6 +1,0 @@
-{{ page.title }}
-meta-creation_date: {{ page.date | date_to_xmlschema }}
-meta-tags: {{ page.tags | join: ',' }}
-meta-excerpt: {{ page.excerpt | strip_html | strip_newlines | truncate:128 | escape_once }}
-
-{{ content }}

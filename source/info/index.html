@@ -1,0 +1,12 @@
+---
+title:   Information
+excerpt: 出演予定 Live の日程など、演奏活動に関するお知らせ。
+layout:  page
+---
+{% assign posts = site.categories.info %}
+<ul class="article-list">{% for post in posts %}
+  <li class="article-list__item">
+    <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}" class="article-list__pubdate">{{ post.date | date_to_string }}</time>
+  </li>{% endfor %}
+</ul>

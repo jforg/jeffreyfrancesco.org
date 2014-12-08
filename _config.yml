@@ -1,21 +1,23 @@
 # Site settings
 title: JeffreyFrancesco.org
-email: jeffrey.francesco@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   主に北近畿を中心に、ハモンドオルガン &amp; 鍵盤ハーモニカ奏者・インターネットラジオ
   MC・Web 制作者 etc. として細々と活動を続ける Jeffrey Francesco (JF) の個人サイトです。
   Live 出演情報、音楽活動や Web 制作に関する雑記などをメインに公開しています。
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jeffreyfrancesco.org" # the base hostname & protocol for your site
-twitter_username: JForg
-github_username:  jforg
 
 timezone: "Asia/Tokyo"
 
 # Build settings
 source: source
-destination: home
-
+destination: gh-pages
+exclude:
+- 404.html
+gems:
+- jekyll-sitemap
+- jekyll-assets
+- jekyll-assets/rails-assets
 permalink: /:categories/:title/
 excerpt_separator: "<!-- more -->"
 
@@ -26,3 +28,5 @@ kramdown:
   auto_ids: false
   entity_output: numeric
   enable_coderay: false
+
+# Asset pipeline settings

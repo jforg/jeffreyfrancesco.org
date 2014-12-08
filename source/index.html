@@ -1,23 +1,38 @@
 ---
-layout: default
+layout: null
 ---
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<!DOCTYPE html>
+<html lang="ja">
+{% include head.html %}
+<body>
+<div role="banner" class="site-banner">
+  <div class="site-banner__content">
+    <h1 class="sitename">
+      <object role="img" aria-label="JeffreyFrancesco.org" type="image/svg+xml" data="{% asset_path logo.svg %}" width="288" height="40" class="sitename__img">
+        <object role="img" aria-label="JeffreyFrancesco.org" type="image/png" data="{% asset_path logo.png %}" width="288" height="40" class="sitename__img--fallback">
+          <span>JeffreyFrancesco.org</span>
+        </object>
+      </object>
+      <span class="sitename__version">Version 2.0β</span>
+    </h1>
+  </div>
 </div>
+
+<main role="main" class="site-main">
+  <div class="site-main__content">
+    <section class="home-content">
+      <h2 class="home-content__title">Latest 10 articles</h2>
+      <ul class="article-list">{% for post in site.posts limit:10 %}
+        <li class="article-list__item">
+          <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
+          <time datetime="{{ post.date | date_to_xmlschema }}" class="article-list__pubdate">{{ post.date | date_to_string }}</time>
+        </li>{% endfor %}
+      </ul>
+    </section>
+    {% include adsense.html %}
+  </div>
+</main>
+
+{% include footer.html %}
+</body>
+</html>

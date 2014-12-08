@@ -1,0 +1,12 @@
+---
+title:   Weblog
+excerpt: Web 制作やハモンドオルガン、地域の話題などに関する雑多なテキスト。
+layout:  page
+---
+{% assign posts = site.categories.weblog %}
+<ul class="article-list">{% for post in posts %}
+  <li class="article-list__item">
+    <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}" class="article-list__pubdate">{{ post.date | date_to_string }}</time>
+  </li>{% endfor %}
+</ul>

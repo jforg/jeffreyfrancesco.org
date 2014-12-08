@@ -1,0 +1,106 @@
+// Root
+body {
+  padding: {
+    left: 1em;
+    right: 1em;
+  }
+  font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  line-height: 1.75;
+
+  @media (max-width: 32rem) {
+    font-size: 81.25%;
+  }
+}
+
+// Heading
+h1 {
+  margin-top: 0;
+  line-height: 1.375;
+}
+h2 {
+  margin-top: 1.4286em;
+  font-size: 175%;
+  line-height: 1.4286;
+}
+h3 {
+  margin-top: 1.6667em;
+  font-size: 150%;
+  line-height: 1.5;
+}
+h4 {
+  margin-top: 2em;
+  font-size: 125%;
+  line-height: 1.6;
+}
+h5, h6 {
+  margin-top: 2.5em;
+  font-size: 100%;
+}
+
+// Remove block bottom margin
+h1, h2, h3, h4, h5, h6, p, pre, ul, ol, dl, blockquote, figure {
+  margin-bottom: 0;
+}
+pre {
+  line-height: 1.25;
+}
+hr {
+  margin: {
+    top: 1.75em;
+    bottom: 1.75em;
+  }
+}
+
+// List
+ul, ol {
+  padding-left: 2em;
+}
+dt {
+  margin-top: 1em;
+}
+dd {
+  margin-left: 2em;
+
+  & > ul,
+  & > ol {
+    margin-left: -2em;
+  }
+
+  & > :first-child {
+    margin-top: 0;
+  }
+}
+
+// Phrasing
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+strong {
+  border-bottom: 3px double;
+  color: #b22222;
+}
+
+code, samp, var, kbd {
+  font-size: 87.5%;
+}
+
+// Embedded
+img, object, iframe {
+  vertical-align: bottom;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Interactive
+a {
+  color: #30c;
+
+  &:hover,
+  &:focus {
+    color: #b22222;
+  }
+}

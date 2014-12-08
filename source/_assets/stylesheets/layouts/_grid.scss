@@ -1,0 +1,57 @@
+$grid-width: 3rem;
+$grid-gutter: 1rem;
+
+%clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin grid-span($_width: 1, $_float: none, $_isLast: false, $_grid: $grid-width, $_gutter: $grid-gutter) {
+  width: ( $_grid + $_gutter ) * $_width - $_gutter;
+  @if $_float == left {
+    float: left;
+    @if $_isLast == false {
+      margin-right: $_gutter;
+    }
+  }
+  @else if $_float == right {
+    float: right;
+    @if $_isLast == false {
+      margin-left: $_gutter;
+    }
+  }
+}
+
+.site-nav__content,
+.site-footer__content {
+  @extend %clearfix;
+}
+
+@media (min-width: 49em) {
+  .site-nav__item--toc {
+    @include grid-span(6, left);
+  }
+  .site-nav__item--archive {
+    @include grid-span(2, left);
+  }
+  .site-nav__item--tag {
+    @include grid-span(4, left, last)
+  }
+  .site-footer__item--subscribe {
+    @include grid-span(8, left, last);
+  }
+  .site-footer__item--copyright {
+    @include grid-span(4, right, last);
+  }
+}
+
+.tag-list--all {
+  margin-right: -1em;
+  @extend %clearfix;
+}
+.tag-list--all__item {
+  @include grid-span(3, left);
+}

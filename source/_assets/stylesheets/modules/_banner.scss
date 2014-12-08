@@ -1,0 +1,18 @@
+.site-banner {
+  border-top: 4px solid #321;
+  border-bottom: 1px solid #ecece9;
+}
+.sitename {
+  display: inline-block;
+  color: #321;
+  font-size: 100%;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.sitename__img {
+  pointer-events: none;
+}
+.sitename__version {
+  display: inline-block;
+  font-weight: bold;
+}

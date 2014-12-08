@@ -1,0 +1,32 @@
+.site-footer {
+  background-color: #321;
+  color: #ecece9;
+
+  a {
+    color: #fff;
+    &:hover, &:focus {
+      color: #ffa500;
+    }
+  }
+}
+
+.site-footer__content {
+  border-top: 4px solid #ecece9;
+
+  .site-footer > & {
+    border-top-style: none;
+  }
+}
+
+.site-footer__item {
+  margin: {
+    top: 0;
+  }
+}
+
+.site-footer__item--copyright {
+  & > small {
+    font-size: 87.5%;
+    line-height: 2;
+  }
+}
