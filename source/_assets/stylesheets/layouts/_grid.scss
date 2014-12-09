@@ -30,21 +30,21 @@ $grid-gutter: 1rem;
   @extend %clearfix;
 }
 
-@media (min-width: 49em) {
+@media (min-width: 49rem) {
   .site-nav__item--toc {
-    @include grid-span(6, left);
+    @include grid-span(5, left);
   }
   .site-nav__item--archive {
     @include grid-span(2, left);
   }
   .site-nav__item--tag {
-    @include grid-span(4, left, last)
+    @include grid-span(5, left, last)
   }
   .site-footer__item--subscribe {
-    @include grid-span(8, left, last);
+    @include grid-span(7, left, last);
   }
   .site-footer__item--copyright {
-    @include grid-span(4, right, last);
+    @include grid-span(5, right, last);
   }
 }
 
