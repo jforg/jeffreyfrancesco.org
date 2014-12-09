@@ -12,8 +12,6 @@ timezone: "Asia/Tokyo"
 # Build settings
 source: source
 destination: gh-pages
-exclude:
-- 404.html
 gems:
 - jekyll-sitemap
 - jekyll-assets
@@ -30,3 +28,5 @@ kramdown:
   enable_coderay: false
 
 # Asset pipeline settings
+assets:
+  css_compressor: sass
