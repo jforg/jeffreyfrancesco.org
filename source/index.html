@@ -1,23 +1,7 @@
 ---
-layout: null
+layout: default
+is_home: true
 ---
-<!DOCTYPE html>
-<html lang="ja">
-{% include head.html %}
-<body>
-<div role="banner" class="site-banner">
-  <div class="site-banner__content">
-    <h1 class="sitename">
-      <object role="img" aria-labelledby="sitename-alt" type="image/svg+xml" data="{% asset_path logo.svg %}" width="288" height="40" class="sitename__img" onload="if(this.getSVGDocument) this.getSVGDocument().documentElement.style.cursor='pointer'">
-        <object role="img" aria-labelledby="sitename-alt" type="image/png" data="{% asset_path logo.png %}" width="288" height="40" class="sitename__img--fallback">
-          <span id="sitename-alt">JeffreyFrancesco.org</span>
-        </object>
-      </object>
-      <span class="sitename__version">Version 2.0β</span>
-    </h1>
-  </div>
-</div>
-
 <main role="main" class="site-main">
   <div class="site-main__content">
     <section class="home-content">
@@ -32,7 +16,3 @@ layout: null
     {% include adsense.html %}
   </div>
 </main>
-
-{% include footer.html %}
-</body>
-</html>

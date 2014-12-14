@@ -1,4 +1,4 @@
-$grid-width: 3rem;
+$grid-width: 2rem;
 $grid-gutter: 1rem;
 
 %clearfix {
@@ -23,35 +23,4 @@ $grid-gutter: 1rem;
       margin-left: $_gutter;
     }
   }
-}
-
-.site-nav__content,
-.site-footer__content {
-  @extend %clearfix;
-}
-
-@media (min-width: 49rem) {
-  .site-nav__item--toc {
-    @include grid-span(5, left);
-  }
-  .site-nav__item--archive {
-    @include grid-span(2, left);
-  }
-  .site-nav__item--tag {
-    @include grid-span(5, left, last)
-  }
-  .site-footer__item--subscribe {
-    @include grid-span(7, left, last);
-  }
-  .site-footer__item--copyright {
-    @include grid-span(5, right, last);
-  }
-}
-
-.tag-list--all {
-  margin-right: -1em;
-  @extend %clearfix;
-}
-.tag-list--all__item {
-  @include grid-span(3, left);
 }

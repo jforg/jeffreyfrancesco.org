@@ -1,12 +1,14 @@
 //  Common blocks
-.page-header {
-  border-bottom: 1px solid #ecece9;
-  background-color: #f6f6f3;
-  color: #321;
-}
 .page-header__meta {
-  margin-top: 0;
-  list-style-type: square;
+  padding-left: 0;
+  list-style-type: none;
+}
+.page-header__pubdate,
+.page-header__tags {
+  display: inline-block;
+}
+.page-header__pubdate {
+  margin-right: 1em;
 }
 
 
@@ -44,7 +46,7 @@
 .tag-list--all__link {
 }
 .tag-list--all__count {
-  margin-left: 1em;
+  margin-left: .5em;
   font-size: 87.5%;
 }
 
