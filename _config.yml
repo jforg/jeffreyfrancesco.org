@@ -16,6 +16,7 @@ gems:
 - jekyll-sitemap
 - jekyll-assets
 - jekyll-assets/rails-assets
+- jekyll-archives
 permalink: /:categories/:title/
 excerpt_separator: "<!-- more -->"
 
@@ -30,3 +31,11 @@ kramdown:
 # Asset pipeline settings
 assets:
   css_compressor: sass
+
+# Archive-pages settings
+jekyll-archives:
+  enabled: [year, tags]
+  layout: 'arc_test'
+  permalinks:
+    year: '/:year/'
+    tag:  '/tags/:name/'

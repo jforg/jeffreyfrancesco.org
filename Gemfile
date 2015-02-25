@@ -3,6 +3,7 @@ source "https://rails-assets.org"
 
 gem "jekyll", "~>2.0"
 gem "jekyll-assets"
+gem "jekyll-archives"
 gem "jekyll-sitemap"
 gem "autoprefixer-rails"
 
