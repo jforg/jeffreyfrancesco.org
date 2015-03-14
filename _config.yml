@@ -35,7 +35,9 @@ assets:
 # Archive-pages settings
 jekyll-archives:
   enabled: [year, tags]
-  layout: 'arc_test'
+  layouts:
+    year:  'year'
+    tag: 'tag'
   permalinks:
-    year: '/:year/'
-    tag:  '/tags/:name/'
+    year:  '/:year/'
+    tag: '/tags/:name/'
