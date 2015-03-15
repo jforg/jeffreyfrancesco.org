@@ -41,3 +41,10 @@ jekyll-archives:
   permalinks:
     year:  '/:year/'
     tag: '/tags/:name/'
+
+# auto_title plugin settings
+auto_title:
+  separator: '/'
+  templates:
+    year: 'Archives: #{year}年の記事一覧 #{separator} #{site_title}'
+    tag:  'Archives: タグ「#{page_title}」が付けられた記事一覧 #{separator} #{site_title}'
