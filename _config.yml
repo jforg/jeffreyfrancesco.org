@@ -48,3 +48,7 @@ auto_title:
   templates:
     year: 'Archives: #{year}年の記事一覧 #{separator} #{site_title}'
     tag:  'Archives: タグ「#{page_title}」が付けられた記事一覧 #{separator} #{site_title}'
+auto_description:
+  truncate:
+    length: 128
+    omission: '…'
