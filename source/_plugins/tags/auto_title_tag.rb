@@ -1,5 +1,5 @@
 require 'cgi'
-# require 'jekyll/utils'
+require_relative '../helpers/plugin_helper.rb'
 
 module Jekyll
   class AutoTitleTag < Liquid::Tag
@@ -43,22 +43,11 @@ module Jekyll
         'site_title'   => site['title'],
         'page_title'   => page['title'] || ''
       }
-      if page['date']
-        date_vars = {
-          'year'       => page['date'].year.to_s,
-          'month'      => page['date'].month.to_s,
-          'month_name' => page['date'].strftime('%b'),
-          'day'        => page['date'].mday.to_s
-        }
-        vars.merge!(date_vars)
-      end
+      vars.merge!(PluginHelper.date_to_hash(page['date'])) if page['date']
 
       # Process template
-      output = vars.inject(template) do |result, token|
-        break result if result.index('#{').nil?
-        result.gsub(/\#\{#{token.first}\}/, token.last)
-      end
-      output = CGI.escapeHTML(output)
+      filled = PluginHelper.fill_template(template, vars)
+      output = PluginHelper.escape_once(filled)
 
       "<title#{@attrs}>#{output}</title>"
     end

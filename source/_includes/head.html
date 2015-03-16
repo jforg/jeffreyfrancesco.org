@@ -4,7 +4,7 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <meta name="viewport" content="width=device-width" />
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 128, '…' | xml_escape }}{% else %}{{ site.description }}{% endif %}" />
+  {% auto_description meta xml %}
 
   {% stylesheet style media="all" / %}
   <link rel="alternate" href="{{ site.url }}/index.rss" type="application/rss+xml" />
