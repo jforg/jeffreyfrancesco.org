@@ -66,8 +66,6 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
     rack (1.5.2)
-    rack-contrib (1.2.0)
-      rack (>= 0.9.1)
     rails-assets-highlightjs (8.3.0)
     rails-assets-normalize-css (3.0.2)
     rb-fsevent (0.9.4)
@@ -102,7 +100,5 @@ DEPENDENCIES
   jekyll-archives
   jekyll-assets
   jekyll-sitemap
-  rack
-  rack-contrib
   rails-assets-highlightjs
   rails-assets-normalize-css
