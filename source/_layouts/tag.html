@@ -8,7 +8,7 @@ layout: base
         <span>Archives:</span>
         All articles tagged with “{{ page.title }}”
       </h1>
-      <p>{{ site.title }} 内のコンテンツのうち、タグ「{{ page.title }}」が付けられたもののタイトル一覧です。</p>
+      <p>{% auto_description %}</p>
     </div>
   </header>
   <div>
@@ -19,5 +19,4 @@ layout: base
       </li>{% endfor %}
     </ul>
   </div>
-  <!-- include adsense.html -->
 </main>

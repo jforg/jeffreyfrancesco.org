@@ -2,17 +2,16 @@
 layout: base
 type:   home
 ---
-<main role="main" class="site-main">
-  <div class="site-main__content">
-    <section class="home-content">
-      <h2 class="home-content__title">Latest 10 articles</h2>
-      <ul class="article-list">{% for post in site.posts limit:10 %}
-        <li class="article-list__item">
-          <a href="{{ post.url }}" class="article-list__title">{{ post.title }}</a>
-          <time datetime="{{ post.date | date_to_xmlschema }}" class="article-list__pubdate">{{ post.date | date_to_string }}</time>
+<main role="main">
+  <div>
+    <section>
+      <h2>Latest 10 articles</h2>
+      <ul>{% for post in site.posts limit:10 %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
         </li>{% endfor %}
       </ul>
     </section>
-    {% include adsense.html %}
   </div>
 </main>

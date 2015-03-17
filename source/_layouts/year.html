@@ -9,7 +9,7 @@ layout: base
         <span>Archives:</span>
         All articles published in {{ year }}
       </h1>
-      <p>{{ site.title }} 内のコンテンツのうち、{{ year }}年に公開されたもののタイトル一覧です。月ごとにセクション分けしてあります。</p>
+      <p>{% auto_description %}</p>
     </div>
   </header>
   <div>
@@ -25,5 +25,4 @@ layout: base
       </ul>
     </section>{% endfor %}
   </div>
-  <!-- include adsense.html -->
 </main>
