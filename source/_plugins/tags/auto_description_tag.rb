@@ -73,7 +73,7 @@ module Jekyll
     end
 
     def output_description(desc)
-      xml_output = @output_format.match(/x(?:ht)*ml/).nil? ? '' : ' /'
+      xml_output = @output_format.match(/x(?:ht)?ml/).nil? ? '' : ' /'
       case @output_format
       when /meta/
         "<meta name=\"description\" content=\"#{desc}\"#{xml_output}>"
