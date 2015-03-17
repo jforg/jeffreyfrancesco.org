@@ -6,8 +6,10 @@ module Jekyll
   module SortByPopular
     def sort_by_popular(input)
       if input.is_a? Hash
-        output = input.sort { |a, b | b[1].size <=> a[1].size }
+        output = input.sort_by { |k, v | v.size }.reverse
         Hash[output]
+      elsif input.is_a? Array
+        input.sort_by { |i| i.posts.size }.reverse
       else
         input
       end
@@ -19,6 +21,8 @@ module Jekyll
       if input.is_a? Hash
         output = input.sort_by { |k, v| k }
         Hash[output]
+      elsif input.is_a? Array
+        input.sort_by { |i| i.title }
       else
         input
       end
