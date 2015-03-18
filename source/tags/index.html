@@ -1,13 +1,15 @@
 ---
-title:  すべてのタグ一覧
+title:  タグ一覧
+title_en: All tags
+excerpt: JeffreyFrancesco.org で記事を公開する際に使用される、すべてのタグの一覧です。
 layout: page
 ---
-{% assign all_tags = site.tags | sort_by_name %}
+{% assign tag_pages = site.archives | where: 'type', 'tag' | sort_by_name %}
 <ul>
-  {% for tag in all_tags %}
+  {% for tag_page in tag_pages %}
   <li>
-    <a href="{{ tag[0] | tag_to_url }}">{{ tag[0] }}</a>
-    <span>({{ tag[1] | size }})</span>
+    <a href="{{ tag_page.url }}">{{ tag_page.title }}</a>
+    <span>({{ tag_page.posts | size }})</span>
   </li>
   {% endfor %}
 </ul>
