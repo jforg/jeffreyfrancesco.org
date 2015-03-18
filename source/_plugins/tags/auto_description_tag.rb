@@ -43,7 +43,7 @@ module Jekyll
 
       # Set template valiables
       vars = {
-        'site_description' => PluginHelper.escape_once(site['description'].strip),
+        'site_description' => site['description'].strip,
         'title' => page['title'] || ''
       }
 
@@ -56,8 +56,8 @@ module Jekyll
       # Process template
       description = PluginHelper.fill_template(template, vars)
 
-      # Complete!
-      output_description(description)
+      # Escape HTML special chars and return
+      output_description(PluginHelper.escape_once(description))
 
     end
 
@@ -66,10 +66,8 @@ module Jekyll
       stripped = PluginHelper.trim_spaces(PluginHelper.strip_html(excerpt))
       # Next, unescape HTML entities (because '途切れるから!' on next step)
       unescaped = CGI.unescapeHTML(stripped)
-      # And truncate @length chars
-      truncated = PluginHelper.truncate(stripped, config['length'], config['omission'])
-      # Last, escape HTML special chars again but keep entities
-      PluginHelper.escape_once(truncated)
+      # Last, truncate @length chars
+      PluginHelper.truncate(stripped, config['length'], config['omission'])
     end
 
     def output_description(desc)
