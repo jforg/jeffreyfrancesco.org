@@ -1,7 +1,7 @@
 ---
 layout:    page
 title:     About
-excerpt:   サイトの概略、ご利用案内、著者プロフィールなど。
+excerpt:   サイトの概略や著者プロフィールなど「最初にお読み下さい」的な何かです。
 permalink: /about/
 ---
 

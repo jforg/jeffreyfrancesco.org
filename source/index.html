@@ -3,15 +3,45 @@ layout: base
 type:   home
 ---
 <main role="main">
+  {% assign latest = site.posts | first %} 
+  <section>
+    <div>
+      <h2>
+        <span>Latest Article:</span>
+        <a href="{{ latest.url }}">{{ latest.title }}</a>
+      </h2>
+      <p>{{ latest.excerpt | xml_escape }}</p>
+      <p><time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date_to_string }}</time> <a href="{{ latest.url }}">Go Article</a></p>
+    </div>
+  </section>
   <div>
     <section>
-      <h2>Latest 10 articles</h2>
-      <ul>{% for post in site.posts limit:10 %}
+      <h2>More Recent Articles</h2>
+      <ul>{% for post in site.posts offset:1 limit:9 %}
         <li>
           <a href="{{ post.url }}">{{ post.title }}</a>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
         </li>{% endfor %}
       </ul>
+      <p>これよりさらに古いものは <a href="/archives/">Arcives</a> から検索・一覧できます。</p>
     </section>
   </div>
+  <nav>
+    <div>
+      <header>
+        <h2>Table of Contents</h2>
+        <p>目次</p>
+      </header>
+      <dl>
+        <dt><a href="/weblog/">Weblog</a></dt>
+        <dd>Web 制作やハモンドオルガン、地域の話題などに関する雑多なテキスト。</dd>
+        <dt><a href="/info/">Live &amp; event info</a></dt>
+        <dd>出演予定の Live・Event の日程や内容など、演奏活動に関するお知らせ。</dd>
+        <dt><a href="/archives/">Archives</a></dt>
+        <dd>任意のキーワードや公開年、タグからコンテンツを検索・一覧できます。</dd>
+        <dt><a href="/about/">About</a></dt>
+        <dd>サイトの概略や著者プロフィールなど「最初にお読み下さい」的な何かです。</dd>
+      </dl>
+    </div>
+  </nav>
 </main>

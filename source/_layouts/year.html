@@ -14,10 +14,10 @@ layout: base
   </header>
   <div>
   {% assign posts = page.posts | group_by_month %}
-  {% for month in posts %}
+  {% for month in posts reversed %}
     <section>
       <h2 id="month{{ month[0] }}">{{ month[0] }}月</h2>
-      <ul>{% for post in month[1] %}
+      <ul>{% for post in month[1] reversed %}
         <li>
           <a href="{{ post.url }}">{{ post.title }}</a>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>

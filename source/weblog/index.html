@@ -4,9 +4,11 @@ excerpt: Web 制作やハモンドオルガン、地域の話題などに関す�
 layout:  page
 ---
 {% assign posts = site.categories.weblog %}
-<ul>{% for post in posts %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-  </li>{% endfor %}
-</ul>
+{% for post in posts limit: 10 %}
+<section>
+  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  <p>{{ post.excerpt }}</p>
+  <p><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></p>
+</section>
+{% endfor %}
+<p><a href="{{ page.url | replace: 'index.html', '' }}all/">全記事一覧</a></p>
