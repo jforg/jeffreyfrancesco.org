@@ -1,0 +1,38 @@
+---
+layout:  page
+title:   Explore
+excerpt: コンテンツを任意キーワードや公開年、タグなどから検索・一覧できます。
+permalink: /explore/
+---
+<h2>Search</h2>
+<p>適当なキーワードで探す</p>
+<form role="search" aria-label="Google カスタム検索" action="http://google.com/cse" id="cse-search-box" class="search">
+  <input type="hidden" name="cx" value="003420500518845442145:gpoe3wix7zk" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <p>
+    <input type="search" name="q" size="24" value="" />
+    <input type="submit" name="sa" value="検索" />
+  </p>
+</form>
+<script src="//www.google.com/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+
+<h2>Archives</h2>
+<p>年（月）別で探す</p>
+{% assign year_posts = site.posts | group_by_year %}
+<ul>{% for year_post in year_posts %}
+  <li>
+    <a href="/{{ year_post[0] }}/">{{ year_post[0] }}年</a>
+    {% assign month_posts = year_post[1] | group_by_month %}
+    <ul>{% for month in (1..12) %}{% assign size = month_posts[month] | size %}
+      <li{% if size == 0 %} aria-hidden="true"{% endif %}>{% if size != 0 %}<a href="/{{ year_post[0] }}/#month-{{ month }}">{% endif %}{{ month }}月{% if size != 0 %}</a>{% endif %}</li>{% endfor %}
+    </ul>
+  </li>{% endfor %}
+</ul>
+
+<h2>Popular tags</h2>
+<p>よく使われてるタグから探す</p>
+{% assign selected = site.archives | where: 'type', 'tag' | sort_by_popular %}
+<ul>{% for item in selected %}{% if item.posts.size < 5 %}{% break %}{% endif %}
+  <li><a href="{{ item.url }}">{{ item.title }} <span><span>(</span>{{ item.posts.size }}<span>)</span></span></a></li>{% endfor %}
+</ul>
+<p><a href="/tags/">タグ一覧ページへ（注: 1つしか記事がないようなタグも含まれます）</a></p>
