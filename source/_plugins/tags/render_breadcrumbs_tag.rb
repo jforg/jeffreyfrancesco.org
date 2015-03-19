@@ -29,7 +29,7 @@ module Jekyll
 
       # Process last item
       last_item = items.shift
-      last_item_url = @url
+      last_item_url = drop_index_html(@url)
       last_item_name = case @type
       when 'year', 'month', 'day'
         date_archive_title
@@ -76,6 +76,10 @@ module Jekyll
       else
         name
       end
+    end
+
+    def drop_index_html(url)
+      url.gsub(/index\.html$/, '')
     end
 
     def date_archive_title

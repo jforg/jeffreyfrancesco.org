@@ -23,10 +23,10 @@ type:   home
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
         </li>{% endfor %}
       </ul>
-      <p>これよりさらに古いものは <a href="/archives/">Arcives</a> から検索・一覧できます。</p>
+      <p>これよりさらに古いものは <a href="/archives/">Archives</a> から検索・一覧できます。</p>
     </section>
   </div>
-  <nav>
+  <nav id="site-toc">
     <div>
       <header>
         <h2>Table of Contents</h2>
@@ -40,7 +40,7 @@ type:   home
         <dt><a href="/archives/">Archives</a></dt>
         <dd>任意のキーワードや公開年、タグからコンテンツを検索・一覧できます。</dd>
         <dt><a href="/about/">About</a></dt>
-        <dd>サイトの概略や著者プロフィールなど「最初にお読み下さい」的な何かです。</dd>
+        <dd>サイトの概略や著者プロフィールなど「最初にお読み下さい」的なやつ。</dd>
       </dl>
     </div>
   </nav>
