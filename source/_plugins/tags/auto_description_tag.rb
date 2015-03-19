@@ -1,4 +1,3 @@
-require 'cgi'
 require_relative '../helpers/plugin_helper.rb'
 
 module Jekyll
@@ -39,7 +38,7 @@ module Jekyll
       # Set templates and current template-type
       type     = page['type'] ||= 'default'
       template = config['templates'][type]
-      truncate_config = config['truncate']
+      truncate_config = config['truncate'].inject({}){|h, (k, v)| h[k.to_sym] = v; h}
 
       # Set template valiables
       vars = {
@@ -48,7 +47,10 @@ module Jekyll
       }
 
       # Probably, page or post has excerpt. So processing clean it.
-      vars['page_excerpt'] = process_excerpt(page['excerpt'], truncate_config) if page['excerpt']
+      if page['excerpt']
+        truncate_config[:escape] = false
+        vars['page_excerpt'] = PluginHelper.excerptalize(page['excerpt'], truncate_config)
+      end
       
       # Probably, post or date-based archives has date.
       vars.merge!(PluginHelper.date_to_hash(page['date'])) if page['date']
@@ -59,15 +61,6 @@ module Jekyll
       # Escape HTML special chars and return
       output_description(PluginHelper.escape_once(description))
 
-    end
-
-    def process_excerpt(excerpt, config)
-      # First, strip HTML tags and continuous spaces
-      stripped = PluginHelper.trim_spaces(PluginHelper.strip_html(excerpt))
-      # Next, unescape HTML entities (because '途切れるから!' on next step)
-      unescaped = CGI.unescapeHTML(stripped)
-      # Last, truncate @length chars
-      PluginHelper.truncate(stripped, config['length'], config['omission'])
     end
 
     def output_description(desc)

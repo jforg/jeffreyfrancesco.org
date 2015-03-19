@@ -1,3 +1,5 @@
+require 'cgi'
+
 module PluginHelper
 
   module Standard
@@ -18,6 +20,19 @@ module PluginHelper
 
     def escape_once(input)
       input.gsub(/["><']|&(?!([a-zA-Z]+|(#\d+)|(#[xX][\dA-Fa-f]+));)/, { '&' => '&amp;',  '>' => '&gt;',   '<' => '&lt;', '"' => '&quot;', "'" => '&#39;' })
+    end
+
+    def excerptalize(input, config = {})
+      tr_length   = config[:length] || 100
+      tr_omission = config[:omission] || '...'
+      html_escape = config[:escape] || true
+
+      stripped  = self.strip_html(input)
+      trimmed   = self.trim_spaces(stripped)
+      unescaped = CGI.unescapeHTML(trimmed)
+      output    = self.truncate(trimmed, tr_length, tr_omission)
+
+      html_escape ? self.escape_once(output) : output
     end
 
     def fill_template(template, variables = {})
