@@ -1,38 +1,75 @@
 ---
-layout:  page
+layout:  base
 title:   Explore
-excerpt: コンテンツを任意キーワードや公開年、タグなどから検索・一覧できます。
+excerpt: いわゆる「アーカイブ」とか「サイトマップ」とか、本でいえば「索引」のような役割を果たすページです。任意キーワードによるサイト内検索機能や、コンテンツ種別・年別・タグ別に記事を分類したページへの入り口を提供しています。
 permalink: /explore/
 ---
-<h2>Search</h2>
-<p>適当なキーワードで探す</p>
-<form role="search" aria-label="Google カスタム検索" action="http://google.com/cse" id="cse-search-box" class="search">
-  <input type="hidden" name="cx" value="003420500518845442145:gpoe3wix7zk" />
-  <input type="hidden" name="ie" value="UTF-8" />
-  <p>
-    <input type="search" name="q" size="24" value="" />
-    <input type="submit" name="sa" value="検索" />
-  </p>
-</form>
-<script src="//www.google.com/cse/brand?form=cse-search-box&amp;lang=ja"></script>
-
-<h2>Archives</h2>
-<p>年（月）別で探す</p>
+<main role="main">
+  <header>
+    <div>
+      <h1>Explore</h1>
+      <p>いわゆる「アーカイブ」とか「サイトマップ」とか、本でいえば「索引」のような役割を果たすページです。任意キーワードによる<a href="#cse-search-box">サイト内検索</a>機能や、<a href="#">コンテンツ種別</a>・<a href="#">年別</a>・<a href="#">タグ別</a>に記事を分類したページへの入り口を提供しています。</p>
+      {% include cse.html %}
+    </div>
+    <hr />
+  </header>
+  <div>
+    <!-- by Contents -->
+    <section>
+      <header>
+        <h2>コンテンツ種別で一覧</h2>
+        <p>各コンテンツの新着記事5件のリストと、全記事一覧へのリンクです。各コンテンツのトップページと何が違うんだと問われれば…えーと、両方の新着をざっと知りたい時とかに役に立つかもしれない。</p>
+      </header>
+{% assign archives = site.archives | where: 'type', 'category' %}
+{% for archive in archives %}{% assign cat_name = archive.title | to_category_name %}
+      <section>
+        <h3>{{ cat_name }} <a href="/{{ archive.title }}/all/">全記事</a></h3>
+{% assign posts = archive.posts %}
+        <ul>
+{% for post in posts limit:5 %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+        </ul>
+      </section>
+{% endfor %}
+    </section>
+    <!-- by Year / month -->
+    <section>
+      <header>
+        <h2>年（月別）で一覧</h2>
+        <p>年別アーカイブページのリストです。新しめの Web ブラウザをお使いで、ウィンドウ幅が一定以上ある場合には、その年の月見出し（月でセクション分けしてある）に直接スキップするためのリストも表示されます。</p>
+      </header>
 {% assign year_posts = site.posts | group_by_year %}
-<ul>{% for year_post in year_posts %}
-  <li>
-    <a href="/{{ year_post[0] }}/">{{ year_post[0] }}年</a>
-    {% assign month_posts = year_post[1] | group_by_month %}
-    <ul>{% for month in (1..12) %}{% assign size = month_posts[month] | size %}
-      <li{% if size == 0 %} aria-hidden="true"{% endif %}>{% if size != 0 %}<a href="/{{ year_post[0] }}/#month-{{ month }}">{% endif %}{{ month }}月{% if size != 0 %}</a>{% endif %}</li>{% endfor %}
-    </ul>
-  </li>{% endfor %}
-</ul>
-
-<h2>Popular tags</h2>
-<p>よく使われてるタグから探す</p>
+      <ul>
+{% for year_post in year_posts %}{% assign year = year_post[0] %}
+        <li>
+          <a href="/{{ year_post[0] }}/">{{ year }}年</a>
+{% assign month_posts = year_post[1] | group_by_month %}
+          <ul>
+{% for month in (1..12) reversed %}{% assign size = month_posts[month] | size %}
+            <li{% if size == 0 %} aria-hidden="true"{% endif %}>
+              {% if size != 0 %}<a href="/{{ year_post[0] }}/#archive-{{ year }}-{{ month }}">{% endif %}{{ month }}月{% if size != 0 %}</a>{% endif %}
+            </li>
+{% endfor %}
+          </ul>
+        </li>
+{% endfor %}
+      </ul>
+    </section>
+    <!-- by popular tags -->
+    <section>
+      <header>
+        <h2>よく使われるタグから一覧</h2>
+        <p>すべてのタグの中から記事が5件以上あるタグをピックアップして、記事数順に並べ替えたリストです。（記事が1件しかないようなタグも含めて）すべてのタグから探したい場合には「<a href="/tags/">タグ一覧</a>」をご利用下さい。</p>
+      </header>
 {% assign selected = site.archives | where: 'type', 'tag' | sort_by_popular %}
-<ul>{% for item in selected %}{% if item.posts.size < 5 %}{% break %}{% endif %}
-  <li><a href="{{ item.url }}">{{ item.title }} <span><span>(</span>{{ item.posts.size }}<span>)</span></span></a></li>{% endfor %}
-</ul>
-<p><a href="/tags/">タグ一覧ページへ（注: 1つしか記事がないようなタグも含まれます）</a></p>
+      <ul>
+{% for item in selected %}{% if item.posts.size < 5 %}{% break %}{% endif %}
+        <li><a href="{{ item.url }}">{{ item.title }} <span><span>(</span>{{ item.posts.size }}<span>)</span></span></a></li>
+{% endfor %}
+      </ul>
+    </section>
+    <!-- include adsense.html -->
+  </div>
+  {% include breadcrumbs.html %}
+</main>

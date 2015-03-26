@@ -9,6 +9,8 @@ module PluginHelper
 
   class << self
 
+    CATEGORY_NAME = { weblog: 'Talkin’ About J.F.', info: 'Live &amp; Event Info' }
+
     def date_to_hash(date)
       {
         'year' => date.year.to_s,
@@ -40,6 +42,10 @@ module PluginHelper
         break result if result.index('#{').nil?
         result.gsub(/\#\{#{token.first}\}/, token.last)
       end
+    end
+
+    def get_category_name(page_slug)
+      CATEGORY_NAME[page_slug.to_sym] || page_slug
     end
 
     def strip_html(input)

@@ -1,26 +1,13 @@
 <div role="banner">
   <div>
-    {% if page.type == 'home' %}{% assign identity_tag = 'h1' %}{% assign identity_tag_attrs = '' %}{% else %}{% assign identity_tag = 'a' %}{% assign identity_tag_attrs = ' href="/"' %}{% endif %}
+{% if page.type == 'home' %}{% assign identity_tag = 'h1' %}{% assign identity_tag_attrs = '' %}{% else %}{% assign identity_tag = 'a' %}{% assign identity_tag_attrs = ' href="/"' %}{% endif %}
     <{{ identity_tag }}{{ identity_tag_attrs }}>
-      <svg viewBox="0 0 14 14" width="28" height="28" role="img">
-        <title>{{ site.title }}</title>
-        <g fill="currentColor">
-          <path d="M0 0v9h4V0zm5 0v9h4V0zm5 0v9h4V0z" fill-opacity=".6" />
-          <path d="M0 10v4h4v-4zm5 0v4h4v-4z" />
-          <path d="M10 10v4h4v-4z" fill-opacity=".2" />
-        </g>
-      </svg>
+      <svg role="img" aria-labelledby="icon-jforg-title" aria-hidden="true" fill="currentColor"><use xlink:href="#icon-jforg"></use></svg>
       <b>{{ site.title }}</b>
     </{{ identity_tag }}>
     <nav>
       <ul>
-        <li>
-          <a href="/#site-toc">Contents</a>
-          <ul>
-            <li><a href="/weblog/">Weblog</a></li>
-            <li><a href="/info/">Live &amp; event info</a></li>
-          </ul>
-        </li>
+        <li><a href="/#site-toc">Contents</a></li>
         <li><a href="/explore/">Explore</a></li>
         <li><a href="/about/">About</a></li>
       </ul>

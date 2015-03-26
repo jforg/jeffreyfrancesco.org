@@ -4,14 +4,13 @@ layout: base
 <main role="main">
   <header>
     <div>
-      <h1>{% if page.title_en %}{{ page.title_en }}{% else %}{{ page.title }}{% endif %}</h1>
+      <h1>{% if page.marked_title %}{{ page.marked_title }}{% else %}{{ page.title | xml_escape_once }}{% endif %}</h1>
       <p>{% auto_description %}</p>
     </div>
+    <hr />
   </header>
   <div>
     {{ content }}
   </div>
+  {% include breadcrumbs.html %}
 </main>
-<div>
-  <p>{% render_breadcrumbs %}</p>
-</div>

@@ -12,19 +12,24 @@ module Jekyll
       @url  = @page['url']
       @type = @page['type']
 
+      schema_param = 'itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"'
+      level = 2
       sep   = @separator.empty? ? " &gt; " : " #@separator "
       items = breadcrumbs_items
-      home  = %!<a href="/">ホーム</a>!
+      home  = %!<span id="bc1" #{schema_param} itemref="bc2"><a href="/" itemprop="url"><span itemprop="title">ホーム</span></a></span>!
 
       # Process home
-      return home if items.empty?
+      return %!<span id="bc1" #{schema_param}><mark itemprop="title">ホーム</mark><link itemprop="url" href="/" /></span>! if items.empty?
       breadcrumbs = [home]
 
       # Process breadclumbs exclude last item
       until items.size == 1
         item = items.shift
+        next_level = level + 1
         item_name = get_parent_title(item[:url]) || process_parent_title(item[:name])
-        breadcrumbs << %!<a href="#{item[:url]}">#{item_name}</a>!
+        item_url  = item[:url]
+        breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child" itemref="bc#{next_level}"><a href="#{item_url}" itemprop="url"><span itemprop="title">#{item_name}</span></span></a>!
+        level += 1
       end
 
       # Process last item
@@ -40,7 +45,7 @@ module Jekyll
       else
         @page['title']
       end
-      breadcrumbs << %!<a href="#{last_item_url}">#{last_item_name}</a>!
+      breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child"><mark itemprop="name">#{last_item_name}</mark><link itemprop="url" href="#{last_item_url}" /></span>!
 
       # Output
       breadcrumbs.join sep
@@ -73,6 +78,8 @@ module Jekyll
       if ['year', 'month', 'day'].include? @type
         date = @page['date']
         name.match(/\d{4}/) ? date.year.to_s << '年' : date.month.to_s << '月'
+      elsif name == 'tag'
+        'タグ'
       else
         name
       end
@@ -99,7 +106,7 @@ module Jekyll
     end
 
     def tag_archive_title
-      "#{@page['title']}"
+      "タグ: #{@page['title']}"
     end
 
   end

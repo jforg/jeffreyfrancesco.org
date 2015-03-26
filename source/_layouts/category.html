@@ -2,27 +2,28 @@
 layout: base
 ---
 <main role="main">
-{% assign year = page.date | date: '%Y' %}
   <header>
     <div>
-      <h1>All articles published in {{ year }}</h1>
+      <h1>All articles published on “{{ page.title | to_category_name }}”</h1>
       <p>{% auto_description %}</p>
     </div>
     <hr />
   </header>
   <div>
-{% assign posts = page.posts | group_by_month %}
-{% for month in posts %}
-    <section id="archive-{{ year }}-{{ month[0] }}" tabindex="-1">
-      <h2>{{ month[0] }}月</h2>
-      <ul>{% for post in month[1] %}
+{% assign year_posts = page.posts | group_by_year %}
+{% for year_post in year_posts %}
+    <section>
+      <h2>{{ year_post[0] }}年</h2>
+{% assign posts = year_post[1] %}
+      <ul>{% for post in posts %}
         <li>
           <a href="{{ post.url }}">{{ post.title }}</a>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
         </li>{% endfor %}
       </ul>
-    </section>{% endfor %}
+    </section>
+{% endfor %}
     <!-- include adsense.html -->
   </div>
-{% include breadcrumbs.html %}
+  {% include breadcrumbs.html %}
 </main>

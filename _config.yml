@@ -31,13 +31,15 @@ kramdown:
 # Asset pipeline settings
 assets:
   css_compressor: sass
+  js_compressor: uglifier
 
 # Archive-pages settings
 jekyll-archives:
-  enabled: [year, tags]
+  enabled: [year, tags, categories]
   layouts:
     year:  'year'
     tag: 'tag'
+    category: 'category'
   permalinks:
     year:  '/:year/'
     tag: '/tags/:name/'
@@ -47,12 +49,14 @@ jekyll-archives:
 auto_title:
   separator: '/'
   templates:
-    year: 'Archives: #{year}年に公開されたコンテンツ一覧 #{separator} #{site_title}'
-    tag:  'Archives: タグ「#{page_title}」が付けられたコンテンツ一覧 #{separator} #{site_title}'
+    year: 'Archives: #{year}年に公開された記事一覧 #{separator} #{site_title}'
+    tag:  'Archives: タグ「#{page_title}」が付けられた記事一覧 #{separator} #{site_title}'
+    category:  'Archives: #{category_name} の記事一覧 #{separator} #{site_title}'
 auto_description:
   truncate:
     length: 128
     omission: '…'
   templates:
-    year: 'JeffreyFrancesco.org のコンテンツのうち、#{year}年に公開されたもののタイトル一覧です。日付の古いものから順に、月ごとにセクションを分けて表示しています。'
-    tag:  'JeffreyFrancesco.org のコンテンツのうち、タグ「#{title}」が付けられたもののタイトル一覧です。日付の新しいものから順に表示しています。'
+    year: 'JeffreyFrancesco.org のコンテンツのうち、#{year}年に公開された記事のタイトル一覧です。日付の新しいものから順に、月ごとにセクションを分けて表示しています。'
+    tag:  'JeffreyFrancesco.org のコンテンツのうち、タグ「#{title}」が付けられた記事のタイトル一覧です。日付の新しいものから順に、年ごとにセクションを分けて表示しています。'
+    category: 'JeffreyFrancesco.org のコンテンツのうち、「#{category_name}」に公開された記事のタイトル一覧です。日付の新しいものから順に、年ごとにセクションを分けて表示しています。'

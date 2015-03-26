@@ -3,7 +3,7 @@ require 'date'
 module Jekyll
   module SelectFilter
     def select_newer(posts)
-      posts.select {|post| select_conditional post }
+      posts.select {|post| select_conditional post }.reverse!
     end
 
     def select_older(posts)
@@ -13,9 +13,9 @@ module Jekyll
     private
 
     def select_conditional(post)
-      post.data.has_key?('event_meta') &&
-        post.data['event_meta'].has_key?('date') &&
-        Date.parse(post.data['event_meta']['date'].to_s) >= Date.today
+      post.data.has_key?('schema') &&
+        post.data['schema'].has_key?('start_at') &&
+        Date.parse(post.data['schema']['start_at'].to_s) >= Date.today
     end
   end
 end

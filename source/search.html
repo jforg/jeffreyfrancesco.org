@@ -1,0 +1,22 @@
+---
+layout:  base
+title:   検索結果
+excerpt: サイト内検索の結果を表示するページです。
+noindex: true
+sitemap: false
+permalink: /search/
+---
+<main role="main">
+  <div>
+    <h1><mark><span id="search-keyword"></span></mark> の検索結果</h1>
+    <div>
+      <div class="gcse-searchresults-only" data-linkTarget="_top"></div>
+    </div>
+    <section>
+      <h2>別のキーワードで、あるいは他のキーワードを追加して検索</h2>
+      {% include cse.html %}
+    </section>
+  </div>
+  <script>{% asset searchpage.js %}</script>
+  {% include breadcrumbs.html %}
+</main>

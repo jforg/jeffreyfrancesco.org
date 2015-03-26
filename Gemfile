@@ -7,6 +7,8 @@ gem "jekyll-archives"
 gem "jekyll-sitemap"
 gem "autoprefixer-rails"
 
+gem "uglifier"
+
 group :rails_assets do
   gem "rails-assets-normalize-css"
   gem "rails-assets-highlightjs"

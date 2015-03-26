@@ -1,8 +1,9 @@
 ---
 layout:    page
 title:     About
-excerpt:   サイトの概略や著者プロフィールなど「最初にお読み下さい」的なやつ。
+excerpt:   サイトの概略や著者プロフィールなど「最初にお読み下さい」的な何かです。
 permalink: /about/
+exclude_author_info: true
 ---
 
 JeffreyFrancesco.org はその名の通り、主に北近畿（というよりは京都府北部限定）を中心に、ハモンドオルガン & 鍵盤ハーモニカ奏者・インターネットラジオ MC・Web 制作者 etc. として細々と活動を続けている、Jeffrey Francesco (JF) という名前の個人が運営する Web サイトです。
@@ -11,4 +12,18 @@ JeffreyFrancesco.org はその名の通り、主に北近畿（というより�
 
 がんばって更新したいという意思だけはあるのですが、本人の性格上の問題（=めんどくさがり）により、極めて更新頻度が低くなっております。Live 告知なども場合によっては本番直前に更新されたりしますので、何のために個人サイトを運営してるんだかよく分かりませんが、それでも「何もせんよりはアップするだけマシや」の精神で、今後も細々と続けていきたいと思っております。
 
-（これから先は編集中…）
+<!-- include adsense.html  -->
+
+
+著者について
+------------
+
+<figure class="photo">
+  <div class="photo-content">
+    <img alt="" src="/images/profile-landscape.jpg" width="736" height="480" />
+  </div>
+  <figcaption class="photo-caption">著者近影（2014年9月13日 @ 岩滝町 Fiddle）</figcaption>
+</figure>
+
+<ruby>Jeffrey Francesco<rp>（</rp><rt>じぇふりー ふらんちぇすこ</rt><rp>）</rp></ruby> と申します。1971年6月30日生まれ、アメリカはルイジアナ州ニューオーリンズ出身の27歳です。覚えにくい名前なのか、知人には省略して「JF さん」と呼ばれることが多いです。みなさまも、もし街で私を見かけるようなことがありましたら、どうぞお気軽に「えがみさん」もしくは「けいちゃん」などとお呼びいただけますと幸いでございます。
+

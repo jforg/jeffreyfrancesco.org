@@ -1,0 +1,16 @@
+---
+layout: page
+title:  タグ一覧
+marked_title: All tags used on <abbr title="JeffreyFrancesco">JF</abbr>.org
+excerpt: JeffreyFrancesco.org で記事を公開する際に使用される、すべてのタグの一覧です。名前順に並んでいます。
+permalink: /tags/
+---
+{% assign tag_pages = site.archives | where: 'type', 'tag' | sort_by_name %}
+<ul>
+{% for tag_page in tag_pages %}
+  <li>
+    <a href="{{ tag_page.url }}">{{ tag_page.title }} <span><span>(</span>{{ tag_page.posts.size }}<span>)</span></span></a>
+  </li>
+{% endfor %}
+</ul>
+<!-- include adsense.html -->

@@ -1,3 +1,97 @@
+//
 //= require normalize-css
 //= require_self
 //= require highlightjs
+
+
+//
+//  Configration
+// ==============================
+
+
+//  Layout
+// ------------------------------
+
+$l-columns: 12;
+$l-grid-width: 2em;
+$l-gutter-width: 2em;
+
+
+//  Typography
+// -------------------------------
+
+//  Font size and line height
+$f-line-height: 1.75;
+$f-scale-xxxl: 2.25;
+$f-scale-xxl: 1.875;
+$f-scale-xl: 1.5;
+$f-scale-l: 1.25;
+$f-scale-s: .8333;
+$f-scale-xs: .6667;
+
+//  Font family
+$f-base-sans: 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
+$f-base-serif: 'Hiragino Mincho ProN', serif;
+$f-base-mono: 'Courier New', monospace;
+$f-branding: Museo;
+$f-heading: 'Museo Slab';
+$f-heading--alt: 'Museo Sans', 'PT Sans Caption';
+$f-text: 'Museo Sans', 'PT Sans';
+$f-text--alt: 'Museo Slab';
+
+
+//  Colors
+// -------------------------------
+
+//  Color palettes
+$c-palette-base: #fefcf6 #f3f0eb #e4e2dd #d6d4cf #c8c6c1;
+$c-palette-text: #1e2116 #33362a #494d42 #616459 #7a7d72;
+$c-palette-main: #362110 #4d3625 #664d3b #7f6552 #9a7e6a;
+$c-palette-acc1: #833827 #9f513d #bc6a54 #d9846d #f79e86;
+$c-palette-acc2: #836526 #9e7e3e #ba9857 #d7b370 #f4cf8a;
+$c-palette-acc3: #265981 #42729c #5d8bb7 #78a6d3 #93c1ef;
+
+//  Semantic colors
+$c-base: nth($c-palette-base, 1);
+$c-text: nth($c-palette-text, 2);
+$c-main: nth($c-palette-main, 1);
+$c-acc1:  nth($c-palette-acc1, 1);
+$c-acc2: nth($c-palette-acc2, 1);
+$c-link: nth($c-palette-acc3, 1);
+$c-link--hover: $c-red;
+
+$c-banner-base: nth($c-palette-base, 2);
+$c-banner-text: $c-main;
+$c-banner-base--hover: $c-base;
+$c-banner-text--hover: $c-acc1;
+$c-banner-border: nth($c-palette-base, 3);
+$c-banner-border--top: $c-main;
+
+$c-header-base: $c-white;
+$c-header-text: nth($c-palette-text, 2);
+$c-header-title: $c-acc2;
+$c-header-link: $c-link;
+$c-header-link--hover: $c-link--hover;
+$c-header-border: $c-banner-border;
+
+$c-breadcrumbs-base: $c-banner-base;
+$c-breadcrumbs-text: $c-banner-text;
+$c-breadcrumbs-link: $c-link;
+$c-breadcrumbs-link--hover: $c-link--hover;
+$c-breadcrumbs-border: $c-banner-border;
+
+$c-profile-base: nth($c-palette-text, 1);
+$c-profile-text: nth($c-palette-base, 5);
+$c-profile-heading: $c-banner-base;
+$c-profile-link: $c-base;
+$c-profile-link--hover: nth($c-palette-acc2, 3);
+$c-profile-border: nth($c-palette-text, 3);
+$c-profile-border--heading: $c-text;
+
+$c-footer-base: $c-main;
+$c-footer-text: $c-profile-text;
+$c-footer-link: $c-profile-link;
+$c-footer-link--hover: $c-profile-link--hover;
+$c-footer-border: $c-profile-border--heading;
+
+

@@ -1,9 +1,28 @@
 <footer role="contentinfo">
+{% if page.exclude_author_info != true %}
+  <section>
+    <div>
+      <h2>About the author</h2>
+      <dl>
+        <dt>
+          <span><img alt="" src="/images/profile-square-s.jpg" width="64" height="64" /></span>
+          <b>Jeffrey Francesco</b>
+        </dt>
+        <dd>1971年6月30日、アメリカはルイジアナ州ニューオーリンズ生まれの現在27歳。知人には「JF さん」と呼ばれることが多いです。とあるネットショップの Web ページ制作・管理で食いつなぎつつ、個人で中小規模の Web サイト制作を承ったり、ハモンドオルガンでジャズ演奏したり、インターネットラジオで喋ったり、京都サンガF.C.を応援したりしています。<a href="/about/">more about JF <span aria-hidden="true">→</span></a></dd>
+      </dl>
+    </div>
+  </section>
+{% endif %}
   <div>
-    <p>Subscribe via
-      <a href="/index.rss">RSS</a>・<a href="https://twitter.com/JForg">Twitter</a>・<a href="https://www.facebook.com/jeffreyfrancesco.org">Facebook</a></p>
-    <p>
-      <small>&copy; 2009-{{ site.time | date: '%Y' }} Jeffrey Francesco.</small>
-    </p>
+    <div>
+      <p>Subscribe via
+        <a href="/index.rss">{% include icon.html icon="rssfeed" alt="RSS" %}</a>
+        <a href="https://twitter.com/JForg">{% include icon.html icon="twitter" alt="Twitter" %}</a>
+        <a href="https://www.facebook.com/jeffreyfrancesco.org">{% include icon.html icon="facebook" alt="Facebook" %}</a>
+      </p>
+      <p>
+        <small>© 2009-{{ site.time | date: '%Y' }} Jeffrey Francesco.</small>
+      </p>
+    </div>
   </div>
 </footer>

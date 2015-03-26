@@ -54,6 +54,7 @@ module Jekyll
       
       # Probably, post or date-based archives has date.
       vars.merge!(PluginHelper.date_to_hash(page['date'])) if page['date']
+      vars['category_name'] = PluginHelper.get_category_name(page['title']) if page['type'] == 'category'
 
       # Process template
       description = PluginHelper.fill_template(template, vars)
@@ -67,9 +68,9 @@ module Jekyll
       xml_output = @output_format.match(/x(?:ht)?ml/).nil? ? '' : ' /'
       case @output_format
       when /meta/
-        "<meta name=\"description\" content=\"#{desc}\"#{xml_output}>"
+        %!<meta name="description" content="#{desc}"#{xml_output}>!
       when /ogp/
-        "<meta property=\"og:description\" content=\"#{desc}\"#{xml_output}>"
+        %!<meta property="og:description" content="#{desc}"#{xml_output}>!
       else
         desc
       end

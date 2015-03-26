@@ -44,6 +44,7 @@ module Jekyll
         'page_title'   => page['title'] || ''
       }
       vars.merge!(PluginHelper.date_to_hash(page['date'])) if page['date']
+      vars['category_name'] = PluginHelper.get_category_name(page['title']) if page['type'] == 'category'
 
       # Process template
       filled = PluginHelper.fill_template(template, vars)
