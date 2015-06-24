@@ -1,0 +1,24 @@
+.subscribe {
+  margin-top: 0;
+
+  @media (min-width: 48em) {
+    float: left;
+  }
+}
+
+.subscribe-item {
+  padding: 0 .5em;
+  display: inline-block;
+
+  &.for-rss {
+    color: #ff8c00;
+  }
+
+  &.for-twitter {
+    color: #55acee;
+  }
+
+  &.for-facebook {
+    color: #315096;
+  }
+}

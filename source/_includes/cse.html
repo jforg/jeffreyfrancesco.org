@@ -1,10 +1,10 @@
-<form role="search" action="http://google.com/cse" id="cse-search-box" class="cse" tabindex="-1">
-  <div>
-    <input type="hidden" name="cx" value="003420500518845442145:gpoe3wix7zk" />
+<form role="search" action="http://google.com/cse" method="get" id="cse-search-box" class="cse" tabindex="-1">
+  <p class="cse-content">
+    <input type="hidden" name="cx" value="partner-pub-8470388415032156:7363443192" />
     <input type="hidden" name="ie" value="UTF-8" />
-    <input type="text" name="q" size="20" value="" id="cse-search-query" />
-    <input type="submit" name="sa" value="検索" />
-  </div>
+    <input type="search" name="q" size="20" value="" id="cse-search-query" class="cse-query" />
+    <input type="submit" name="sa" value="{{ include.btn_label }}" class="cse-submit" />
+  </p>
 </form>
 <script>document.getElementById('cse-search-box').action='/search/'</script>
-<script src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+<script src="//www.google.com/cse/brand?form=cse-search-box"></script>

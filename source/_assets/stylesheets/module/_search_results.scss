@@ -1,0 +1,16 @@
+.search_results {
+  min-height: 20em;
+  margin: (1.75em * 2) -1em;
+  padding: {
+    top: 1.75em;
+  }
+  border-top: 1px solid #ccc;
+  line-height: normal;
+
+  //  Reset default table styles
+  table, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+}

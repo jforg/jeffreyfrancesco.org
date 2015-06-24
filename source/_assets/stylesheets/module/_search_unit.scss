@@ -1,0 +1,28 @@
+.search_unit {
+  @extend %clearfix;
+  margin: {
+    top: (1.75em * 2);
+  }
+}
+
+.search_unit-title {
+  @include auto_scaling(5);
+}
+
+.search_unit-content {
+  margin: {
+    top: (1.75em / 2);
+  }
+}
+
+@media (min-width: 48em) {
+  .search_unit-title {
+    float: left;
+  }
+  .search_unit-content {
+    margin: {
+      left: 8em;
+      top: 0;
+    }
+  }
+}

@@ -25,6 +25,9 @@ module Jekyll
       # Process breadclumbs exclude last item
       until items.size == 1
         item = items.shift
+        # Skip process if url is '/tag/'
+        next if item[:name] == 'tag'
+
         next_level = level + 1
         item_name = get_parent_title(item[:url]) || process_parent_title(item[:name])
         item_url  = item[:url]
@@ -45,7 +48,7 @@ module Jekyll
       else
         @page['title']
       end
-      breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child"><mark itemprop="name">#{last_item_name}</mark><link itemprop="url" href="#{last_item_url}" /></span>!
+      breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child"><mark itemprop="title">#{last_item_name}</mark><link itemprop="url" href="#{last_item_url}" /></span>!
 
       # Output
       breadcrumbs.join sep
@@ -79,7 +82,7 @@ module Jekyll
         date = @page['date']
         name.match(/\d{4}/) ? date.year.to_s << '年' : date.month.to_s << '月'
       elsif name == 'tag'
-        'タグ'
+        'Explore'
       else
         name
       end

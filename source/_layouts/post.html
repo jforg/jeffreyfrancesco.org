@@ -1,36 +1,31 @@
 ---
 layout: base
 ---
-<main role="main">
-  <header>
-    <div>
-      <h1>{{ page.title | xml_escape_once }}</h1>
-      <p>{% auto_description %}</p>
-      <ul>
-        <li>
-          {% include icon.html icon="published" alt="公開日:" %}
-          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | japanese_date }}</time>
-        </li>
-        <li>
-          {% include icon.html icon="tags" alt="タグ:" %}
-{% for tag in page.tags %}{% assign tag_slug = tag | slugify %}
-          <a href="/tags/{{ tag_slug }}/" rel="tag">{{ tag }}</a>{% if forloop.last == false %},{% endif %}
-{% endfor %}
-        </li>
-      </ul>
-    </div>
-    <hr />
-  </header>
-  <div>
-    {{ content }}
-    <!-- include adsense.html -->
-    <aside aria-label="Zenback による関連記事">
+<main role="main" class="main">
+  <div class="main-content">
+    <header class="page_header">
+      <div class="page_header-content">
+        <h1 class="page_header-title">{{ page.title | xml_escape_once }}</h1>
+        <ul class="article_info">
+          <li class="article_info-item">
+            {% include icon.html icon="published" alt="公開日:" %}
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | japanese_date }}</time>
+          </li>
+          <li class="article_info-item">
+            {% include icon.html icon="tags" alt="タグ:" %}{% for tag in page.tags %}{% assign tag_slug = tag | slugify %}
+            <a href="/tag/{{ tag_slug }}/" rel="tag">{{ tag }}</a>{% if forloop.last == false %},{% endif %}{% endfor %}
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="page_content">{{ content }}</div>
+    {% include adsense.html %}
+    <aside class="zenback">
       <!-- X:S ZenBackWidget -->
-      <div id="zenback-widget-loader"></div>
+      <div id="zenback-widget-loader" class="zenback-content"></div>
       <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var r=Math.ceil((new Date()*1)*Math.random());var j=d.createElement("script");j.id=i;j.async=true;j.src="//w.zenback.jp/v1/?base_uri=http%3A//jeffreyfrancesco.org/&nsid=89222910799046470%3A%3A89222952943373946&rand="+r;d.body.appendChild(j);}}(document,"zenback-widget-js");</script>
       <!-- X:E ZenBackWidget -->
-      <noscript><p>お使いのブラウザが JavaScript をサポートしていないか無効なため、関連記事が読み込めませんでした。</p></noscript>
+      <noscript><p class="zenback-fallback">お使いのブラウザが JavaScript をサポートしていないか無効なため、関連記事が読み込めませんでした。</p></noscript>
     </aside>
   </div>
-  {% include breadcrumbs.html %}
 </main>

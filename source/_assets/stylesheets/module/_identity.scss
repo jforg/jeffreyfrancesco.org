@@ -1,0 +1,21 @@
+.identity {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+
+  &[href] {
+    display: inline-block;
+    text-decoration: none;
+  }
+}
+
+.identity-symbol {
+  margin-right: $_base-vunit * 1 / get_fs(4) + em;
+  width: $_base-vunit * 4 / get_fs(4) + em;
+  height: $_base-vunit * 4 / get_fs(4) + em;
+  vertical-align: bottom;
+}
+
+.identity-sitename {
+  font-weight: inherit;
+}

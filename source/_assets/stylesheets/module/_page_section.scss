@@ -1,0 +1,12 @@
+//
+//  component page_section
+//
+
+// .page_section
+
+.page_section-title {
+  margin: {
+    top: ($_base-vunit * 8 / get_fs(5) + em);
+  }
+  @include auto_scaling(5);
+}

@@ -1,51 +1,39 @@
 ---
-layout:  page
+layout:  html_page
 title:   Live &amp; event info
 excerpt: 出演予定の Live・Event の日程や内容など、演奏活動に関するお知らせ。古いものにはそうじゃないのも交じってますが、あまり気にしないで下さい。なお本番直前（1日前とか）に更新される場合もありますので、情報源としては大して機能しません。
 permalink: /info/
 ---
-{% assign newer = site.categories.info | select_newer %}
-<section>
-  <h2>最新のお知らせ</h2>
-{% if newer.size == 0 %}
-  <p>今のところ、今後出演予定の Live・Event はありません。</p>
-{% else %}
-{% assign next = newer | first %}
-  <section>
-    <div>
-      <h3><span>Next Event:</span> <a href="{{ next.url }}">{{ next.title }}</a></h3>
-      <p><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
-      <p>{{ next.excerpt | excerptalize }}</p>
-    </div>
-  </section>
-  {% if newer.size > 1 %}
-  <section>
-    <h3>Upcoming Events</h3>
-    <ul>
-    {% for event in newer offset:1 %}
-      <li>
+<div class="page_content">{% assign newer = site.categories.info | select_newer %}
+  <section class="page_section">
+    <h1 class="page_section-title">最新のお知らせ</h1>{% if newer.size == 0 %}
+    <p>今のところ、近日中に出演予定の Live・Event はありません。</p>{% else %}{% assign next = newer | first %}
+    <section class="article_summary">
+      <h1 class="article_summary-title"><a href="{{ next.url }}">{{ next.title }}</a></h1>
+      <p class="article_summay-info"><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
+      <p class="article_summary-desc">{{ next.excerpt | excerptalize }}</p>
+    </section>
+    {% if newer.size > 1 %}
+    <ul class="article_list">{% for event in newer offset:1 %}
+      <li class="article_list-item">
         <a href="{{ event.url }}">{{ event.title }}</a>
-        <span><time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}</span>
-      </li>
-    {% endfor %}
+        <p class="article_list-info">
+          <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
+        </p>
+      </li>{% endfor %}
+    </ul>{% endif %}{% endif %}
+  </section>
+  {% include adsense.html %}
+  <section class="page_section">
+    <h1 class="page_section-title">過去のお知らせ一覧</h1>
+    <ul class="article_list">{% assign older = site.categories.info | select_older %}{% for event in older limit:10 %}
+      <li class="article_list-item">
+        <a href="{{ event.url }}">{{ event.title }}</a>{% if event.schema %}
+        <p class="article_list-info">
+          <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
+        </p>{% endif %}
+      </li>{% endfor %}
     </ul>
   </section>
-  {% endif %}
-{% endif %}
-</section>
-<!-- include adsense.html -->
-<section>
-  <h2>過去のお知らせ一覧</h2>
-  <ul>
-  {% assign older = site.categories.info | select_older %}
-  {% for event in older limit:10 %}
-    <li>
-      <a href="{{ event.url }}">{{ event.title }}</a>
-      {% if event.schema %}
-      <span><time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}"> @ {{ event.schema.place }}</span>
-      {% endif %}
-    </li>
-  {% endfor %}
-  </ul>
-  <p><a href="{{ page.url }}all/">全お知らせ一覧</a></p>
-</section>
+</div>
+<p class="pager"><a href="{{ page.url }}all/">全お知らせ一覧 <span aria-hidden="true">→</span></a></p>

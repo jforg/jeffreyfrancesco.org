@@ -1,0 +1,65 @@
+.cse-content {
+  margin-top: 0;
+}
+
+input.cse-query,
+input.cse-submit {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.cse-query {
+  width: 12.5em;
+  width: calc(100% - 5.5em);
+  height: (1.75em / 4 * 5);
+  padding: 0 (1.75em / 4);
+  border: 1px solid #ccc;
+  border-radius: 0;
+
+  &:focus {
+    border-color: hsl(220, 75%, 45%);
+    outline: 0;
+  }
+}
+
+.cse-submit {
+  width: 5em;
+  height: (1.75em / 4 * 5);
+  margin: {
+    left: -1px
+  }
+  border: 1px solid #999;
+  border-radius: 0;
+  background: darken(#fff, 5%);
+  color: #666;
+  vertical-align: bottom;
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    border-color: hsl(220, 75%, 45%);
+    background: hsl(220, 75%, 45%);
+    color: #fff;
+  }
+
+  .cse-query:focus + & {
+    border-color: hsl(220, 75%, 45%);
+    background: lighten(hsl(220, 75%, 45%), 10%);
+    color: #fff;
+  }
+}
+
+
+//  If supports flexbox
+
+.cse-content {
+  display: flex;
+}
+
+.cse-query {
+  flex: 1 1 auto;
+}
+
+.cse-submit {
+  flex: 0 0 25%;
+}

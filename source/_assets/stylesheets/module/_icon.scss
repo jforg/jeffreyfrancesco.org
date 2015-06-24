@@ -1,0 +1,16 @@
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.25ex;
+
+  &.for-published,
+  &.for-tags,
+  &.for-tag,
+  &.for-location {
+    margin-right: .125em;
+  }
+
+  &.for-tags {
+    width: 1.0625em;
+  }
+}

@@ -1,1 +1,1 @@
-<svg role="img" aria-labelledby="icon-{{ include.icon }}-title" fill="currentColor"><use xlink:href="#icon-{{ include.icon }}"></use><foreignObject display="none"><span>{{ include.alt }}</span></foreignObject></svg>
+<svg role="img" {% if include.hidden == true %}aria-hidden="true"{% else %}aria-labelledby="icon-{{ include.icon }}-title"{% endif %} class="icon for-{{ include.icon }}"><use xlink:href="#icon-{{ include.icon }}"></use>{% if include.alt %}<foreignObject display="none"><span>{{ include.alt }}</span></foreignObject>{% endif %}</svg>

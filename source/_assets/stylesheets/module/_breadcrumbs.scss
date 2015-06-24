@@ -1,0 +1,32 @@
+// .breadcrumbs {}
+.breadcrumbs-content {
+  position: relative;
+  overflow: hidden;
+  max-width: 46em;
+  margin: auto;
+  padding: ($_base-vunit * 2 / get_fs(4) + em) 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.breadcrumbs-title {
+  display: inline;
+}
+.breadcrumbs-breadcrumbs {
+  display: inline;
+
+  & mark {
+    background: transparent;
+    color: #333;
+    font-weight: 700;
+  }
+}

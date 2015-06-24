@@ -1,0 +1,29 @@
+//
+//  component article_list
+//
+
+.article_list {
+  @extend %reset-padding;
+  @extend %reset-liststyle;
+}
+
+.article_list-item {
+  position: relative;
+  margin: (1.75em / 2) -1em;
+  padding: (1.75em / 2) 1em 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px dotted #ccc;
+  }
+}
+
+.article_list-info {
+  margin: {
+    top: 0;
+  }
+}

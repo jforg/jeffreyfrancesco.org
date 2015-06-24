@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
-{% include head.html %}
+<head>
+<meta charset="utf-8" />
+{% auto_title %}
+{% include meta_link.html %}
+{% include analytics.html %}
+</head>
 <body>
 {% include svgdefs.svg %}
-{% include header.html %}
-<hr />
+{% include banner.html %}
 {{ content }}
-<hr />
+{% include breadcrumbs.html %}
 {% include footer.html %}
 </body>
 </html>

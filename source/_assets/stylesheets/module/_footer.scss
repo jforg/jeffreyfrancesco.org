@@ -1,0 +1,18 @@
+// .footer {}
+
+.footer-content {
+  @extend %clearfix;
+  position: relative;
+  max-width: 46em;
+  margin: auto;
+  padding: 1.75em 1em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px dotted #ccc;
+  }
+}

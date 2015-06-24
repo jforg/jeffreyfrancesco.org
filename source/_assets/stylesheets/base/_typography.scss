@@ -1,0 +1,16 @@
+//
+//  typography.scss
+//  set font family.
+//  ==============================
+
+body {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+  // @media not all and (min-width: 32em) {
+  //   font-size: percentage(15px / 16px);
+  // }
+}
+
+pre, code, var, samp, kbd {
+  font-family: Menlo, Consolas, 'Courier New', monospace;
+}

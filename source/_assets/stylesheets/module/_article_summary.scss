@@ -1,0 +1,25 @@
+//
+//  component article_summary
+//
+
+// .article_summary {}
+
+.article_summary-title {
+  margin: {
+    top: $_base-vunit * 8 / get_fs(5) + em;
+  }
+  font-weight: 400;
+  @include auto_scaling(5);
+}
+
+.article_summary-info {
+  margin: {
+    top: 0;
+  }
+}
+
+.article_summary-desc {
+  margin: {
+    top: (1.75em / 4)
+  }
+}

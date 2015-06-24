@@ -1,0 +1,116 @@
+//
+//  component year_archives
+//
+
+.archive_list {
+  @extend %reset-padding;
+  @extend %reset-liststyle;
+  margin: (1.75em / 2) -1em (1.75em / -2); 
+  font-feature-settings: 'tnum';
+
+  &-year {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    &:before {
+      top: 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    &:after {
+      top: (1.75em * 2);
+      border-bottom: 1px dotted #ccc;
+
+      @media (min-width: 48em) {
+        content: none;
+      }
+    }
+
+    & > a {
+      padding: (1.75em / 2) 1em;
+      display: block;
+
+      @media (min-width: 48em) {
+        display: table-cell;
+        width: 4.8125em;
+      }
+    }
+  }
+
+  &-months {
+    @extend %reset-padding;
+    @extend %reset-liststyle;
+    @extend %clearfix;
+    position: relative;
+    padding-left: (1em - 1.75em / 4);
+
+    @media (min-width: 48em) {
+      padding-left: 1.75em;
+      display: table-cell;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: .4375em;
+        top: 50%;
+        width: .4375em;
+        height: 0;
+        border-top: 1px solid #ccc;
+      }
+    }
+  }
+
+  &-month {
+    padding: (1.75em / 2) (1.75em / 4);
+    float: left;
+    width: 2.1875em;
+    text-align: right;
+
+    &:nth-child(7) {
+      clear: left;
+    }
+
+    & > a {
+      margin: (1.75em / -2) (1.75em / -4);
+      padding: (1.75em / 2) (1.75em / 4);
+      display: block;
+    }
+
+    @media (min-width: 32em) {
+      display: table-cell;
+      width: auto;
+      float: none;
+    }
+
+    @media (min-width: 48em) {
+      padding: {
+        left: .75em;
+        right: .75em;
+      }
+
+      & > a {
+        margin: {
+          left: -.75em;
+          right: -.75em;
+        }
+        padding: {
+          left: .75em;
+          right: .75em;
+        }
+      }
+    }
+  }
+
+  a:hover,
+  a:focus {
+    background: darken(#fff, 5%);
+  }
+}

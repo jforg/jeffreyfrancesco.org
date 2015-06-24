@@ -1,0 +1,612 @@
+//
+//  base.scss
+//  set default element styles.
+//  ==============================
+
+
+//  vars, functions, and mixins
+//  ------------------------------
+
+$_base-fontsize: 16px !default;
+$_base-lineheight: 28px !default;
+
+$_base-vunit: $_base-lineheight / 4;
+$_base-leading: $_base-lineheight - $_base-fontsize;
+
+
+@function get_fs($_unit) {
+  @return $_base-vunit * $_unit - $_base-leading;
+}
+
+@function get_lh($_unit) {
+  @return $_base-vunit * $_unit;
+}
+
+@function set_relative_fs($_fs) {
+  @return percentage($_fs / $_base-fontsize);
+}
+
+@function set_relative_lh($_lh, $_fs) {
+  @return $_lh / $_fs;
+}
+
+
+@mixin auto_scaling($_unit: 4) {
+  $_lh: get_lh($_unit);
+  $_fs: get_fs($_unit);
+  font-size: set_relative_fs($_fs);
+  line-height: set_relative_lh($_lh, $_fs);
+}
+
+
+//  The root element
+//  ------------------------------
+
+// html {}
+
+
+//  Document metadata
+//  ------------------------------
+
+// head {}
+// title {}
+// base {}
+// link {}
+// meta {}
+// style {}
+
+
+//  Sections
+//  ------------------------------
+
+body {
+  font-size: percentage($_base-fontsize / 16px);
+  line-height: $_base-lineheight / $_base-fontsize;
+  // background: linear-gradient(to bottom, rgba(255, 0, 0, .1) 1px, transparent 1px) 0 0 / 1px .4375em repeat;
+}
+
+// article {}
+// section {}
+// nav {}
+// aside {}
+// header {}
+// footer {}
+
+address {
+  font-style: normal;
+}
+
+/// heading
+
+h1 {
+  margin: 0;
+  color: #333;
+  @include auto_scaling(4);
+}
+
+h2 {
+  margin: {
+    top: $_base-vunit * 8 / get_fs(5) + em;
+    bottom: $_base-vunit * 4 / get_fs(5) + em;
+  }
+  color: #333;
+  @include auto_scaling(5);
+}
+
+h3 {
+  margin: {
+    top: $_base-vunit * 8 / get_fs(5) + em;
+    bottom: $_base-vunit * 4 / get_fs(5) + em;
+  }
+  font-weight: 400;
+  @include auto_scaling(5);
+
+}
+
+h4 {
+  margin: {
+    top: $_base-vunit * 8 / 18px + em;
+    bottom: $_base-vunit * 4 / 18px + em;
+  }
+  color: #333;
+  font-size: set_relative_fs(18px);
+  line-height: set_relative_lh(get_lh(4), 18px);
+}
+
+h5 {
+  margin: {
+    top: $_base-vunit * 4 / 18px + em;
+    bottom: $_base-vunit * 4 / 18px + em;
+  }
+  font-weight: 400;
+  font-size: set_relative_fs(18px);
+  line-height: set_relative_lh(get_lh(4), 18px);
+}
+
+h6 {
+  margin: {
+    top: $_base-vunit * 4 / get_fs(4) + em;
+    bottom: 0;
+  }
+  color: #333;
+  @include auto_scaling(4);
+
+  & + %paragraph {
+    margin-top: 0;
+  }
+}
+
+
+//  Grouping content
+//  ------------------------------
+
+%paragraph {
+  margin: {
+    top: $_base-vunit * 4 / get_fs(4) + em;
+    bottom: 0;
+  }
+}
+
+p {
+  @extend %paragraph;
+}
+
+hr {
+  position: relative;
+  overflow: hidden;
+  height: $_base-vunit * 4 / get_fs(4) + em;
+  margin: {
+    top: $_base-vunit * 8 / get_fs(4) + em;
+    bottom: $_base-vunit * 8 / get_fs(4) + em;
+  }
+  border: 0;
+  background: transparent url(asset_path('hr.png')) 50% 50% no-repeat;
+  background-image: url(asset_path('hr.svg')), none;
+  background-size: 4em 1.75em, auto;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    width: 50%;
+    height: 0;
+    border-top: 1px solid #ccc;
+  }
+
+  &:before {
+    left: -3em;
+  }
+
+  &:after {
+    right: -3em;
+  }
+}
+
+%block-indent {
+  padding: {
+    left: 2em;
+    right: 2em;
+  }
+}
+
+pre {
+  @extend %paragraph;
+  @extend %block-indent;
+  padding: {
+    top: $_base-vunit * 4 / get_fs(4) + em;
+    bottom: $_base-vunit * 4 / get_fs(4) + em;
+  }
+  border-radius: 4px;
+  background: #333;
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+  line-height: set_relative_lh(get_lh(3), 16px);
+
+  & > code,
+  & > samp {
+    display: block;
+  }
+
+  figure > & {
+    margin: {
+      left: -2em;
+      right: -2em;
+      bottom: 0;
+    }
+  }
+}
+
+blockquote {
+  @extend %paragraph;
+  @extend %block-indent;
+  margin: {
+    left: 0;
+    right: 0;
+  }
+  padding: {
+    top: $_base-vunit * 4 / get_fs(4) + em;
+    bottom: $_base-vunit * 4 / get_fs(4) + em;
+  }
+  position: relative;
+  background: darken(#fff, 5%);
+  color: #333;
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  & > footer:last-child {
+    margin-top: $_base-vunit * 4 / 14px + em;
+    font-size: set_relative_fs(14px);
+    line-height: set_relative_lh(get_lh(3), 14px);
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 0;
+      width: 1em;
+      margin-right: .5em;
+      border-top: 1px solid;
+      vertical-align: .5ex;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-right: 4px solid #ccc;
+  }
+}
+
+figure {
+  @extend %paragraph;
+  @extend %block-indent;
+  margin: {
+    left: 0;
+    right: 0;
+  }
+}
+
+figcaption {
+  margin-top: 1em;
+  font-size: set_relative_fs(14px);
+  line-height: set_relative_lh(get_lh(3), 14px);
+
+  &:first-child {
+    margin: {
+      top: 0;
+      bottom: 1em;
+    }
+  }
+}
+// div {}
+// main {}
+
+/// Lists
+
+%list-indent {
+  padding-left: 2em;
+}
+
+ul {
+  @extend %paragraph;
+  @extend %list-indent;
+}
+
+ol {
+  @extend %paragraph;
+  @extend %list-indent;
+}
+
+li {
+  & > ul,
+  & > ol {
+    margin-top: 0;
+  }
+}
+
+dl {
+  @extend %paragraph;
+  @extend %list-indent;
+}
+
+dt {
+  @extend %paragraph;
+  color: #333;
+  font-weight: 700;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: .5em;
+    height: 0;
+    margin: {
+      left: -1.25em;
+      right: .75em;
+    }
+    border-top: .125em solid;
+    vertical-align: .5ex;
+  }
+}
+
+dd {
+  margin-left: 0;
+
+  & > :first-child {
+    margin-top: 0;
+  }
+}
+
+//  Text-level semantics
+//  ------------------------------
+
+a {
+  color: hsl(220, 75%, 45%);
+  transition: all ease-in .1s;
+}
+
+em {
+  font-style: normal;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-style: wavy; 
+}
+
+strong {
+  color: #333;
+}
+
+small {
+  font-size: set_relative_fs(14px);
+  line-height: set_relative_lh(get_lh(3), 14px);
+}
+
+// s {}
+
+%normal-style-if-japanese {
+  &:lang(ja) {
+    font-style: normal;
+  }
+}
+
+cite {
+  @extend %normal-style-if-japanese;
+
+  &:lang(ja) {
+    quotes: '\300E' '\300F' '\300C' '\300D';
+
+    &:before {
+      content: open-quote;
+    }
+
+    &:after {
+      content: close-quote;
+    }
+  }
+}
+
+q {
+  @extend %normal-style-if-japanese;
+
+  &:lang(ja) {
+    quotes: '\300C' '\300D' '\300E' '\300F';
+  }
+}
+
+dfn {
+  @extend %normal-style-if-japanese;
+  border-bottom: double #333;
+}
+
+abbr {
+  &[title] {
+    text-decoration: none;
+  }
+}
+
+// data {}
+// time {}
+
+code {
+  @extend small;
+}
+
+var {
+  @extend small;
+}
+
+samp {
+  @extend small;
+}
+
+kbd {
+  @extend small;
+}
+
+// sub {}
+// sup {}
+
+i {
+  @extend %normal-style-if-japanese;
+}
+
+// b {}
+// u {}
+// mark {}
+// ruby {}
+// rb {}
+// rt {}
+// rtc {}
+// rp {}
+// bdi {}
+// bdo {}
+// span {}
+// br {}
+// wbr {}
+
+
+//  Edits
+//  ------------------------------
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  color: #666;
+}
+
+
+//  Embedded content
+//  ------------------------------
+
+%embedded-content {
+  vertical-align: bottom;
+}
+
+img {
+  @extend %embedded-content;
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  @extend %embedded-content;
+}
+
+embed {
+  @extend %embedded-content;
+}
+
+object {
+  @extend %embedded-content;
+}
+
+// param {}
+
+video {
+  @extend %embedded-content;
+}
+
+audio {
+  @extend %embedded-content;
+}
+
+// source {}
+// track {}
+// map {}
+// area {}
+// math {}
+
+svg {
+  @extend %embedded-content;
+  max-height: 100%;
+  fill: currentColor;
+}
+
+
+//  Tabular data
+//  ------------------------------
+
+$_base-table-vpad: $_base-vunit * 2 / get_fs(4) + em;
+
+table {
+  @extend %paragraph;
+  margin-bottom: -1px;
+  border-bottom: 1px dotted #ccc;
+}
+
+caption {
+  margin-bottom: $_base-table-vpad;
+  text-align: left;
+}
+
+// colgroup {}
+// col {}
+// tbody {}
+// thead {}
+// tfoot {}
+// tr {}
+
+%table-cell {
+  padding: $_base-table-vpad 2em $_base-table-vpad 0;
+  padding-bottom: calc(#{$_base-table-vpad} - 1px);
+  border-top: 1px dotted #ccc;
+  vertical-align: baseline;
+
+  & > :first-child {
+    margin-top: 0;
+  }
+
+  tr:first-child > & {
+    border-top-style: solid;
+
+    thead > & {
+      border-top-color: #333;
+    }
+  }
+}
+
+th {
+  @extend %table-cell;
+  text-align: left;
+  color: #333;
+}
+
+td {
+  @extend %table-cell;
+}
+
+
+//  Forms
+//  ------------------------------
+
+// form {}
+// label {}
+// input {}
+// button {}
+// select {}
+// datalist {}
+// optgroup {}
+// option {}
+// textarea {}
+// keygen {}
+// output {}
+// progress {}
+// meter {}
+// fieldset {}
+// legend {}
+
+
+//  Interactive content
+//  ------------------------------
+
+// details {}
+// summary {}
+// menu {}
+// menuitem {}
+// dialog {}
+
+
+//  Scripting
+//  ------------------------------
+
+// script {}
+// noscript {}
+// template {}
+
+canvas {
+  @extend %embedded-content;
+}
+
+
+//  Misc.
+//  ------------------------------
+
+[tabindex="-1"]:focus {
+  outline: 0;
+}

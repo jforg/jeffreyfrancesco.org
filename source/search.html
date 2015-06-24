@@ -6,17 +6,17 @@ noindex: true
 sitemap: false
 permalink: /search/
 ---
-<main role="main">
-  <div>
-    <h1><mark><span id="search-keyword"></span></mark> の検索結果</h1>
-    <div>
+<main role="main" class="main">
+  <div class="main-content">
+    <div class="search_unit">
+      <h1 class="search_unit-title">検索結果</h1>
+      <div class="search_unit-content">
+        {% include cse.html btn_label = '再検索' %}
+      </div>
+    </div>
+    <div class="search_results">
+      <script>{% asset searchpage.js %}</script>
       <div class="gcse-searchresults-only" data-linkTarget="_top"></div>
     </div>
-    <section>
-      <h2>別のキーワードで、あるいは他のキーワードを追加して検索</h2>
-      {% include cse.html %}
-    </section>
   </div>
-  <script>{% asset searchpage.js %}</script>
-  {% include breadcrumbs.html %}
 </main>

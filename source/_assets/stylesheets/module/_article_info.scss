@@ -1,0 +1,25 @@
+//
+//  component article_info
+//
+
+.article_info {
+  @extend %reset-padding;
+  @extend %reset-liststyle;
+  @extend %clearfix;
+
+  margin: {
+    top: (1.75em / 4);
+    left: -1em;
+  }
+  color: lighten(#000, 30%);
+}
+
+.article_info-item {
+  margin: {
+    left: 1em;
+  }
+
+  @media (min-width: 48em) {
+    float: left;
+  }
+}

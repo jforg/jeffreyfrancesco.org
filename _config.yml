@@ -42,7 +42,7 @@ jekyll-archives:
     category: 'category'
   permalinks:
     year:  '/:year/'
-    tag: '/tags/:name/'
+    tag: '/tag/:name/'
     category: '/:name/all/'
 
 # auto_title plugin settings

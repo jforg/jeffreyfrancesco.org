@@ -2,7 +2,6 @@
 (function(w,d){
   var
     s = '',
-    m = d.getElementById('search-keyword'),
     t = d.head.getElementsByTagName('title').item(0),
     i = d.getElementById('cse-search-query'),
     q = w.location.search.match(/[?&]q=(.*?)(?:[&]|$)/)[1].replace(/\+/g,' ');
@@ -11,10 +10,8 @@
   } catch(e) {
     s = '(???)';
   }
-  var a = d.createTextNode(s + ' の'),
-      b = d.createTextNode(s)
+  var a = d.createTextNode(s + ' の');
   t.insertBefore(a,t.firstChild);
-  m.appendChild(b);
   i.value = s !== '(???)' ? s : ''
 })(window, document);
 

@@ -1,0 +1,35 @@
+//
+//  helper.scss
+//  helper for modules and layouts.
+// ================================
+
+
+//
+//  resetter
+// --------------------------------
+
+%reset-margin {
+  margin: 0;
+}
+%reset-padding {
+  padding: 0;
+}
+%reset-border {
+  border: 0;
+}
+%reset-liststyle {
+  list-style: none;
+}
+
+
+//
+//  utility class
+// --------------------------------
+
+%clearfix {
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}

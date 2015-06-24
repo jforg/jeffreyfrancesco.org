@@ -1,3 +1,6 @@
-<nav aria-label="現在地" class="breadcrumbs">
-    <p>{% render_breadcrumbs %}</p>
-  </nav>
+<nav class="breadcrumbs">
+  <div class="breadcrumbs-content">
+    <h1 class="breadcrumbs-title">{% include icon.html icon="location" alt="現在地" %}</h1>
+    <p class="breadcrumbs-breadcrumbs">{% render_breadcrumbs → %}</p>
+  </div>
+</nav>
