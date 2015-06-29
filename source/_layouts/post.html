@@ -1,15 +1,15 @@
 ---
 layout: base
 ---
-<main role="main" class="main">
+<main role="main" class="main hentry">
   <div class="main-content">
     <header class="page_header">
       <div class="page_header-content">
-        <h1 class="page_header-title">{{ page.title | xml_escape_once }}</h1>
+        <h1 class="page_header-title entry-title">{{ page.title | xml_escape_once }}</h1>
         <ul class="article_info">
           <li class="article_info-item">
             {% include icon.html icon="published" alt="公開日:" %}
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | japanese_date }}</time>
+            <time datetime="{{ page.date | date_to_xmlschema }}" class="published">{{ page.date | japanese_date }}</time>
           </li>
           <li class="article_info-item">
             {% include icon.html icon="tags" alt="タグ:" %}{% for tag in page.tags %}{% assign tag_slug = tag | slugify %}
@@ -18,7 +18,7 @@ layout: base
         </ul>
       </div>
     </header>
-    <div class="page_content">{{ content }}</div>
+    <div class="page_content entry-content">{{ content }}</div>
     {% include adsense.html %}
     <aside class="zenback">
       <!-- X:S ZenBackWidget -->
