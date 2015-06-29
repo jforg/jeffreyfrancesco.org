@@ -10,7 +10,7 @@ permalink: /info/
     <p>今のところ、近日中に出演予定の Live・Event はありません。</p>{% else %}{% assign next = newer | first %}
     <section class="article_summary">
       <h1 class="article_summary-title"><a href="{{ next.url }}">{{ next.title }}</a></h1>
-      <p class="article_summay-info"><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
+      <p class="article_summary-info"><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
       <p class="article_summary-desc">{{ next.excerpt | excerptalize }}</p>
     </section>
     {% if newer.size > 1 %}
