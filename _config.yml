@@ -19,6 +19,7 @@ gems:
 - jekyll-archives
 permalink: /:categories/:title/
 excerpt_separator: "<!-- more -->"
+exclude: [tests]
 
 # Markdown converter settings
 markdown: kramdown
