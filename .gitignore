@@ -1,6 +1,7 @@
 /gh-pages
 /vendor
 tests/
+_drafts/
 
 .bundle/
 .sass-cache
