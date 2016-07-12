@@ -13,3 +13,7 @@ group :rails_assets do
   gem "rails-assets-normalize-css"
   gem "rails-assets-highlightjs"
 end
+
+group :development do
+  gem "foreman"
+end
