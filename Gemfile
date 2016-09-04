@@ -9,7 +9,7 @@ gem "jekyll-sitemap"
 gem "uglifier"
 
 group :rails_assets do
-  gem "rails-assets-normalize-css"
+  gem "rails-assets-normalize-css", "~>3.0"
   gem "rails-assets-highlightjs"
 end
 
