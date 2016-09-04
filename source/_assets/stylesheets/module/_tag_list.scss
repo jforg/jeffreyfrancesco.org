@@ -17,15 +17,3 @@
   margin: (1.75em / 4) (1.75em / 4) 0 0;
   float: left;
 }
-
-@supports (flex-wrap: wrap) {
-  .tag_list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag_list-tag {
-    flex: 1 0 auto;
-    text-align: center;
-  }
-}
