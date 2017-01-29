@@ -1,17 +1,8 @@
 source "https://rubygems.org"
-source "https://rails-assets.org"
 
 gem "jekyll", "~>2.0"
-gem "jekyll-assets"
 gem "jekyll-archives"
 gem "jekyll-sitemap"
-
-gem "uglifier"
-
-group :rails_assets do
-  gem "rails-assets-normalize-css", "~>3.0"
-  gem "rails-assets-highlightjs"
-end
 
 group :development do
   gem "foreman"

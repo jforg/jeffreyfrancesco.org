@@ -14,12 +14,11 @@ source: source
 destination: gh-pages
 gems:
 - jekyll-sitemap
-- jekyll-assets
-- jekyll-assets/rails-assets
 - jekyll-archives
 permalink: /:categories/:title/
 excerpt_separator: "<!-- more -->"
 exclude: [tests]
+keep_files: [.git, assets]
 
 # Markdown converter settings
 markdown: kramdown
