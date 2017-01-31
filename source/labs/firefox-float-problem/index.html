@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>demo: br を子に持つ要素をフロートさせた時の幅が Firefox だけ微妙に違う</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+<style>
+body {
+  margin: auto;
+  padding: 0 1em;
+  line-height: 1.75;
+}
+.demo {
+  width: 620px;
+  margin: 0;
+  padding: 0;
+  border: 1px dashed;
+  list-style: none;
+}
+.demo::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.demo__item {
+  margin: 5px;
+  float: left;
+}
+img {
+  vertical-align: bottom;
+}
+</style>
+</head>
+<body>
+<h1><code>br</code> を子に持つ要素をフロートさせた際の幅が Firefox だけ微妙に違う</h1>
+<p>幅 300px の画像 2 つと <code>br</code> 要素を子に持つ <code>li</code> 要素の周囲に 5px のマージンを付与したものをフロートで横並びにしようとしている。<code>li</code> 要素の幅は指定せずとも<a href="https://momdo.github.io/css2/visudet.html#float-width">非置換浮動要素の幅計算ルール</a>によって算出値は 300px となるはずなので、親の <code>ul</code> 要素の幅は 620px あれば横並びさせるのに十分な計算だが、Firefox の最近のバージョンではそうならずに崩れる。<code>br</code> 要素がわずかながらも幅を持つのが原因のようだが、v45 あたりのバージョンでは（同様にわずかな幅を持つというのに）同じコードでも大丈夫だったりして、なんかよく分からない。</p>
+</p>
+<ul class="demo">
+  <li class="demo__item"><img alt="Item 1" src="https://placehold.it/300x200/ccc/000?text=Item+1"><br><img alt="Lorem ipsum" src="https://placehold.it/300x100/333/fff?text=Lorem+ipsum"></li>
+  <li class="demo__item"><img alt="Item 2" src="https://placehold.it/300x200/ccc/000?text=Item+2"><br><img alt="Lorem ipsum" src="https://placehold.it/300x100/333/fff?text=Lorem+ipsum"></li>
+</ul>
+<dl>
+  <dt>このデモを参照している記事<span></span></dt>
+  <dd><a href="/weblog/2017013101/">br を子に持つ要素をフロートさせたら、Firefox だけ幅の計算値が微妙に違っていてレイアウトが崩れた話</a></dd>
+</dl>
+</body>
+</html>
