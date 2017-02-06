@@ -3,7 +3,7 @@
   "description": "My website since 2009.",
   "version": "1.0.0",
   "private": true,
-  "author": "Jeffrey Francesco <jeffrey.francesco@gmail.com>",
+  "author": "Jeffrey Francesco <jeffrey.francesco@gmail.com> (http://jeffreyfrancesco.org)",
   "homepage": "http://jeffreyfrancesco.org/",
   "repository": {
     "type": "git",
@@ -14,5 +14,21 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "highlight.js": "^9.9.0",
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1",
+    "webpack-assets-manifest": "^0.6.1",
+    "webpack-dev-server": "^2.3.0"
   }
 }
