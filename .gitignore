@@ -1,5 +1,6 @@
-/gh-pages
-/vendor
+gh-pages/
+vendor/
+node_modules/
 tests/
 _drafts/
 
