@@ -6,7 +6,7 @@ const publicPath = '/assets/';
 const urlLoader = {
   loader: 'url-loader',
   options: {
-    name: '[name].ext',
+    name: '[name].[ext]',
     limit: 1024
   }
 };
@@ -32,7 +32,7 @@ module.exports = {
     style: 'stylesheets'
   },
   output: {
-    path: path.resolve(__dirname, 'public/assets'),
+    path: path.resolve(__dirname, 'gh-pages', 'assets'),
     filename: '[name].js',
     publicPath: publicPath
   },
