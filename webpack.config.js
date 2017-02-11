@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 // path
 const path = require('path');
 const publicPath = '/assets/';
@@ -57,7 +59,11 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'gh-pages'),
+    hot: true,
     publicPath: publicPath,
     watchContentBase: true
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
