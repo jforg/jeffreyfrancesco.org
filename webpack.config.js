@@ -1,69 +1,83 @@
-const webpack = require('webpack');
-
-// path
+const merge = require('webpack-merge');
 const path = require('path');
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const AssetsManifest = require('webpack-assets-manifest');
+
 const publicPath = '/assets/';
 
-// loaders
-const urlLoader = {
-  loader: 'url-loader',
-  options: {
-    name: '[name].[ext]',
-    limit: 1024
-  }
-};
-const cssLoader = {
-  loader: 'css-loader',
-  options: {
-    sourceMap: true
-  }
-};
-const sassLoader = {
-  loader: 'sass-loader',
-  options: {
-    sourceMap: true
-  }
-};
-const styleLoader = {
-  loader: 'style-loader'
-};
-
-// config
-module.exports = {
-  entry: {
-    style: 'stylesheets'
-  },
+const baseConfig = {
+  entry: ['stylesheets'],
   output: {
-    path: path.resolve(__dirname, 'gh-pages', 'assets'),
-    filename: '[name].js',
     publicPath: publicPath
   },
   resolve: {
-    modules: [ path.resolve(__dirname, 'assets'), 'node_modules' ]
+    modules: [path.resolve(__dirname, 'assets'), 'node_modules']
   },
   module: {
     rules: [
       {
-        test: /\.(png|svg)$/,
-        use: [ urlLoader ]
-      },
+        test: /\.(gif|jpg|png|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 1024,
+          name: '[name]-[hash].[ext]'
+        }
+      }
+    ]
+  }
+};
+const watchConfig = {
+  output: {
+    path: path.resolve(__dirname, 'preview', 'assets'),
+    filename: '[name].js'
+  },
+  module: {
+    rules: [
       {
         test: /\.css$/,
-        use: [ styleLoader, cssLoader ]
+        use: ['style-loader', 'css-loader?sourceMap']
       },
       {
         test: /\.scss$/,
-        use: [ styleLoader, cssLoader, sassLoader ]
+        use: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
       }
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'gh-pages'),
-    hot: true,
+    contentBase: path.resolve(__dirname, 'preview'),
     publicPath: publicPath,
     watchContentBase: true
+  }
+};
+const buildConfig = {
+  output: {
+    path: path.resolve(__dirname, 'gh-pages', 'assets'),
+    filename: '[name]-[chunkhash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract(['css-loader'])
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+      }
+    ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new ExtractTextPlugin({
+      filename: 'style-[contenthash].css',
+      allChunks: true
+    }),
+    new AssetsManifest({
+      output: path.resolve(__dirname, 'source', '_data', 'manifest.json'),
+      publicPath: publicPath
+    })
   ]
 };
+
+const isBuild = /^build/.test(process.env.npm_lifecycle_event);
+module.exports = merge(baseConfig, (isBuild ? buildConfig : watchConfig));

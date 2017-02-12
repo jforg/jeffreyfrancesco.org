@@ -12,6 +12,6 @@
 {{ content }}
 {% include breadcrumbs.html %}
 {% include footer.html %}
-<!-- add main script element here later! -->
+<script src="{% if jekyll.environment == 'production' %}{{ site.data.manifest['main.js'] }}{% else %}/assets/main.js{% endif %}"></script>
 </body>
 </html>

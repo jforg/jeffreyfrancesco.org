@@ -13,7 +13,14 @@
     "url": "https://github.com/jforg/jeffreyfrancesco.org/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:assets": "webpack-dev-server --hot --open",
+    "watch:contents": "bundle exec jekyll build -w -d preview --future --drafts",
+    "build:assets": "webpack -p",
+    "build:contents": "JEKYLL_ENV=production bundle exec jekyll build",
+    "clean": "rm -rf gh-pages/assets/*",
+    "start": "run-p watch:*",
+    "build": "run-s clean build:*"
   },
   "dependencies": {
     "highlight.js": "^9.9.0",
@@ -24,11 +31,13 @@
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
     "node-sass": "^4.5.0",
+    "npm-run-all": "^4.0.1",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-assets-manifest": "^0.6.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-server": "^2.3.0",
+    "webpack-merge": "^2.6.1"
   }
 }
