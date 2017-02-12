@@ -193,6 +193,7 @@ hr {
 pre {
   @extend %paragraph;
   @extend %block-indent;
+  overflow: auto;
   padding: {
     top: $_base-vunit * 4 / get_fs(4) + em;
     bottom: $_base-vunit * 4 / get_fs(4) + em;
