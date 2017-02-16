@@ -199,9 +199,6 @@ pre {
     bottom: $_base-vunit * 4 / get_fs(4) + em;
   }
   border-radius: 4px;
-  background: #333;
-  background-color: rgba(0, 0, 0, .8);
-  color: #fff;
   line-height: set_relative_lh(get_lh(3), 16px);
 
   & > code,
