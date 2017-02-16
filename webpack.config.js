@@ -12,7 +12,10 @@ const baseConfig = {
     publicPath: publicPath
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'assets'), 'node_modules']
+    modules: [path.resolve(__dirname, 'assets'), 'node_modules'],
+    alias: {
+      'hljs': 'highlight.js/lib'
+    }
   },
   module: {
     rules: [

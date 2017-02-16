@@ -56,7 +56,7 @@
 .hljs-selector-tag {
   color: #cc99cc;
 }
-
+/*
 .hljs {
   display: block;
   overflow-x: auto;
@@ -64,11 +64,16 @@
   color: #cccccc;
   padding: 0.5em;
 }
-
+*/
 .hljs-emphasis {
   font-style: italic;
 }
 
 .hljs-strong {
   font-weight: bold;
+}
+
+pre {
+  background: #2d2d2d;
+  color: #cccccc;
 }
