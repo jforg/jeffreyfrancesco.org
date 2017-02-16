@@ -7,7 +7,7 @@ const AssetsManifest = require('webpack-assets-manifest');
 const publicPath = '/assets/';
 
 const baseConfig = {
-  entry: ['stylesheets'],
+  entry: ['javascripts', 'stylesheets'],
   output: {
     publicPath: publicPath
   },
