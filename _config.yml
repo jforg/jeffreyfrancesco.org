@@ -23,15 +23,10 @@ keep_files: [.git, assets]
 # Markdown converter settings
 markdown: kramdown
 kramdown:
-  input: GFM
   auto_ids: false
   entity_output: numeric
-  enable_coderay: false
-
-# Asset pipeline settings
-assets:
-  css_compressor: sass
-  js_compressor: uglifier
+  hard_wrap: true
+  syntax_highlighter: nil
 
 # Archive-pages settings
 jekyll-archives:
