@@ -21,7 +21,7 @@ module PluginHelper
     end
 
     def escape_once(input)
-      input.gsub(/["><']|&(?!([a-zA-Z]+|(#\d+)|(#[xX][\dA-Fa-f]+));)/, { '&' => '&amp;',  '>' => '&gt;',   '<' => '&lt;', '"' => '&quot;', "'" => '&#39;' })
+      Standard.escape_once(input)
     end
 
     def excerptalize(input, config = {})

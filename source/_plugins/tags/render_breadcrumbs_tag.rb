@@ -1,3 +1,5 @@
+require_relative '../helpers/plugin_helper.rb'
+
 module Jekyll
   class RenderBreadcrumbsTag < Liquid::Tag
 
@@ -46,7 +48,7 @@ module Jekyll
       when 'tag'
         tag_archive_title
       else
-        @page['title']
+        PluginHelper.escape_once(@page['title'])
       end
       breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child"><mark itemprop="title">#{last_item_name}</mark><link itemprop="url" href="#{last_item_url}" /></span>!
 

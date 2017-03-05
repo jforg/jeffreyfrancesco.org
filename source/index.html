@@ -6,7 +6,7 @@ permalink: /
 <main role="main" class="main">
   <div class="main-content">{% assign latest = site.posts | first %} 
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ latest.url }}">{{ latest.title }}</a></h1>
+      <h1 class="article_summary-title"><a href="{{ latest.url }}">{{ latest.title | escape_once }}</a></h1>
       <p class="article_summary-info">
         {% include icon.html icon="published" alt="公開日:" %}
         <time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | japanese_date }}</time>
@@ -16,7 +16,7 @@ permalink: /
     {% include adsense.html %}
     <ul class="article_list">{% for post in site.posts offset:1 limit:9 %}
       <li class="article_list-item">
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
         <p class="article_list-info">
           {% include icon.html icon="published" alt="公開:" %}
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>

@@ -9,14 +9,14 @@ permalink: /info/
     <h1 class="page_section-title">最新のお知らせ</h1>{% if newer.size == 0 %}
     <p>今のところ、近日中に出演予定の Live・Event はありません。</p>{% else %}{% assign next = newer | first %}
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ next.url }}">{{ next.title }}</a></h1>
+      <h1 class="article_summary-title"><a href="{{ next.url }}">{{ next.title | escape_once }}</a></h1>
       <p class="article_summary-info"><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
       <p class="article_summary-desc">{{ next.excerpt | excerptalize }}</p>
     </section>
     {% if newer.size > 1 %}
     <ul class="article_list">{% for event in newer offset:1 %}
       <li class="article_list-item">
-        <a href="{{ event.url }}">{{ event.title }}</a>
+        <a href="{{ event.url }}">{{ event.title | escape_once }}</a>
         <p class="article_list-info">
           <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
         </p>
@@ -28,7 +28,7 @@ permalink: /info/
     <h1 class="page_section-title">過去のお知らせ一覧</h1>
     <ul class="article_list">{% assign older = site.categories.info | select_older %}{% for event in older limit:10 %}
       <li class="article_list-item">
-        <a href="{{ event.url }}">{{ event.title }}</a>{% if event.schema %}
+        <a href="{{ event.url }}">{{ event.title | escape_once }}</a>{% if event.schema %}
         <p class="article_list-info">
           <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
         </p>{% endif %}

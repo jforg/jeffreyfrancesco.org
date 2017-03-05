@@ -5,7 +5,7 @@ layout: base
   <div class="main-content">
     <header class="page_header">
       <div class="page_header-content">
-        <h1 class="page_header-title">{% if page.marked_title %}{{ page.marked_title }}{% else %}{{ page.title | xml_escape_once }}{% endif %}</h1>
+        <h1 class="page_header-title">{% if page.marked_title %}{{ page.marked_title }}{% else %}{{ page.title | escape_once }}{% endif %}</h1>
         <p class="page_header-summary">{% auto_description %}</p>
       </div>
     </header>

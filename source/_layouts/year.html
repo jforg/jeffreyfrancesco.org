@@ -14,7 +14,7 @@ layout: base
         <h1 tabindex="-1" id="archive-{{ year }}-{{ month[0] }}-h" class="page_section-title">{{ month[0] }}月</h1>
         <ul class="article_list">{% for post in month[1] %}
           <li class="article_list-item">
-            <a href="{{ post.url }}">{{ post.title }}</a>
+            <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
             <p class="article_list-info">
               {% include icon.html icon="published" alt="公開日:" %}
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
