@@ -348,10 +348,14 @@ a {
 }
 
 em {
+  border-bottom: 3px double;
   font-style: normal;
   font-weight: inherit;
-  text-decoration: underline;
-  text-decoration-style: wavy; 
+
+  @supports (text-emphasis: circle) {
+    border: 0;
+    text-emphasis: circle;
+  }
 }
 
 strong {
