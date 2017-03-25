@@ -9,9 +9,8 @@
   padding: (1.75em * 2.5) 1em (1.75em * 3);
   position: relative;
   overflow-x: hidden; 
-  background: url(../images/hr.png) 50% 100% no-repeat;
-  background-image: url(../images/hr.svg), none;
-  background-size: 4em 1.75em, auto;
+  background: url(../images/hr.svg) 50% 100% no-repeat;
+  background-size: 4em 1.75em;
 
   &:before,
   &:after {

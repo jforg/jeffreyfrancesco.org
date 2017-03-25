@@ -160,9 +160,8 @@ hr {
     bottom: $_base-vunit * 8 / get_fs(4) + em;
   }
   border: 0;
-  background: transparent url(../images/hr.png) 50% 50% no-repeat;
-  background-image: url(../images/hr.svg), none;
-  background-size: 4em 1.75em, auto;
+  background: transparent url(../images/hr.svg) 50% 50% no-repeat;
+  background-size: 4em 1.75em;
 
   &:before,
   &:after {

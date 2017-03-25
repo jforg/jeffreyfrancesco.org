@@ -1,16 +1,12 @@
 .cse-content {
+  display: flex;
   margin-top: 0;
 }
 
-input.cse-query,
-input.cse-submit {
-  -webkit-appearance: none;
-  box-sizing: border-box;
-}
-
 .cse-query {
+  -webkit-appearance: none;
+  flex-grow: 1;
   width: 12.5em;
-  width: calc(100% - 5.5em);
   height: (1.75em / 4 * 5);
   padding: 0 (1.75em / 4);
   border: 1px solid #ccc;
@@ -23,11 +19,10 @@ input.cse-submit {
 }
 
 .cse-submit {
-  width: 5em;
+  flex-basis: 25%;
   height: (1.75em / 4 * 5);
-  margin: {
-    left: -1px
-  }
+  margin-left: -1px;
+  padding: 0 1em;
   border: 1px solid #999;
   border-radius: 0;
   background: darken(#fff, 5%);
@@ -47,19 +42,4 @@ input.cse-submit {
     background: lighten(hsl(220, 75%, 45%), 10%);
     color: #fff;
   }
-}
-
-
-//  If supports flexbox
-
-.cse-content {
-  display: flex;
-}
-
-.cse-query {
-  flex: 1 1 auto;
-}
-
-.cse-submit {
-  flex: 0 0 25%;
 }
