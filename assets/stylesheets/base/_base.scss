@@ -42,7 +42,9 @@ $_base-leading: $_base-lineheight - $_base-fontsize;
 //  The root element
 //  ------------------------------
 
-// html {}
+html {
+  line-height: $_base-lineheight / $_base-fontsize;
+}
 
 
 //  Document metadata
@@ -59,12 +61,7 @@ $_base-leading: $_base-lineheight - $_base-fontsize;
 //  Sections
 //  ------------------------------
 
-body {
-  font-size: percentage($_base-fontsize / 16px);
-  line-height: $_base-lineheight / $_base-fontsize;
-  // background: linear-gradient(to bottom, rgba(255, 0, 0, .1) 1px, transparent 1px) 0 0 / 1px .4375em repeat;
-}
-
+// body {}
 // article {}
 // section {}
 // nav {}
@@ -346,14 +343,23 @@ a {
   transition: all ease-in .1s;
 }
 
-em {
-  border-bottom: 3px double;
-  font-style: normal;
-  font-weight: inherit;
+%normal-style-if-japanese {
+  &:lang(ja) {
+    font-style: normal;
+  }
+}
 
-  @supports (text-emphasis: circle) {
-    border: 0;
-    text-emphasis: circle;
+em {
+  @extend %normal-style-if-japanese;
+
+  &:lang(ja) {
+    border-bottom: 3px double;
+
+    @supports (text-emphasis: circle) or (-webkit-text-emphasis: circle) {
+      border: 0;
+      -webkit-text-emphasis: circle;
+      text-emphasis: circle;
+    }
   }
 }
 
@@ -367,12 +373,6 @@ small {
 }
 
 // s {}
-
-%normal-style-if-japanese {
-  &:lang(ja) {
-    font-style: normal;
-  }
-}
 
 cite {
   @extend %normal-style-if-japanese;
@@ -403,12 +403,7 @@ dfn {
   border-bottom: double #333;
 }
 
-abbr {
-  &[title] {
-    text-decoration: none;
-  }
-}
-
+// abbr {}
 // data {}
 // time {}
 
