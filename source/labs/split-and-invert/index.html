@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>demo: Split &amp; Invert</title>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:900" rel="stylesheet">
+<style>
+html { font: 100%/1.5 sans-serif }
+body { position:relative; margin:0 }
+.demo { display:flex; align-items:center; justify-content:space-around; width:100%; height:100vh; margin:0; font-family:'Source Sans Pro',sans-serif; font-size:16vw; font-weight:900 }
+.demo::after { content:''; display:block; position:fixed; right:0; top:0; width:50%; height:100%; -webkit-backdrop-filter:invert(100%); backdrop-filter:invert(100%); pointer-events:none }
+.back { position:absolute; left:1rem; bottom:1rem; width:calc(50% - 2rem); margin:0 }
+a { text-decoration:none } a:hover,a:focus { border-bottom:1px dotted }
+</style>
+<p class="demo" contenteditable>poco a poco</p>
+<p class="back"><a href="/weblog/2017032702/" title="このデモの参照記事「左右で 2 分割して片方を反転するやつ」に戻る">◀ Back</a></p>
