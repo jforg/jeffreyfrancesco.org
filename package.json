@@ -23,21 +23,21 @@
     "build": "run-s clean build:*"
   },
   "dependencies": {
-    "highlight.js": "^9.9.0",
+    "highlight.js": "^9.10.0",
     "normalize.css": "^5.0.0"
   },
   "devDependencies": {
-    "css-loader": "^0.26.1",
-    "extract-text-webpack-plugin": "^2.0.0-rc.3",
-    "file-loader": "^0.10.0",
-    "node-sass": "^4.5.0",
-    "npm-run-all": "^4.0.1",
-    "sass-loader": "^6.0.1",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^2.2.1",
-    "webpack-assets-manifest": "^0.6.1",
-    "webpack-dev-server": "^2.3.0",
-    "webpack-merge": "^2.6.1"
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.2",
+    "webpack-assets-manifest": "^0.6.2",
+    "webpack-dev-server": "^2.4.2",
+    "webpack-merge": "^4.1.0"
   }
 }
