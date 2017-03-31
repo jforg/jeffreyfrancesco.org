@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:assets": "webpack-dev-server --hot --open",
+    "watch:assets": "webpack-dev-server --hot",
     "watch:contents": "bundle exec jekyll build -w -d preview --future --drafts",
     "build:assets": "webpack -p",
     "build:contents": "JEKYLL_ENV=production bundle exec jekyll build",
