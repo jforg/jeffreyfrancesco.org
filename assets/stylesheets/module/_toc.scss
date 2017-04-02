@@ -59,6 +59,7 @@
       flex-wrap: wrap;
     }
     .toc-name {
+      display: flex;
       flex-basis: 10em;
       margin: {
         top: 0;
@@ -66,9 +67,9 @@
 
       & > a {
         display: flex;
+        flex-grow: 1;
         align-items: center;
         position: relative;
-        height: calc(100% - #{1.75em / 2});
         padding: (1.75em / 4) (1.75em / 2);
         background: darken(#fff, 5%);
         text-decoration: none;
