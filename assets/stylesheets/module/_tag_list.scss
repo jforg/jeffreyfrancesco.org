@@ -5,7 +5,8 @@
 .tag_list {
   @extend %reset-padding;
   @extend %reset-liststyle;
-  @extend %clearfix;
+  display: flex;
+  flex-wrap: wrap;
 
   margin: {
     right: (1.75em / -4);
@@ -15,5 +16,5 @@
 
 .tag_list-tag {
   margin: (1.75em / 4) (1.75em / 4) 0 0;
-  float: left;
+  flex: none;
 }
