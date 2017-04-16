@@ -31,10 +31,7 @@
 
     @media (-ms-high-contrast: active) {
       -ms-high-contrast-adjust: none;
-      color: #fff;
-    }
-    @media (-ms-high-contrast: black-on-white) {
-      color: #000;
+      color: inherit;
     }
   }
 }
