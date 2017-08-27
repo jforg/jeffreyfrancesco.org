@@ -5,7 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
   MC・Web 制作者 etc. として細々と活動を続ける Jeffrey Francesco (JF) の個人サイトです。
   Live 出演情報、音楽活動や Web 制作に関する雑記などをメインに公開しています。
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://jeffreyfrancesco.org" # the base hostname & protocol for your site
+url: "https://jeffreyfrancesco.org" # the base hostname & protocol for your site
 
 timezone: "Asia/Tokyo"
 

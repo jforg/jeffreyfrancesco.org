@@ -3,8 +3,8 @@
   "description": "My website since 2009.",
   "version": "1.0.0",
   "private": true,
-  "author": "Jeffrey Francesco <jeffrey.francesco@gmail.com> (http://jeffreyfrancesco.org)",
-  "homepage": "http://jeffreyfrancesco.org/",
+  "author": "Jeffrey Francesco <jeffrey.francesco@gmail.com> (https://jeffreyfrancesco.org)",
+  "homepage": "https://jeffreyfrancesco.org/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jforg/jeffreyfrancesco.org.git"
