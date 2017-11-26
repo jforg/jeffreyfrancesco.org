@@ -151,14 +151,14 @@ p {
 hr {
   position: relative;
   overflow: hidden;
-  height: $_base-vunit * 4 / get_fs(4) + em;
+  height: 1em;
   margin: {
-    top: $_base-vunit * 8 / get_fs(4) + em;
-    bottom: $_base-vunit * 8 / get_fs(4) + em;
+    top: 3em;
+    bottom: 3em;
   }
   border: 0;
-  background: transparent url(../images/hr.svg) 50% 50% no-repeat;
-  background-size: 4em 1.75em;
+  background: transparent url(../images/scissors.svg) 50% 50% no-repeat;
+  background-size: contain;
 
   &:before,
   &:after {
@@ -167,15 +167,15 @@ hr {
     bottom: 50%;
     width: 50%;
     height: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px dashed #767676;
   }
 
   &:before {
-    left: -3em;
+    left: -.5em;
   }
 
   &:after {
-    right: -3em;
+    right: -.5em;
   }
 }
 
