@@ -11,6 +11,8 @@
   padding: 0 (1.75em / 4);
   border: 1px solid #ccc;
   border-radius: 0;
+  // Safari だけテキストずれる対策
+  line-height: normal;
 
   &:focus {
     border-color: hsl(220, 75%, 45%);
