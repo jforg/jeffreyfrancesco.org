@@ -1,7 +1,8 @@
 const merge = require('webpack-merge');
 const path = require('path');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const AssetsManifest = require('webpack-assets-manifest');
 
 const publicPath = '/assets/';
@@ -31,6 +32,7 @@ const baseConfig = {
   }
 };
 const watchConfig = {
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'preview', 'assets'),
     filename: '[name].js'
@@ -54,6 +56,7 @@ const watchConfig = {
   }
 };
 const buildConfig = {
+  mode: 'production',
   output: {
     path: path.resolve(__dirname, 'gh-pages', 'assets'),
     filename: '[name]-[chunkhash].js'
@@ -62,19 +65,19 @@ const buildConfig = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract(['css-loader'])
+        use: [MiniCSSExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+        use: [MiniCSSExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'style-[contenthash].css',
-      allChunks: true
+    new MiniCSSExtractPlugin({
+      filename: 'style-[hash].css'
     }),
+    new OptimizeCSSAssetsPlugin({}),
     new AssetsManifest({
       output: path.resolve(__dirname, 'source', '_data', 'manifest.json'),
       publicPath: publicPath
