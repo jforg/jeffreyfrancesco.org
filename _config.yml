@@ -12,7 +12,7 @@ timezone: "Asia/Tokyo"
 # Build settings
 source: source
 destination: gh-pages
-gems:
+plugins:
 - jekyll-sitemap
 - jekyll-archives
 permalink: /:categories/:title/
