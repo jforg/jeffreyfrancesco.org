@@ -20,6 +20,13 @@ excerpt_separator: "<!-- more -->"
 exclude: [tests]
 keep_files: [.git, assets]
 
+# Excludes demo files from sitemap.xml
+defaults:
+- scope:
+    path: "labs"
+  values:
+    sitemap: false
+
 # Markdown converter settings
 markdown: kramdown
 kramdown:
