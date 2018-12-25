@@ -61,9 +61,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 3.4)
+  jekyll (~> 3.8)
   jekyll-archives (~> 2.1)
-  jekyll-sitemap (~> 1.0)
+  jekyll-sitemap (~> 1.2)
 
 BUNDLED WITH
    1.16.1
