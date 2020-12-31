@@ -8,3 +8,4 @@ _drafts/
 .bundle/
 .sass-cache
 .vscode/
+source/.jekyll-cache
