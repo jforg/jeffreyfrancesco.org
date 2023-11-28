@@ -1,4 +1,4 @@
-var hljs = require('hljs/highlight');
+var hljs = require('hljs/core');
 
 hljs.registerLanguage('apache', require('hljs/languages/apache'));
 // hljs.registerLanguage('cpp', require('hljs/languages/cpp'));
