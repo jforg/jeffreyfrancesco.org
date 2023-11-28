@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
 
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
@@ -41,19 +41,20 @@ const watchConfig = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader?sourceMap']
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'preview'),
-    publicPath: publicPath,
-    watchContentBase: true
-  }
+    static: {
+      directory: path.resolve(__dirname, 'preview'),
+    }
+  },
+  devtool: 'eval-cheap-module-source-map'
 };
 const buildConfig = {
   mode: 'production',
