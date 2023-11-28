@@ -10,7 +10,8 @@ const publicPath = '/assets/';
 const baseConfig = {
   entry: ['javascripts', 'stylesheets'],
   output: {
-    publicPath: publicPath
+    publicPath: publicPath,
+    assetModuleFilename: '[name]-[hash][ext][query]'
   },
   resolve: {
     modules: [path.resolve(__dirname, 'assets'), 'node_modules']
@@ -19,10 +20,11 @@ const baseConfig = {
     rules: [
       {
         test: /\.(gif|jpg|png|svg)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 1024,
-          name: '[name]-[hash].[ext]'
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 1024
+          }
         }
       }
     ]
