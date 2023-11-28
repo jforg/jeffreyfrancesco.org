@@ -2,7 +2,7 @@ const merge = require('webpack-merge');
 const path = require('path');
 
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const AssetsManifest = require('webpack-assets-manifest');
 
 const publicPath = '/assets/';
@@ -73,11 +73,16 @@ const buildConfig = {
       }
     ]
   },
+  optimization: {
+    minimizer: [
+      `...`,
+      new CSSMinimizerPlugin()
+    ]
+  },
   plugins: [
     new MiniCSSExtractPlugin({
       filename: 'style-[hash].css'
     }),
-    new OptimizeCSSAssetsPlugin({}),
     new AssetsManifest({
       output: path.resolve(__dirname, 'source', '_data', 'manifest.json'),
       publicPath: publicPath
