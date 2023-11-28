@@ -1,2 +1,2 @@
-var hljs = require('./javascripts/hljs');
-hljs.initHighlightingOnLoad();
+const hljs = require('highlight.js/lib/common');
+hljs.highlightAll();
