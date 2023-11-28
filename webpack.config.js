@@ -81,7 +81,7 @@ const buildConfig = {
   },
   plugins: [
     new MiniCSSExtractPlugin({
-      filename: 'style-[hash].css'
+      filename: 'style-[contenthash].css'
     }),
     new AssetsManifest({
       output: path.resolve(__dirname, 'source', '_data', 'manifest.json'),
