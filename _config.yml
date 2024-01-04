@@ -11,7 +11,7 @@ timezone: "Asia/Tokyo"
 
 # Build settings
 source: source
-destination: gh-pages
+destination: public
 plugins:
 - jekyll-sitemap
 - jekyll-archives

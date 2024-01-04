@@ -15,12 +15,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:assets": "webpack serve --open-app-name 'Firefox Developer Edition'",
-    "watch:contents": "bundle exec jekyll build -w -d preview --future --drafts",
+    "watch:contents": "bundle exec jekyll build -w --future --drafts",
     "build:assets": "webpack",
     "build:contents": "JEKYLL_ENV=production bundle exec jekyll build",
-    "clean": "rm -rf gh-pages/assets/*",
-    "start": "run-p watch:*",
-    "build": "run-s clean build:*"
+    "clean": "rm -rf public/*",
+    "start": "npm-run-all clean -p watch:*",
+    "build": "npm-run-all clean build:*"
   },
   "dependencies": {
     "highlight.js": "^11.9.0",

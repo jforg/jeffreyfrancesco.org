@@ -10,6 +10,7 @@ const publicPath = '/assets/';
 const baseConfig = {
   entry: ['javascripts', 'stylesheets'],
   output: {
+    path: path.resolve(__dirname, 'public', 'assets'),
     publicPath: publicPath,
     assetModuleFilename: '[name]-[hash][ext][query]'
   },
@@ -33,7 +34,6 @@ const baseConfig = {
 const watchConfig = {
   mode: 'development',
   output: {
-    path: path.resolve(__dirname, 'preview', 'assets'),
     filename: '[name].js'
   },
   module: {
@@ -50,7 +50,7 @@ const watchConfig = {
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'preview'),
+      directory: path.resolve(__dirname, 'public'),
     }
   },
   devtool: 'eval-cheap-module-source-map'
@@ -58,7 +58,6 @@ const watchConfig = {
 const buildConfig = {
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'gh-pages', 'assets'),
     filename: '[name]-[chunkhash].js'
   },
   module: {
