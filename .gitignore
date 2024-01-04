@@ -1,12 +1,7 @@
-gh-pages/
-preview/
-public/
-vendor/
-node_modules/
-tests/
-_drafts/
-
 .bundle/
-.sass-cache
+.jekyll-cache/
 .vscode/
-source/.jekyll-cache
+_drafts/
+node_modules/
+public/
+tests/

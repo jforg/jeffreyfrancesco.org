@@ -18,7 +18,7 @@ plugins:
 permalink: /:categories/:title/
 excerpt_separator: "<!-- more -->"
 exclude: [tests]
-keep_files: [.git, assets]
+keep_files: [assets]
 
 # Excludes demo files from sitemap.xml
 defaults:
