@@ -51,9 +51,9 @@ jekyll-archives:
 auto_title:
   separator: '/'
   templates:
-    year: 'Archives: #{year}年に公開された記事一覧 #{separator} #{site_title}'
-    tag:  'Archives: タグ「#{page_title}」が付けられた記事一覧 #{separator} #{site_title}'
-    category:  'Archives: #{category_name} の記事一覧 #{separator} #{site_title}'
+    year: 'Archives: #{year}年に公開された記事一覧'
+    tag:  'Archives: タグ「#{page_title}」が付けられた記事一覧'
+    category:  'Archives: #{category_name} の記事一覧'
 auto_description:
   truncate:
     length: 128

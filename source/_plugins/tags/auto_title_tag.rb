@@ -7,19 +7,19 @@ module Jekyll
     DEFAULTS = {
       'separator' => '|',
       'templates' => {
-        'default'  => '#{page_title} #{separator} #{site_title}',
-        'category' => 'Category: #{page_title} #{separator} #{site_title}',
-        'tag'      => 'Tag: #{page_title} #{separator} #{site_title}',
-        'year'     => 'Year: #{year} #{separator} #{site_title}',
-        'month'    => 'Month: #{month_name} #{year} #{separator} #{site_title}',
-        'day'      => 'Day: #{month_name} #{day} #{year} #{separator} #{site_title}',
+        'default'  => '#{page_title}',
+        'category' => 'Category: #{page_title}',
+        'tag'      => 'Tag: #{page_title}',
+        'year'     => 'Year: #{year}',
+        'month'    => 'Month: #{month_name} #{year}',
+        'day'      => 'Day: #{month_name} #{day} #{year}',
         'home'     => '#{site_title}'
       }
     }
 
     def initialize(tag_name, text, tokens)
       super
-      @attrs = text.empty? ? "" : " #{text.strip}"
+      @output_format = text
     end
 
     def render(context)
@@ -37,10 +37,14 @@ module Jekyll
       type     = page['type'] ||= 'default'
       template = config['templates'][type]
 
+      # Set suffix
+      separator = config['separator']
+      site_name = site['title']
+      suffix = type == 'home' ? "" : " #{separator} #{site_name}"
+
       # Set template variables
       vars = {
-        'separator'    => config['separator'],
-        'site_title'   => site['title'],
+        'site_title'   => site_name,
         'page_title'   => page['title'] || ''
       }
       vars.merge!(PluginHelper.date_to_hash(page['date'])) if page['date']
@@ -48,9 +52,13 @@ module Jekyll
 
       # Process template
       filled = PluginHelper.fill_template(template, vars)
-      output = PluginHelper.escape_once(filled)
 
-      "<title#{@attrs}>#{output}</title>"
+      # Escape HTML special chars and return
+      output_title(PluginHelper.escape_once(filled), suffix)
+    end
+
+    def output_title(title, suffix)
+      "<title>#{title}#{suffix}</title>"
     end
 
   end
