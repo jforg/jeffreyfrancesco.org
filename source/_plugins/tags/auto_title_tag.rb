@@ -58,7 +58,12 @@ module Jekyll
     end
 
     def output_title(title, suffix)
-      "<title>#{title}#{suffix}</title>"
+      xml_output = @output_format.match(/x(?:ht)?ml/).nil? ? '' : ' /'
+      if @output_format.match(/ogp/) then
+        %!<meta property="og:title" content="#{title}"#{xml_output}>!
+      else
+        "<title>#{title}#{suffix}</title>"
+      end
     end
 
   end
