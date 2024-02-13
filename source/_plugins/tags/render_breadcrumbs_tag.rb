@@ -14,14 +14,14 @@ module Jekyll
       @url  = @page['url']
       @type = @page['type']
 
-      schema_param = 'itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"'
+      schema_param = 'itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"'
       level = 2
       sep   = @separator.empty? ? " &gt; " : " #@separator "
       items = breadcrumbs_items
-      home  = %!<span id="bc1" #{schema_param} itemref="bc2"><a href="/" itemprop="url"><span itemprop="title">ホーム</span></a></span>!
+      home  = %!<span #{schema_param}><a itemprop="item" href="/"><span itemprop="name">ホーム</span></a><meta itemprop="position" content="1" /></span>!
 
       # Process home
-      return %!<span id="bc1" #{schema_param}><mark itemprop="title">ホーム</mark><link itemprop="url" href="/" /></span>! if items.empty?
+      return %!<span #{schema_param}><link itemprop="item" href="/" /><mark itemprop="name">ホーム</mark><meta itemprop="position" content="1" /></span>! if items.empty?
       breadcrumbs = [home]
 
       # Process breadclumbs exclude last item
@@ -30,10 +30,9 @@ module Jekyll
         # Skip process if url is '/tag/'
         next if item[:name] == 'tag'
 
-        next_level = level + 1
         item_name = get_parent_title(item[:url]) || process_parent_title(item[:name])
         item_url  = item[:url]
-        breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child" itemref="bc#{next_level}"><a href="#{item_url}" itemprop="url"><span itemprop="title">#{item_name}</span></a></span>!
+        breadcrumbs << %!<span #{schema_param}><a itemprop="item" href="#{item_url}"><span itemprop="name">#{item_name}</span></a><meta itemprop="position" content="#{level}" /></span>!
         level += 1
       end
 
@@ -50,7 +49,7 @@ module Jekyll
       else
         PluginHelper.escape_once(@page['title'])
       end
-      breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child"><mark itemprop="title">#{last_item_name}</mark><link itemprop="url" href="#{last_item_url}" /></span>!
+      breadcrumbs << %!<span #{schema_param}><link itemprop="item" href="#{last_item_url}" /><mark itemprop="name">#{last_item_name}</mark><meta itemprop="position" content="#{level}" /></span>!
 
       # Output
       breadcrumbs.join sep
