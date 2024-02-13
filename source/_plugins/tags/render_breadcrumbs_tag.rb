@@ -33,7 +33,7 @@ module Jekyll
         next_level = level + 1
         item_name = get_parent_title(item[:url]) || process_parent_title(item[:name])
         item_url  = item[:url]
-        breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child" itemref="bc#{next_level}"><a href="#{item_url}" itemprop="url"><span itemprop="title">#{item_name}</span></span></a>!
+        breadcrumbs << %!<span id="bc#{level}" #{schema_param} itemprop="child" itemref="bc#{next_level}"><a href="#{item_url}" itemprop="url"><span itemprop="title">#{item_name}</span></a></span>!
         level += 1
       end
 
