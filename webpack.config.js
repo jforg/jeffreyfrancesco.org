@@ -49,6 +49,13 @@ const watchConfig = {
     ]
   },
   devServer: {
+    client: {
+      overlay: {
+        errors: true,
+        warnings: true,
+        runtimeErrors: false
+      }
+    },
     static: {
       directory: path.resolve(__dirname, 'public'),
     }
