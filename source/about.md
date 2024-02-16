@@ -21,9 +21,9 @@ JeffreyFrancesco.org はその名の通り、主に北近畿（というより�
 
 <figure class="photo">
   <div class="photo-content">
-    <img alt="" src="/images/profile-landscape.jpg" width="736" height="480" />
+    <img alt="" src="/images/profile-202402.jpg" width="736" height="480" />
   </div>
-  <figcaption class="photo-caption">近影（2014年9月13日 @ 岩滝町 Fiddle）</figcaption>
+  <figcaption class="photo-caption">近影（2023年2月11日 @ 岩滝町 Fiddle）</figcaption>
 </figure>
 
 <ruby>Jeffrey Francesco<rp>（</rp><rt>じぇふりー ふらんちぇすこ</rt><rp>）</rp></ruby> と申します。知人には「JFさん」などと呼ばれることが多いです。京都（市じゃなくて府な）の北の方を拠点に、Web サイトを作ったり、ハモンドオルガンを弾いたり、鍵盤ハーモニカを吹いたり、「Mチャンネル」というインターネットラジオで喋ったり、京都サンガ F.C. を応援したりしています。
