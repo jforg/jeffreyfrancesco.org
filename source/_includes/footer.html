@@ -17,13 +17,15 @@
   <div class="footer-content">
     <nav class="footer-nav misc">
       <p class="misc-content">
-        <a href="/index.rss" class="misc-rss">RSS</a> •
-        <a href="#" class="misc-contact">著者に連絡</a> •
+        <a href="/index.rss" class="misc-rss">RSS</a>
+        <span aria-hidden="true" class="misc-dot">•</span>
+        <a href="#" class="misc-contact">著者に連絡<small>（準備中）</small></a>
+        <span aria-hidden="true" class="misc-dot">•</span>
         <a href="/about/#Privacy" class="misc-privacy">プライバシー・ポリシー</a>  
       </p>
     </nav>
     <p class="footer-copy copyright">
-      <small class="copyright-content">© 2009&ndash;{{ site.time | date: '%Y' }} <a href="/about/#Author" rel="author">Jeffrey Francesco</a>. License: <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license">CC BY-NC 4.0</a></small>
+      <small class="copyright-content">© 2009&ndash;{{ site.time | date: '%Y' }} <a href="/about/#Author" rel="author" class="copyright-author">Jeffrey Francesco</a>. <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license" class="copyright-license">CC BY-NC 4.0</a></small>
     </p>
   </div>
 </footer>
