@@ -15,11 +15,15 @@
 </nav>
 <footer role="contentinfo" class="footer">
   <div class="footer-content">
-    <p class="subscribe">Subscribe via:
-      <a href="/index.rss" class="subscribe-item for-rss">{% include icon.html icon="rssfeed" alt="RSS" %}</a>
-      <a href="https://twitter.com/JForg" class="subscribe-item for-twitter">{% include icon.html icon="twitter" alt="Twitter" %}</a>
-      <a href="https://www.facebook.com/jeffreyfrancesco.org" class="subscribe-item for-facebook">{% include icon.html icon="facebook" alt="Facebook" %}</a>
+    <nav class="footer-nav misc">
+      <p class="misc-content">
+        <a href="/index.rss" class="misc-rss">RSS</a> •
+        <a href="#" class="misc-contact">著者に連絡</a> •
+        <a href="/about/#Privacy" class="misc-privacy">プライバシー・ポリシー</a>  
+      </p>
+    </nav>
+    <p class="footer-copy copyright">
+      <small class="copyright-content">© 2009&ndash;{{ site.time | date: '%Y' }} <a href="/about/#Author" rel="author">Jeffrey Francesco</a>. License: <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license">CC BY-NC 4.0</a></small>
     </p>
-    <p class="copyright"><small>© 2009&ndash;{{ site.time | date: '%Y' }} Jeffrey Francesco.</small></p>
   </div>
 </footer>
