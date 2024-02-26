@@ -7,41 +7,41 @@ sitemap: false
 permalink: /contact/
 ---
 <div class="page-content">
-  <form name="contact" method="post" data-netlify="true">
-    <ul>
-      <li>
-        <label>
-          <span>お名前（ニックネームでも可）</span>
-          <span>
-            <input name="name" placeholder="山田花子" required="" type="text" value="" />
+  <form class="contact_form" name="contact" method="post" data-netlify="true">
+    <ul class="contact_form-fields">
+      <li class="contact_form-item">
+        <label class="contact_form-label _for-text">
+          <span class="contact_form-desc">お名前（ニックネーム可）</span>
+          <span class="contact_form-control">
+            <input class="contact_form-input" name="name" placeholder="山田花子" required="" type="text" value="" />
           </span>
         </label>
       </li>
-      <li>
-        <label>
-          <span>ご連絡先メールアドレス</span>
-          <span>
-            <input name="email" placeholder="hanako@example.com" required="" type="email" value="" />
+      <li class="contact_form-item">
+        <label class="contact_form-label _for-text">
+          <span class="contact_form-desc">ご連絡先メールアドレス</span>
+          <span class="contact_form-control">
+            <input class="contact_form-email" name="email" placeholder="hanako@example.com" required="" type="email" value="" />
           </span>
         </label>
       </li>
-      <li>
-        <label>
-          <span>お問い合わせ内容</span>
-          <span>
-            <textarea cols="40" name="message" placeholder="こんにちは。かわいい犬ですね。私も犬を飼っていますよ。それではさようなら。" required="" rows="20"></textarea>
+      <li class="contact_form-item">
+        <label class="contact_form-label _for-text">
+          <span class="contact_form-desc">お問い合わせ内容</span>
+          <span class="contact_form-control">
+            <textarea class="contact_form-textarea" cols="40" name="message" placeholder="こんにちは。かわいい犬ですね。私も犬を飼っていますよ。それではさようなら。" required="" rows="20"></textarea>
           </span>
         </label>
       </li>
     </ul>
-    <p>
-      <label>
-        <input name="policy" required="" type="checkbox" value="agree">
-        <span>私は<a href="/about/#Privacy">プライバシー・ポリシー</a>を読み、その内容に同意しました</span>
+    <p class="contact_form-agreement">
+      <label class="contact_form-label _for-checkbox">
+        <input class="contact_form-checkbox" name="policy" required="" type="checkbox" value="agree">
+        <span class="contact_form-declaration">私は<a href="/about/#Privacy">プライバシー・ポリシー</a>を読み、その内容に同意しました</span>
       </label>
     </p>
-    <p>
-      <button type="submit">以上の内容で送信</button>
+    <p class="contact_form-submission">
+      <button class="contact_form-button" type="submit">以上の内容で送信</button>
     </p>
   </form>
 </div>
