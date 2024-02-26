@@ -6,42 +6,55 @@ noindex: true
 sitemap: false
 permalink: /contact/
 ---
-<div class="page-content">
-  <form class="contact_form" name="contact" method="post" data-netlify="true">
-    <ul class="contact_form-fields">
-      <li class="contact_form-item">
-        <label class="contact_form-label _for-text">
-          <span class="contact_form-desc">お名前（ニックネーム可）</span>
-          <span class="contact_form-control">
-            <input class="contact_form-input" name="name" placeholder="山田花子" required="" type="text" value="" />
-          </span>
-        </label>
-      </li>
-      <li class="contact_form-item">
-        <label class="contact_form-label _for-text">
-          <span class="contact_form-desc">ご連絡先メールアドレス</span>
-          <span class="contact_form-control">
-            <input class="contact_form-email" name="email" placeholder="hanako@example.com" required="" type="email" value="" />
-          </span>
-        </label>
-      </li>
-      <li class="contact_form-item">
-        <label class="contact_form-label _for-text">
-          <span class="contact_form-desc">お問い合わせ内容</span>
-          <span class="contact_form-control">
-            <textarea class="contact_form-textarea" cols="40" name="message" placeholder="こんにちは。かわいい犬ですね。私も犬を飼っていますよ。それではさようなら。" required="" rows="20"></textarea>
-          </span>
-        </label>
-      </li>
+<div class="page-content contact">
+  <div class="contact-texts">
+    <p>Jeffrey Francesco へのお問い合わせ、ライブのお誘いやお仕事のご依頼、<a href="/About/#Statement" title="About#苦情等の申し立て">掲載コンテンツに対する各種ご指摘</a>などの送信にご利用ください。なお、個人的な事情により返信が遅れる場合や、返信を省略させていただく場合が稀にございます。その場合は何とぞご容赦ください。</p>
+    <ul>
+      <li>入力欄は<strong>すべて必須項目</strong>です。</li>
+      <li>お名前は<strong>本名でなくても構いません</strong>が、その場合はできれば「名無し」「匿名」などではなく、常用しているハンドルや SNS の ID など、一個人として識別できるものをご入力ください。</li>
+      <li>問題点のご指摘につきましては、事実関係が確認できる具体的な情報（参考資料の URL など）も併せてご記入ください。</li>
+      <li>送信にあたっては<a href="/about/#Privacy">当サイトのプライバシー・ポリシー</a>にご同意いただく必要がございます。内容をお読みいただき、同意欄のチェックボックスにチェックを入れてご送信ください。</li>
+      <li>送信前の最終確認ページやダイアログ、送信完了後の確認メール送信はございません。<strong>「以上の内容で送信」ボタンを押す前に、今一度入力内容をよくご確認ください。</strong></li>
     </ul>
-    <p class="contact_form-agreement">
-      <label class="contact_form-label _for-checkbox">
-        <input class="contact_form-checkbox" name="policy" required="" type="checkbox" value="agree">
-        <span class="contact_form-declaration">私は<a href="/about/#Privacy">プライバシー・ポリシー</a>を読み、その内容に同意しました</span>
-      </label>
-    </p>
-    <p class="contact_form-submission">
-      <button class="contact_form-button" type="submit">以上の内容で送信</button>
-    </p>
+  </div>
+  <form class="contact-form contact_form" id="MailForm" name="contact" method="post" data-netlify="true">
+    <fieldset class="contact_form-content">
+      <legend class="contact_form-title">お問い合わせ用メールフォーム</legend>
+      <ul class="contact_form-fields">
+        <li class="contact_form-item">
+          <label class="contact_form-label _for-text">
+            <span class="contact_form-desc">お名前（本名以外も可）</span>
+            <span class="contact_form-control">
+              <input class="contact_form-input" name="name" placeholder="山田花子" required="" type="text" value="" />
+            </span>
+          </label>
+        </li>
+        <li class="contact_form-item">
+          <label class="contact_form-label _for-text">
+            <span class="contact_form-desc">ご連絡先メールアドレス</span>
+            <span class="contact_form-control">
+              <input class="contact_form-email" name="email" placeholder="hanako@example.com" required="" type="email" value="" />
+            </span>
+          </label>
+        </li>
+        <li class="contact_form-item">
+          <label class="contact_form-label _for-text">
+            <span class="contact_form-desc">お問い合わせ内容</span>
+            <span class="contact_form-control">
+              <textarea class="contact_form-textarea" cols="40" name="message" placeholder="こんにちは。かわいい犬ですね。私も犬を飼っていますよ。それではさようなら。" required="" rows="20"></textarea>
+            </span>
+          </label>
+        </li>
+      </ul>
+      <p class="contact_form-agreement">
+        <label class="contact_form-label _for-checkbox">
+          <input class="contact_form-checkbox" name="policy" required="" type="checkbox" value="agree">
+          <span class="contact_form-declaration">私は<a href="/about/#Privacy">プライバシー・ポリシー</a>を読み、その内容に同意しました</span>
+        </label>
+      </p>
+      <p class="contact_form-submission">
+        <button class="contact_form-button" type="submit">以上の内容で送信</button>
+      </p>
+    </fieldset>
   </form>
 </div>
