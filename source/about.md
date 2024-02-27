@@ -213,4 +213,4 @@ Google アドセンスに関する詳細
 初出掲載：<time>2024-02-22</time>
 {: .metadata }
 
-[mail]: # "準備中です"
+[mail]: /contact/
