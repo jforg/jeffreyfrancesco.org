@@ -1,0 +1,114 @@
+// 
+// component contact_form
+// 
+
+$ps-k100: #221815;
+$ps-k95: #2f2725;
+$ps-k90: #3e3a39;
+$ps-k85: #4c4948;
+$ps-k80: #595757;
+$ps-k75: #666464;
+$ps-k70: #727171;
+$ps-k65: #7d7d7d;
+$ps-k60: #898989;
+$ps-k55: #949495;
+$ps-k50: #9fa0a0;
+$ps-k45: #aaabab;
+$ps-k40: #b5b5b6;
+$ps-k35: #bfc0c0;
+$ps-k30: #c9caca;
+$ps-k25: #d3d3d4;
+$ps-k20: #dcdddd;
+$ps-k15: #e6e6e6;
+$ps-k10: #efefef;
+$ps-k05: #f7f8f8;
+$ps-k00: #ffffff;
+
+.contact_form {
+  margin: 2.5em 0;
+}
+.contact_form-content {
+  margin: 0;
+  padding: 0 calc(1em - 1px) 2.5em;
+  border: 1px solid $ps-k50;
+  background-color: $ps-k05;
+}
+.contact_form-title {
+  padding: calc(.625em - 1px) calc(1em - 1px);
+  background-color: $ps-k20;
+  border: 1px solid $ps-k50;
+  color: $ps-k100;
+}
+.contact_form-fields {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.contact_form-item {
+  margin-top: 1em;
+}
+.contact_form-agreement {
+  margin: 1em 0 0;
+}
+.contact_form-submission {
+  margin: 1.75em 0 0;
+}
+// For large screen, add more margins
+@media (min-width: 48em) {
+  .contact_form-fields {
+    margin-top: 1.75em;
+  }
+  .contact_form-fields,
+  .contact_form-agreement,
+  .contact_form-submission {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
+// Labels
+.contact_form-label._for-text,
+.contact_form-desc,
+.contact_form-control {
+  display: block;
+}
+.contact_form-label._for-checkbox {
+  display: flex;
+  align-items: baseline;
+}
+.contact_form-declaration {
+  margin-left: .25em;
+}
+
+// Controls
+.contact_form-input,
+.contact_form-email,
+.contact_form-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid $ps-k50;
+  border-radius: 3px;
+}
+.contact_form-input,
+.contact_form-email {
+  padding: 0 .375em;
+  line-height: 1.75;
+}
+.contact_form-textarea {
+  padding: .375em;
+  line-height: 1.375;
+  vertical-align: bottom;
+}
+// .contact_form-checkbox {}
+.contact_form-button {
+  padding: .625em 1em;
+  border: 0;
+  background-color: hsl(220, 75%, 45%);
+  color: $ps-k10;
+  line-height: 1.75;
+
+  &:hover {
+    color: $ps-k00;
+    cursor: pointer;
+  }
+}
