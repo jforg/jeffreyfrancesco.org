@@ -1,6 +1,6 @@
 .associate {
   position: relative;
-  margin: 1.75em 0;
+  margin: 2.125em 0;
 }
 .associate-title {
   position: absolute;
@@ -35,7 +35,10 @@
   max-width: 15em;
 }
 // .associate-image {}
-// .associate-texts {}
+.associate-texts {
+  flex: auto;
+  width: 100%;
+}
 .associate-name {
   margin-top: 0;
   text-decoration: underline;
