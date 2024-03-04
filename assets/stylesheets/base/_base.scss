@@ -201,14 +201,6 @@ pre {
   & > samp {
     display: block;
   }
-
-  figure > & {
-    margin: {
-      left: -2em;
-      right: -2em;
-      bottom: 0;
-    }
-  }
 }
 
 blockquote {
@@ -258,7 +250,6 @@ blockquote {
 
 figure {
   @extend %paragraph;
-  @extend %block-indent;
   margin: {
     left: 0;
     right: 0;
@@ -266,7 +257,7 @@ figure {
 }
 
 figcaption {
-  margin-top: 1em;
+  margin: 1em 2rem 0;
   font-size: set_relative_fs(14px);
   line-height: set_relative_lh(get_lh(3), 14px);
 
