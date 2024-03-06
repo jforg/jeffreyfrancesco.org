@@ -17,7 +17,7 @@
     "watch:assets": "webpack serve --open-app-name 'Firefox Developer Edition'",
     "watch:contents": "bundle exec jekyll build -w --future --drafts",
     "build:assets": "webpack",
-    "build:contents": "JEKYLL_ENV=production bundle exec jekyll build --lsi",
+    "build:contents": "JEKYLL_ENV=production bundle exec jekyll build",
     "clean": "rm -rf public/*",
     "start": "npm-run-all clean -p watch:*",
     "build": "npm-run-all clean build:*"
