@@ -1,5 +1,5 @@
 //
-//  component page_section
+//  component page_section & related_section
 //
 
 // .page_section
@@ -9,4 +9,8 @@
     top: ($_base-vunit * 8 / get_fs(5) + em);
   }
   @include auto_scaling(5);
+}
+.related_section-title {
+  @extend .page_section-title;
+  margin-bottom: 0;
 }
