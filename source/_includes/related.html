@@ -1,7 +1,7 @@
 <aside class="related_section">
   <h2 class="related_section-title">関連してそうな記事<small>（β版）</small></h2>
   <ul class="related_list">
-  {%- for post in site.related_posts limit: 10 %}
+  {%- for post in site.related_posts limit: 5 %}
     <li class="related_list-item">
       <a href="{{ post.url }}" class="related_list-link" title="{{ post.title | escape_once }}">
         <div class="related_list-thumb">
@@ -22,8 +22,7 @@
         </p>
       </a>
     </li>
-    {%- assign insert = forloop.index | modulo: 5 %}
-    {%- if insert == 0 %}
+    {%- if forloop.last %}
     <li class="related_list-item">
       {%- if jekyll.environment == 'production' %}
       <ins class="adsbygoogle"

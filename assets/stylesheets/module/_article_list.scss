@@ -36,10 +36,9 @@
 
   display: grid;
   gap: 1.75em 1em;
-  grid-template-columns: repeat(2, 1fr);
 
-  @media (min-width: 32em) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 35em) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 .related_list-link {
