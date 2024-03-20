@@ -1,12 +1,17 @@
 <aside class="adsense">
-  <div class="adsense-content">{% if jekyll.environment == 'production' %}
+  <div class="adsense-content">
+    {%- if jekyll.environment == 'production' %}
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-8470388415032156"
          data-ad-slot="6041487198"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>{% else %}
-    <div style="display:table;width:100%"><div style="display:table-cell;height:128px;background:#ccc;color:#666;text-align:center;text-transform:uppercase;vertical-align:middle">adsense placeholder</div></div>{% endif %}
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    {%- else %}
+    <div style="display:flex;align-items:center;justify-content:center;height:150px;background:#ccc;color:#666">
+      <span style="padding:1rem;text-align:center;text-transform:uppercase">adsense placeholder</span>
+    </div>
+    {%- endif %}
   </div>
 </aside>

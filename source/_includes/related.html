@@ -1,7 +1,7 @@
 <aside class="related_section">
   <h2 class="related_section-title">関連してそうな記事<small>（β版）</small></h2>
   <ul class="related_list">
-  {%- for post in site.related_posts limit:6 %}
+  {%- for post in site.related_posts limit: 10 %}
     <li class="related_list-item">
       <a href="{{ post.url }}" class="related_list-link" title="{{ post.title | escape_once }}">
         <div class="related_list-thumb">
@@ -22,6 +22,26 @@
         </p>
       </a>
     </li>
+    {%- assign insert = forloop.index | modulo: 5 %}
+    {%- if insert == 0 %}
+    <li class="related_list-item">
+      {%- if jekyll.environment == 'production' %}
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-8470388415032156"
+        data-ad-slot="1872744396"
+        data-ad-format="fluid"
+        data-ad-layout-key="-7w+eo+1+2-5"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      {%- else %}
+      <div style="display:flex;align-items:center;justify-content:center;height:100%;background:#ccc;color:#666">
+        <span style="padding:1rem;text-align:center;text-transform:uppercase">adsense placeholder</span>
+      </div>
+      {%- endif %}
+    </li>
+    {%- endif %}
   {%- endfor %}
   </ul>
 </aside>
