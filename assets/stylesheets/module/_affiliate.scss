@@ -50,8 +50,17 @@
   display: block;
   box-sizing: border-box;
   padding: .625em 1em;
-  background-color: #ff9900;
-  color: $ps-k100;
   font-weight: 700;
   text-align: center;
+
+  &._for-amazon {
+    background-color: #ff9900;
+    color: $ps-k100;
+  }
+
+  &._for-tower {
+    background-color: #FFCC03;
+    color: #C3151B;
+    text-transform: uppercase;
+  }
 }
