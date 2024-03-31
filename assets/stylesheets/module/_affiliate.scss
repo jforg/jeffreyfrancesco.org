@@ -1,8 +1,8 @@
-.associate {
+.affiliate {
   position: relative;
   margin: 2.125em 0;
 }
-.associate-title {
+.affiliate-title {
   position: absolute;
   left: 1px;
   top: 1px;
@@ -13,10 +13,10 @@
   background: $ps-k25;
   color: $ps-k100;
 }
-.associate-content {
+.affiliate-content {
   border: 1px solid $ps-k50;
 }
-.associate-link {
+.affiliate-link {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,23 +30,23 @@
     min-height: 12em;
   }
 }
-.associate-thumb {
+.affiliate-thumb {
   flex: 0 0 33%;
   max-width: 15em;
 }
-// .associate-image {}
-.associate-texts {
+// .affiliate-image {}
+.affiliate-texts {
   flex: auto;
   width: 100%;
 }
-.associate-name {
+.affiliate-name {
   margin-top: 0;
   text-decoration: underline;
 }
-.associate-action {
+.affiliate-action {
   margin-top: 1em;
 }
-.associate-label {
+.affiliate-label {
   display: block;
   box-sizing: border-box;
   padding: .625em 1em;
