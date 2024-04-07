@@ -1,3 +1,3 @@
-require('normalize.css');
-require('./stylesheets/style.scss');
-require('./stylesheets/highlight/tomorrow-night-eighties.css');
+import "normalize.css";
+import "./stylesheets/style.scss";
+import "./stylesheets/highlight/tomorrow-night-eighties.css";

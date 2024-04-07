@@ -1,2 +1,2 @@
-const hljs = require('highlight.js/lib/common');
+import hljs from "highlight.js/lib/common";
 hljs.highlightAll();
