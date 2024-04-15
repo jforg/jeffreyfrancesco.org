@@ -2,28 +2,38 @@
 layout: base
 ---
 <main role="main" class="main">
-  <div class="main-content">{% assign year = page.date | date: '%Y' %}
+  <div class="main-content">
+    {%- assign year = page.date | date: '%Y' %}
     <header class="page_header">
       <div class="page_header-content">
         <h1 class="page_header-title">All articles published in <i class="page_header-taxonomy">{{ year }}</i></h1>
         <p class="page_header-summary">{{ year }}年に公開された記事一覧</p>
       </div>
     </header>
-    <div class="page_content">{% assign posts = page.posts | group_by_month %}{% for month in posts %}
+    <div class="page_content">
+      {%- assign posts = page.posts | group_by_month %}
+      {%- for month in posts %}
       <section class="page_section">
         <h1 tabindex="-1" id="archive-{{ year }}-{{ month[0] }}-h" class="page_section-title">{{ month[0] }}月</h1>
-        <ul class="article_list">{% for post in month[1] %}
+        <ul class="article_list">
+          {%- for post in month[1] %}
           <li class="article_list-item">
             <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
             <p class="article_list-info">
               {% include icon.html icon="published" alt="公開日:" %}
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
             </p>
-          </li>{% endfor %}
+          </li>
+          {%- endfor %}
         </ul>
-      </section>{% endfor %}
+      </section>
+      {%- if forloop.first %}
+      {%- unless forloop.last %}
+      {%- include adsense.html slot=5341752516 %}
+      {%- endunless %}
+      {%- endif %}
+      {%- endfor %}
     </div>
-    {% include adsense.html %}
     <p class="pager"><a href="/explore/#by-year-h"><span aria-hidden="true">←</span> 年一覧</a></p>
   </div>
 </main>

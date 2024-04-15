@@ -14,33 +14,36 @@ permalink: /explore/
       </div>
     </div>
   </section>
+  {% include adsense.html slot=5341752516 %}
   <section class="page_section">
     <h1 tabindex="-1" id="by-year-h" class="page_section-title">年別</h1>
-  {% assign year_posts = site.posts | group_by_year %}
+    {%- assign year_posts = site.posts | group_by_year %}
     <ul class="archive_list">
-  {% for year_post in year_posts %}{% assign year = year_post[0] %}
+      {%- for year_post in year_posts %}
+      {%- assign year = year_post[0] %}
       <li class="archive_list-year">
         <a href="/{{ year_post[0] }}/">
           {% include icon.html icon="published" hidden=true %}
           {{ year }}年
         </a>
-  {% assign month_posts = year_post[1] | group_by_month %}
+        {%- assign month_posts = year_post[1] | group_by_month %}
         <ul class="archive_list-months">
-  {% for month in (1..12) reversed %}{% assign size = month_posts[month] | size %}
+          {%- for month in (1..12) reversed %}
+          {%- assign size = month_posts[month] | size %}
           <li{% if size == 0 %} aria-hidden="true"{% endif %} class="archive_list-month">
             {% if size != 0 %}<a href="/{{ year_post[0] }}/#archive-{{ year }}-{{ month }}-h">{% endif %}{{ month }}月{% if size != 0 %}</a>{% endif %}
           </li>
-  {% endfor %}
+          {%- endfor %}
         </ul>
       </li>
-  {% endfor %}
+      {%- endfor %}
     </ul>
   </section>
   <section class="page_section">
     <h1 tabindex="-1" id="by-tag-h" class="page_section-title">タグ別</h1>
-  {% assign selected = site.archives | where: 'type', 'tag' | sort_by_name %}
+    {%- assign selected = site.archives | where: 'type', 'tag' | sort_by_name %}
     <ul class="tag_list">
-  {% for item in selected %}
+      {%- for item in selected %}
       <li class="tag_list-tag tag">
         <a href="{{ item.url }}" class="tag-link">
           {% include icon.html icon="tag" hidden=true %}
@@ -48,8 +51,7 @@ permalink: /explore/
           <span class="tag-count"><span class="tag-bracket">(</span>{{ item.posts.size }}<span class="tag-bracket">)</span></span>
         </a>
       </li>
-  {% endfor %}
+      {%- endfor %}
     </ul>
   </section>
 </div>
-{% include adsense.html %}

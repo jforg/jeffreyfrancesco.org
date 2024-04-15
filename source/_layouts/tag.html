@@ -9,21 +9,30 @@ layout: base
         <p class="page_header-summary">タグ「{{ page.title }}」が付けられた記事一覧</p>
       </div>
     </header>
-    <div class="page_content">{% assign year_posts = page.posts | group_by_year %}{% for year_post in year_posts %}
+    <div class="page_content">
+      {%- assign year_posts = page.posts | group_by_year %}
+      {%- for year_post in year_posts %}
       <section class="page_section">
         <h1 class="page_section-title">{{ year_post[0] }}年</h1>{% assign posts = year_post[1] %}
-        <ul class="article_list">{% for post in posts %}
+        <ul class="article_list">
+          {%- for post in posts %}
           <li class="article_list-item">
             <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
             <p class="article_list-info">
               {% include icon.html icon="published" alt="公開日:" %}
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
             </p>
-          </li>{% endfor %}
+          </li>
+          {%- endfor %}
         </ul>
-      </section>{% endfor %}
+      </section>
+      {%- if forloop.first %}
+      {%- unless forloop.last %}
+      {%- include adsense.html slot=5341752516 %}
+      {%- endunless %}
+      {%- endif %}
+      {%- endfor %}
     </div>
-    {% include adsense.html %}
     <p class="pager"><a href="/explore/#by-tag-h"><span aria-hidden="true">←</span> タグ一覧</a></p>
   </div>
 </main>
