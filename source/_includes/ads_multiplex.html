@@ -1,0 +1,22 @@
+<aside class="adsense">
+  <div class="adsense-content">
+    {%- if jekyll.environment == 'production' %}
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-format="autorelaxed"
+    data-ad-client="ca-pub-8470388415032156"
+    data-ad-slot="7152160655"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    {%- else %}
+    <div>
+      <style scoped>@media (min-width:40rem) { .gridCont {grid-template-columns:repeat(3,1fr)}}</style>
+      <h2 style="margin-bottom:.375rem;font-size:112.5%">スポンサー リンク</h2>
+      <ul class="gridCont" style="display:grid;gap:.25rem;margin:0;padding:0;list-style:none">
+        {%- for _i in (1..6) %}
+        <li style="display:flex;align-items:center;justify-content:center;height:4rem;padding:1rem;background:#ccc;color:#666;text-align:center;text-transform:uppercase">adsense placeholder</li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+  </div>
+</aside>
