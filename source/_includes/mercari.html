@@ -1,0 +1,22 @@
+<aside class="affiliate">
+  {%- if include.self != true %}
+  <h2 class="affiliate-title">商品広告</h2>
+  {%- endif %}
+  <div class="affiliate-content">
+    <a href="https://jp.mercari.com/item/{{ include.code }}?afid=2797345815" class="affiliate-link">
+      <div class="affiliate-thumb">
+        <img alt="" src="
+          {%- if include.img -%}
+            {{ include.img }}
+          {%- else -%}
+            https://ambassador-system.mercari.com/v1/i?id={{ include.code }}&svc=m
+          {%- endif -%}
+        " class="affiliate-image">
+      </div>
+      <div class="affiliate-texts">
+        <p class="affiliate-name"><b>{{ include.text }}</b><br><small class="affiliate-hashtags">#PR #メルカリアンバサダー</small></p>
+        <p class="affiliate-action"><span class="affiliate-label _for-mercari">メルカリで買う</span></p>
+      </div>
+    </a>
+  </div>
+</aside>

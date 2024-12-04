@@ -66,6 +66,11 @@
 
   &._for-soundhouse {
     background-color: #795284;
-    color: #fff;
+    color: $ps-k00;
+  }
+
+  &._for-mercari {
+    background-color: #EE000E;
+    color: $ps-k00;
   }
 }
