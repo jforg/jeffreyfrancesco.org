@@ -77,3 +77,12 @@
 strong.sad {
   color: hsl(220, 75%, 30%);
 }
+
+// note
+.note {
+  margin: 3.5em 0;
+  padding: 1em 1.75em;
+  border: 2px solid $ps-k20;
+  background-color: $ps-k10;
+  color: $ps-k100;
+}
