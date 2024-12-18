@@ -6,7 +6,12 @@ permalink: /
 <main role="main" class="main">
   <div class="main-content">{% assign latest = site.posts | first %} 
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ latest.url }}">{{ latest.title | escape_once }}</a></h1>
+      <h1 class="article_summary-title">
+        <a href="{{ latest.url }}">
+          <img alt="" src="{{ latest.og.image }}" class="article_summary-thumb">
+          {{ latest.title | escape_once }}
+        </a>
+      </h1>
       <p class="article_summary-info">
         {% include icon.html icon="published" alt="公開日:" %}
         <time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | japanese_date }}</time>

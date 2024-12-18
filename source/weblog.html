@@ -8,7 +8,12 @@ permalink: /weblog/
   <section class="page_section">
     <h1 class="page_section-title">比較的新しめの記事</h1>{% assign posts = site.categories.weblog %}{% for post in posts limit: 3 %}
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ post.url }}" class="article_summary-link">{{ post.title | escape_once }}</a></h1>
+      <h1 class="article_summary-title">
+        <a href="{{ post.url }}" class="article_summary-link">
+          <img alt="" src="{{ post.og.image }}" class="article_summary-thumb">
+          {{ post.title | escape_once }}
+        </a>
+      </h1>
       <p class="article_summary-info">
         {% include icon.html icon="published" alt="公開日:" %}
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>

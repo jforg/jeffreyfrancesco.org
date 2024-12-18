@@ -9,7 +9,12 @@ permalink: /info/
     <h1 class="page_section-title">最新のお知らせ</h1>{% if newer.size == 0 %}
     <p>今のところ、近日中に出演予定の Live・Event はありません。</p>{% else %}{% assign next = newer | first %}
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ next.url }}">{{ next.title | escape_once }}</a></h1>
+      <h1 class="article_summary-title">
+        <a href="{{ next.url }}">
+          <img alt="" src="{{ next.og.image }}" class="article_summary-thumb">
+          {{ next.title | escape_once }}
+        </a>
+      </h1>
       <p class="article_summary-info"><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
       <p class="article_summary-desc">{{ next.excerpt | excerptalize }}</p>
     </section>

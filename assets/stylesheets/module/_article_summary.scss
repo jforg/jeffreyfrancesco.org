@@ -12,6 +12,11 @@
   @include auto_scaling(5);
 }
 
+.article_summary-thumb {
+  width: 100%;
+  vertical-align: baseline;
+}
+
 .article_summary-info {
   margin: {
     top: 0;
