@@ -9,6 +9,10 @@ url: "https://jeffreyfrancesco.org" # the base hostname & protocol for your site
 
 timezone: "Asia/Tokyo"
 
+# OGP default
+og:
+  image: /images/ogp_default.jpg
+
 # Build settings
 source: source
 destination: public

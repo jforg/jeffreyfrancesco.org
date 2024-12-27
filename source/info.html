@@ -11,7 +11,13 @@ permalink: /info/
     <section class="article_summary">
       <h1 class="article_summary-title">
         <a href="{{ next.url }}">
-          <img alt="" src="{{ next.og.image }}" class="article_summary-thumb">
+          <img alt="" src="
+            {%- if next.og.image -%}
+              {{ next.og.image }}
+            {%- else -%}
+              {{ site.og.image }}
+            {%- endif -%}
+          " class="article_summary-thumb">
           {{ next.title | escape_once }}
         </a>
       </h1>

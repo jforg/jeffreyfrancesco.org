@@ -8,7 +8,13 @@ permalink: /
     <section class="article_summary">
       <h1 class="article_summary-title">
         <a href="{{ latest.url }}">
-          <img alt="" src="{{ latest.og.image }}" class="article_summary-thumb">
+          <img alt="" src="
+            {%- if latest.og.image -%}
+              {{ latest.og.image }}
+            {%- else -%}
+              {{ site.og.image }}
+            {%- endif -%}
+          " class="article_summary-thumb">
           {{ latest.title | escape_once }}
         </a>
       </h1>

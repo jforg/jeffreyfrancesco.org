@@ -10,7 +10,13 @@ permalink: /weblog/
     <section class="article_summary">
       <h1 class="article_summary-title">
         <a href="{{ post.url }}" class="article_summary-link">
-          <img alt="" src="{{ post.og.image }}" class="article_summary-thumb">
+          <img alt="" src="
+            {%- if post.og.image -%}
+              {{ post.og.image }}
+            {%- else -%}
+              {{ site.og.image }}
+            {%- endif -%}
+          " class="article_summary-thumb">
           {{ post.title | escape_once }}
         </a>
       </h1>

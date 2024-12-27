@@ -4,15 +4,13 @@
   {%- for post in site.related_posts limit: 5 %}
     <li class="related_list-item">
       <a href="{{ post.url }}" class="related_list-link" title="{{ post.title | escape_once }}">
-        <div class="related_list-thumb">
-          <img alt="" src="
-            {%- if post.og.image -%}
-              {{ post.og.image }}
-            {%- else -%}
-              /images/ogp_default.jpg
-            {%- endif -%}
-          " class="related_list-image" />
-        </div>
+        <img alt="" src="
+          {%- if post.og.image -%}
+            {{ post.og.image }}
+          {%- else -%}
+            {{ site.og.image }}
+          {%- endif -%}
+        " class="related_list-thumb" />
         <p class="related_list-texts">
           <span class="related_list-title">{{ post.title | truncate: 40 | escape_once }}</span>
           <span class="related_list-info">
