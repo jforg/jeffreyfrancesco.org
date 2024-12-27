@@ -18,11 +18,22 @@ layout: base
         <ul class="article_list">
           {%- for post in month[1] %}
           <li class="article_list-item">
-            <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
-            <p class="article_list-info">
-              {% include icon.html icon="published" alt="公開日:" %}
-              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
-            </p>
+            <a href="{{ post.url }}" class="article_list-link" title="{{ post.title | escape_once }}">
+              <span class="article_list-thumb">
+                <img alt="" src="
+                  {%- if post.og.image -%}
+                    {{ post.og.image }}
+                  {%- else -%}
+                    {{ site.og.image }}
+                  {%- endif -%}
+                " class="article_list-image" />
+              </span>
+              <span class="article_list-title">{{ post.title | escape_once }}</span>
+              <span class="article_list-info">
+                {% include icon.html icon="published" alt="公開日:" %}
+                <time datetime="{{ post.date | date_to_xmlschema }}" class="article_list-date">{{ post.date | japanese_date}}</time>
+              </span>
+            </a>
           </li>
           {%- endfor %}
         </ul>

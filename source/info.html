@@ -37,13 +37,28 @@ permalink: /info/
   {% include adsense.html slot=5341752516 %}
   <section class="page_section">
     <h1 class="page_section-title">過去のお知らせ一覧</h1>
-    <ul class="article_list">{% assign older = site.categories.info | select_older %}{% for event in older limit:10 %}
+    <ul class="article_list">
+      {%- assign older = site.categories.info | select_older %}
+      {%- for event in older limit:12 %}
       <li class="article_list-item">
-        <a href="{{ event.url }}">{{ event.title | escape_once }}</a>{% if event.schema %}
-        <p class="article_list-info">
-          <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
-        </p>{% endif %}
-      </li>{% endfor %}
+        <a href="{{ event.url }}" class="article_list-link" title="{{ event.title | escape_once }}">
+          <span class="article_list-thumb">
+            <img alt="" src="
+              {%- if event.og.image -%}
+                {{ event.og.image }}
+              {%- else -%}
+                {{ site.og.image }}
+              {%- endif -%}
+            " class="article_list-image" />
+          </span>
+          <span class="article_list-title">{{ event.title | escape_once }}</span>
+          <span class="article_list-info">
+            {% include icon.html icon="published" alt="公開日:" %}
+            <time datetime="{{ event.date | date_to_xmlschema }}" class="article_list-date">{{ event.date | japanese_date}}</time>
+          </span>
+        </a>
+      </li>
+      {%- endfor %}
     </ul>
   </section>
 </div>

@@ -4,20 +4,20 @@
   {%- for post in site.related_posts limit: 5 %}
     <li class="related_list-item">
       <a href="{{ post.url }}" class="related_list-link" title="{{ post.title | escape_once }}">
-        <img alt="" src="
-          {%- if post.og.image -%}
-            {{ post.og.image }}
-          {%- else -%}
-            {{ site.og.image }}
-          {%- endif -%}
-        " class="related_list-thumb" />
-        <p class="related_list-texts">
-          <span class="related_list-title">{{ post.title | truncate: 40 | escape_once }}</span>
-          <span class="related_list-info">
-            {% include icon.html icon="published" alt="公開日:" %}
-            <time datetime="{{ post.date | date_to_xmlschema }}" class="related_list-date">{{ post.date | japanese_date}}</time>
-          </span>
-        </p>
+        <span class="related_list-thumb">
+          <img alt="" src="
+            {%- if post.og.image -%}
+              {{ post.og.image }}
+            {%- else -%}
+              {{ site.og.image }}
+            {%- endif -%}
+          " class="related_list-image" />
+        </span>
+        <span class="related_list-title">{{ post.title | escape_once }}</span>
+        <span class="related_list-info">
+          {% include icon.html icon="published" alt="公開日:" %}
+          <time datetime="{{ post.date | date_to_xmlschema }}" class="related_list-date">{{ post.date | japanese_date}}</time>
+        </span>
       </a>
     </li>
     {%- if forloop.last %}
@@ -33,7 +33,7 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
       {%- else %}
-      <div style="display:flex;align-items:center;justify-content:center;height:100%;background:#ccc;color:#666">
+      <div style="display:flex;align-items:center;justify-content:center;flex-grow:1;height:100%;background:#ccc;color:#666">
         <span style="padding:1rem;text-align:center;text-transform:uppercase">adsense placeholder</span>
       </div>
       {%- endif %}
