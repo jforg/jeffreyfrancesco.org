@@ -458,6 +458,7 @@ del {
 img {
   @extend %embedded-content;
   max-width: 100%;
+  width: auto;
   height: auto;
 }
 
