@@ -39,6 +39,7 @@ kramdown:
   entity_output: numeric
   hard_wrap: true
   syntax_highlighter: nil
+  smart_quotes: ["apos", "apos", "quot", "quot"]
 
 # Archive-pages settings
 jekyll-archives:
