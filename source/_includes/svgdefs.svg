@@ -1,11 +1,5 @@
 <svg display="none" width="0" height="0">
 <defs>
-<symbol id="icon-jforg" viewBox="0 0 140 140">
-  <title id="icon-jforg-title">JeffreyFrancesco.org</title>
-  <path d="M0 0v90h40V0zm50 0v90h40V0zm50 0v90h40V0z" fill-opacity=".6"/>
-  <path d="M0 100v40h40v-40zm50 0v40h40v-40z" fill-opacity=".9"/>
-  <path d="M100 100v40h40v-40z" fill-opacity=".3"/>
-</symbol>
 <symbol id="icon-published" viewBox="0 0 1024 1024">
   <title id="icon-published-title">公開日</title>
   <path class="path1" d="M320 384h128v128h-128zM512 384h128v128h-128zM704 384h128v128h-128zM128 768h128v128h-128zM320 768h128v128h-128zM512 768h128v128h-128zM320 576h128v128h-128zM512 576h128v128h-128zM704 576h128v128h-128zM128 576h128v128h-128zM832 0v64h-128v-64h-448v64h-128v-64h-128v1024h960v-1024h-128zM896 960h-832v-704h832v704z"/>

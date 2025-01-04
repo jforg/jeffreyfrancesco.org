@@ -1,6 +1,5 @@
 <div role="banner" class="banner">{% if page.type == 'home' %}{% assign identity_tag = 'h1' %}{% assign identity_tag_attrs = '' %}{% else %}{% assign identity_tag = 'a' %}{% assign identity_tag_attrs = ' href="/"' %}{% endif %}
-  <{{ identity_tag }}{{ identity_tag_attrs }} class="identity">
-    <svg role="img" aria-labelledby="icon-jforg-title" aria-hidden="true" class="identity-symbol"><use xlink:href="#icon-jforg"></use></svg>
-    <b class="identity-sitename">{{ site.title }}</b>
+  <{{ identity_tag }}{{ identity_tag_attrs }} class="identity" aria-label="JeffreyFrancesco.org">
+    <abbr title="Jeffrey Francesco">JF</abbr>.org
   </{{ identity_tag }}>
 </div>
