@@ -23,7 +23,7 @@ permalink: /explore/
       {%- assign year = year_post[0] %}
       <li class="archive_list-year">
         <a href="/{{ year_post[0] }}/">
-          {% include icon.html icon="published" hidden=true %}
+          {% include icon.html icon="calendar" hidden=true %}
           {{ year }}年
         </a>
         {%- assign month_posts = year_post[1] | group_by_month %}

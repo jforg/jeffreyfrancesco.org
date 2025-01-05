@@ -19,7 +19,7 @@ layout: base
           <li class="article_list-item">
             <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
             <p class="article_list-info">
-              {% include icon.html icon="published" alt="公開日:" %}
+              {% include icon.html icon="calendar" alt="公開日:" %}
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
             </p>
           </li>

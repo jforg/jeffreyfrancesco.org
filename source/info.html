@@ -53,7 +53,7 @@ permalink: /info/
           </span>
           <span class="article_list-title">{{ event.title | escape_once }}</span>
           <span class="article_list-info">
-            {% include icon.html icon="published" alt="公開日:" %}
+            {% include icon.html icon="calendar" alt="公開日:" %}
             <time datetime="{{ event.date | date_to_xmlschema }}" class="article_list-date">{{ event.date | japanese_date}}</time>
           </span>
         </a>

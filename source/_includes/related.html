@@ -15,7 +15,7 @@
         </span>
         <span class="related_list-title">{{ post.title | escape_once }}</span>
         <span class="related_list-info">
-          {% include icon.html icon="published" alt="公開日:" %}
+          {% include icon.html icon="calendar" alt="公開日:" %}
           <time datetime="{{ post.date | date_to_xmlschema }}" class="related_list-date">{{ post.date | japanese_date}}</time>
         </span>
       </a>
