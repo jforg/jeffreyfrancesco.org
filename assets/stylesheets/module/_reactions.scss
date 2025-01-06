@@ -1,0 +1,100 @@
+// 
+//  component reactions
+// 
+
+// .reactions {}
+.reactions-header {
+  text-align: center;
+}
+.reactions-title {
+  @extend %reset-margin;
+  @include auto_scaling(8);
+  color: #133986;
+  font-family: Savoye LET, Freestyle Script, Brush Script MT, cursive;
+}
+.reactions-tagline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.375em;
+  color: $ps-k75;
+  font-weight: 700;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: auto;
+    border-top: 2px solid $ps-k50;
+  }
+  &::before {
+    margin-right: .5em;
+  }
+  &::after {
+    margin-left: .5em;
+  }
+}
+.reactions-content {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 1em;
+}
+.reactions-section {
+  display: grid;
+
+  @media (min-width: 35em) {
+    gap: .25rem;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+  }
+}
+
+// 
+// related components share, save
+// 
+
+// .share, .save {}
+.share-title,
+.save-title {
+  @extend %reset-margin;
+  color: $ps-k90;
+  font-size: 100%;
+  font-weight: 700;
+
+  @media not all and (min-width: 35em) {
+    margin-bottom: .375em;
+    text-align: center;
+  }
+}
+.share-list,
+.save-list {
+  @extend %reset-margin;
+  @extend %reset-padding;
+  @extend %reset-liststyle;
+
+  display: grid;
+  gap: .25rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.share-link,
+.save-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  border-radius: 4px;
+  background-color: $ps-k80;
+  color: $ps-k00;
+  font-size: 125%;
+}
+.share-link._to-x {
+  background-color: $brand-x;
+}
+.share-link._to-facebook {
+  background-color: $brand-facebook;
+}
+.save-link._to-hatena {
+  background-color: $brand-hatena;
+}
+.save-link._to-pocket {
+  background-color: $brand-pocket;
+}

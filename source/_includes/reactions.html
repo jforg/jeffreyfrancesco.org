@@ -1,0 +1,22 @@
+<aside class="reactions">
+  <header class="reactions-header">
+    <p class="reactions-tagline">この記事は気に入っていただけましたか?</p>
+    <h2 class="reactions-title">I’d be happy to receive your reactions!</h2>
+  </header>
+  <div class="reactions-content">
+    <section class="reactions-section share">
+      <h3 class="share-title">記事を共有：</h3>
+      <ul class="share-list">
+        <li class="share-item"><a href="https://x.com/intent/post?url={{ page.url | absolute_url | cgi_escape }}&text={{ page.title | cgi_escape }}" rel="noopener" target="_blank" class="share-link _to-x">{% include icon.html icon="x" alt="X（旧 Twitter）でシェア" %}</a></li>
+        <li class="share-item"><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | cgi_escape }}" rel="noopener" target="_blank" class="share-link _to-facebook">{% include icon.html icon="facebook" alt="Facebook でシェア" %}</a></li>
+      </ul>
+    </section>
+    <section class="reactions-section save">
+      <h3 class="save-title">記事を保存：</h3>
+      <ul class="save-list">
+        <li class="save-item"><a href="https://b.hatena.ne.jp/add?mode=confirm&url={{ page.url | absolute_url | cgi_escape }}" rel="noopener" target="_blank" class="save-link _to-hatena">{% include icon.html icon="hatena" alt="はてなブックマークに保存" %}</a></li>
+        <li class="save-item"><a href="https://getpocket.com/edit?url={{ page.url | absolute_url | cgi_escape }}" rel="noopener" target="_blank" class="save-link _to-pocket">{% include icon.html icon="pocket" alt="Pocket に保存" %}</a></li>
+      </ul>
+    </section>
+  </div>
+</aside>
