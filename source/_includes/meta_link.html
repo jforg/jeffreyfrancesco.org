@@ -2,7 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {% auto_description meta xml %}
 {% if page.noindex == true %}<meta name="robots" content="noindex,follow" />{% endif %}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" media="all" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" media="all" />
 {% if jekyll.environment == 'production' %}
 <link rel="stylesheet" href="{{ site.data.manifest['main.css'] }}" media="all" />
 {% endif %}

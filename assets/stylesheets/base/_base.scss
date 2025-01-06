@@ -78,6 +78,7 @@ address {
 h1 {
   margin: 0;
   color: #333;
+  font-weight: 650;
   @include auto_scaling(4);
 }
 
@@ -87,6 +88,7 @@ h2 {
     bottom: $_base-vunit * 4 / get_fs(5) + em;
   }
   color: #333;
+  font-weight: 650;
   @include auto_scaling(5);
 }
 
@@ -107,6 +109,7 @@ h4 {
   }
   color: #333;
   font-size: set_relative_fs(18px);
+  font-weight: 650;
   line-height: set_relative_lh(get_lh(4), 18px);
 }
 
@@ -126,6 +129,7 @@ h6 {
     bottom: 0;
   }
   color: #333;
+  font-weight: 650;
   @include auto_scaling(4);
 
   & + %paragraph {
@@ -302,7 +306,7 @@ dl {
 dt {
   @extend %paragraph;
   color: #333;
-  font-weight: 700;
+  font-weight: 650;
 
   &:before {
     content: '';
@@ -354,6 +358,9 @@ em {
   }
 }
 
+b, strong {
+  font-weight: 650;
+}
 strong {
   color: hsl(10, 75%, 45%);
 }
