@@ -10,14 +10,15 @@
 }
 .reactions-title {
   @extend %reset-margin;
-  @include auto_scaling(8);
   color: #133986;
-  font-family: Savoye LET, Freestyle Script, Brush Script MT, cursive;
+  font: 400 225%/1.3333 Lobster, Brush Script MT, cursive;
+  font-size-adjust: cap-height .748;
+  text-wrap: balance;
 }
 .reactions-tagline {
   display: flex;
   align-items: center;
-  margin-bottom: 1.375em;
+  margin-bottom: 1em;
   color: $ps-k75;
   font-weight: 650;
 
@@ -38,7 +39,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 1em;
+  margin-top: 1.75em;
 }
 .reactions-section {
   display: grid;
