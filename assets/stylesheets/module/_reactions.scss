@@ -43,9 +43,9 @@
 }
 .reactions-section {
   display: grid;
+  gap: .25rem;
 
   @media (min-width: 35em) {
-    gap: .25rem;
     grid-template-columns: max-content 1fr;
     align-items: center;
   }
@@ -64,7 +64,6 @@
   font-weight: 650;
 
   @media not all and (min-width: 35em) {
-    margin-bottom: .375em;
     text-align: center;
   }
 }
