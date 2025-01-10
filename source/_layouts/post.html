@@ -9,7 +9,7 @@ layout: base
         <ul class="article_info">
           <li class="article_info-item">
             {% include icon.html icon="calendar" alt="公開日:" %}
-            <time datetime="{{ page.date | date_to_xmlschema }}" class="published">{{ page.date | japanese_date }}</time>
+            <time datetime="{{ page.date | date_to_xmlschema }}" class="published">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
           </li>
         </ul>
       </div>

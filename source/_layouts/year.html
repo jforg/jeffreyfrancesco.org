@@ -31,7 +31,7 @@ layout: base
               <span class="article_list-title">{{ post.title | escape_once }}</span>
               <span class="article_list-info">
                 {% include icon.html icon="calendar" alt="公開日:" %}
-                <time datetime="{{ post.date | date_to_xmlschema }}" class="article_list-date">{{ post.date | japanese_date}}</time>
+                <time datetime="{{ post.date | date_to_xmlschema }}" class="article_list-date">{{ post.date | date: "%Y 年 %-m 月 %-d 日"}}</time>
               </span>
             </a>
           </li>

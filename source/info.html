@@ -21,7 +21,7 @@ permalink: /info/
           {{ next.title | escape_once }}
         </a>
       </h1>
-      <p class="article_summary-info"><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
+      <p class="article_summary-info"><time datetime="{{ next.schema.start_at | date_to_xmlschema }}">{{ next.schema.start_at | date: "%Y 年 %-m 月 %-d 日 %H 時 %M 分" }}</time> @ {{ next.schema.place }}</p>
       <p class="article_summary-desc">{{ next.excerpt | excerptalize }}</p>
     </section>
     {% if newer.size > 1 %}
@@ -29,7 +29,7 @@ permalink: /info/
       <li class="article_list-item">
         <a href="{{ event.url }}">{{ event.title | escape_once }}</a>
         <p class="article_list-info">
-          <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
+          <time datetime="{{ event.schema.start_at | date_to_xmlschema }}">{{ event.schema.start_at | date: "%Y 年 %-m 月 %-d 日 %H 時 %M 分" }}</time> @ {{ event.schema.place }}
         </p>
       </li>{% endfor %}
     </ul>{% endif %}{% endif %}
@@ -54,7 +54,7 @@ permalink: /info/
           <span class="article_list-title">{{ event.title | escape_once }}</span>
           <span class="article_list-info">
             {% include icon.html icon="calendar" alt="公開日:" %}
-            <time datetime="{{ event.date | date_to_xmlschema }}" class="article_list-date">{{ event.date | japanese_date}}</time>
+            <time datetime="{{ event.date | date_to_xmlschema }}" class="article_list-date">{{ event.date | date: "%Y 年 %-m 月 %-d 日"}}</time>
           </span>
         </a>
       </li>
