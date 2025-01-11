@@ -22,9 +22,9 @@ permalink: /explore/
       {%- for year_post in year_posts %}
       {%- assign year = year_post.name %}
       <li class="archive_list-year">
-        <a href="/{{ year }}/">
+        <a href="/{{ year }}/" class="archive_list-link _has-icon">
           {% include icon.html icon="calendar" hidden=true %}
-          {{ year }}年
+          {{ year }} 年
         </a>
         {%- assign month_posts = year_post.items | group_by_exp: "post", "post.date | date: '%-m'" %}
         <ul class="archive_list-months">
@@ -32,9 +32,9 @@ permalink: /explore/
           {%- assign month_post = month_posts | find: "name", month %}
           <li class="archive_list-month">
             {%- if month_post.size -%}
-            <a href="/{{ year }}/#archive-{{ year }}-{{ month }}-h" class="archive_list-link">{{ month }} 月</a>
+            <a href="/{{ year }}/#archive-{{ year }}-{{ month }}-h" class="archive_list-link _has-post">{{ month }} 月</a>
             {%- else -%}
-            <span class="archive_list-empty">{{ month }} 月</span>
+            <a class="archive_list-link _no-posts">{{ month }} 月</a>
             {%- endif -%}
           </li>
           {%- endfor %}
