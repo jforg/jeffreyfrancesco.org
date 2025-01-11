@@ -10,12 +10,12 @@ layout: base
       </div>
     </header>
     <div class="page_content">
-      {%- assign year_posts = page.posts | group_by_year %}
+      {%- assign year_posts = page.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
       {%- for year_post in year_posts %}
       <section class="page_section">
-        <h1 class="page_section-title">{{ year_post[0] }}年</h1>{% assign posts = year_post[1] %}
+        <h1 class="page_section-title">{{ year_post.name }} 年</h1>
         <ul class="article_list">
-          {%- for post in posts %}
+          {%- for post in year_post.items %}
           <li class="article_list-item">
             <a href="{{ post.url }}" class="article_list-link" title="{{ post.title | escape_once }}">
               <span class="article_list-thumb">

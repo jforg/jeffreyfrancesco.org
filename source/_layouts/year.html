@@ -11,12 +11,12 @@ layout: base
       </div>
     </header>
     <div class="page_content">
-      {%- assign posts = page.posts | group_by_month %}
-      {%- for month in posts %}
+      {%- assign month_posts = page.posts | group_by_exp: "post", "post.date | date: '%-m'" %}
+      {%- for month_post in month_posts %}
       <section class="page_section">
-        <h1 tabindex="-1" id="archive-{{ year }}-{{ month[0] }}-h" class="page_section-title">{{ month[0] }}月</h1>
+        <h1 tabindex="-1" id="archive-{{ year }}-{{ month_post.name }}-h" class="page_section-title">{{ month_post.name }} 月</h1>
         <ul class="article_list">
-          {%- for post in month[1] %}
+          {%- for post in month_post.items %}
           <li class="article_list-item">
             <a href="{{ post.url }}" class="article_list-link" title="{{ post.title | escape_once }}">
               <span class="article_list-thumb">
