@@ -44,6 +44,17 @@ layout: base
       {%- endif %}
       {%- endfor %}
     </div>
-    <p class="pager"><a href="/{{ page.title }}/"><span aria-hidden="true">←</span> {{ page.title | to_category_name }} 最新</a></p>
+    <nav class="pagination">
+      <ul class="pagination-list">
+        <li class="pagination-prev">
+          <a href="/{{ page.title }}/" class="pagination-link _prev">
+            <span class="pagination-texts _prev">
+              <span class="pagination-label">{{ page.title | to_category_name }}</span>
+              <span class="pagination-title">最新</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </main>

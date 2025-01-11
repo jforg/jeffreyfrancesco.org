@@ -18,6 +18,30 @@ layout: base
     {% include adsense.html %}
     {% include reactions.html %}
     {% include related.html %}
+    <nav class="pagination">
+      <ul class="pagination-list">
+        {% if page.previous %}
+        <li class="pagination-prev">
+          <a href="{{ page.previous.url }}" class="pagination-link _prev">
+            <span class="pagination-texts _prev">
+              <span class="pagination-label">前の記事</span>
+              <span class="pagination-title">{{ page.previous.title }}</span>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+        {% if page.next %}
+        <li class="pagination-next">
+          <a href="{{ page.next.url }}" class="pagination-link _next">
+            <span class="pagination-texts _next">
+              <span class="pagination-label">次の記事</span>
+              <span class="pagination-title">{{ page.next.title }}</span>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
     {% include ads_multiplex.html %}
   </div>
 </main>

@@ -45,6 +45,31 @@ layout: base
       {%- endif %}
       {%- endfor %}
     </div>
-    <p class="pager"><a href="/explore/#by-year-h"><span aria-hidden="true">←</span> 年一覧</a></p>
+    <!-- test -->
+    {%- assign archive_paginator = year | get_archive_paginator %}
+    <nav class="pagination">
+      <ul class="pagination-list">
+        {%- if archive_paginator.previous %}
+        <li class="pagination-prev">
+          <a href="/{{ archive_paginator.previous }}/" class="pagination-link _prev">
+            <span class="pagination-texts _prev">
+              <span class="pagination-label">前の年</span>
+              <span class="pagination-title">{{ archive_paginator.previous }} 年の記事一覧</span>
+            </span>
+          </a>
+        </li>
+        {%- endif %}
+        {%- if archive_paginator.next %}
+        <li class="pagination-next">
+          <a href="/{{ archive_paginator.next }}/" class="pagination-link _next">
+            <span class="pagination-texts _next">
+              <span class="pagination-label">次の年</span>
+              <span class="pagination-title">{{ archive_paginator.next }} 年の記事一覧</span>
+            </span>
+          </a>
+        </li>
+        {%- endif %}
+      </ul>
+    </nav>
   </div>
 </main>

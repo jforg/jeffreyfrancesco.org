@@ -57,4 +57,15 @@ permalink: /weblog/
     </ul>
   </section>
 </div>
-<p class="pager"><a href="{{ page.url }}all/">全記事一覧 <span aria-hidden="true">→</span></a></p>
+<nav class="pagination">
+  <ul class="pagination-list">
+    <li class="pagination-next">
+      <a href="{{ page.url }}all/" class="pagination-link _next">
+        <span class="pagination-texts _next">
+          <span class="pagination-label">{{ page.title }}</span>
+          <span class="pagination-title">全記事一覧</span>
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
