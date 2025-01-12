@@ -35,11 +35,12 @@ defaults:
 # Markdown converter settings
 markdown: kramdown
 kramdown:
-  auto_ids: false
+  auto_ids: true
   entity_output: numeric
   hard_wrap: true
   syntax_highlighter: nil
   smart_quotes: ["apos", "apos", "quot", "quot"]
+  transliterated_header_ids: true
 
 # Archive-pages settings
 jekyll-archives:
