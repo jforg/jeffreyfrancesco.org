@@ -1,7 +1,7 @@
 <aside class="related_section">
   <h2 class="related_section-title">関連してそうな記事<small>（β版）</small></h2>
   <ul class="related_list">
-  {%- for post in site.related_posts limit: 5 %}
+  {%- for post in site.related_posts limit: 10 %}
     <li class="related_list-item">
       <a href="{{ post.url }}" class="related_list-link" title="{{ post.title | escape_once }}">
         <span class="related_list-thumb">
@@ -20,7 +20,8 @@
         </span>
       </a>
     </li>
-    {%- if forloop.last %}
+    {%- assign checker = forloop.index | modulo: 4 %}
+    {%- if checker == 0 %}
     <li class="related_list-item">
       {%- if jekyll.environment == 'production' %}
       <div class="related_list-ad">
@@ -29,7 +30,7 @@
           data-ad-client="ca-pub-8470388415032156"
           data-ad-slot="1872744396"
           data-ad-format="fluid"
-          data-ad-layout-key="-7w+eo+1+2-5"></ins>
+          data-ad-layout-key="-7w+dw+2x-13-40"></ins>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
