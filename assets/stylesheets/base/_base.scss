@@ -348,13 +348,7 @@ em {
   @extend %normal-style-if-japanese;
 
   &:lang(ja) {
-    border-bottom: 3px double;
-
-    @supports (text-emphasis: circle) or (-webkit-text-emphasis: circle) {
-      border: 0;
-      -webkit-text-emphasis: circle;
-      text-emphasis: circle;
-    }
+    text-emphasis: dot;
   }
 }
 
