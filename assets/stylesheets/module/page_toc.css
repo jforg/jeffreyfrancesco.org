@@ -1,0 +1,63 @@
+/*
+ *  component page_toc 記事目次
+ */
+.page_toc {
+  --color-ps-k10: #efefef;
+  --color-ps-k25: #d3d3d4;
+  --color-ps-k50: #9fa0a0;
+  --color-ps-k75: #666464;
+  --color-ps-k100:  #221815;
+
+  details {
+    margin: auto;
+    border: 3px solid var(--color-ps-k25);
+
+    &[open] {
+      border-color: var(--color-ps-k50);
+    }
+
+    &:not([open]) {
+      width: fit-content;
+      background-color: var(--color-ps-k10);
+      color: var(--color-ps-k75);
+    }
+  }
+
+  summary {
+    padding: .75rem 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  ol[id] {
+    margin: 0 1rem 1.75rem;
+    padding-top: .75rem;
+    border-top: 3px double var(--color-ps-k25);
+  }
+}
+
+/* 狭い画面ではフォントサイズを小さく */
+@media (width < 35em) {
+  .page_toc ol[id] {
+    font-size: 87.5%;
+  }
+}
+
+/* :has セレクタを理解する場合のみ */
+@supports selector(:has(a)) {
+
+  /* フォーカスリングを details につける（summary のは消す） */
+  .page_toc details:focus-within:has(summary:focus-visible) {
+    outline: auto;
+    outline-color: -webkit-focus-ring-color;
+  }
+  .page_toc summary:focus-visible {
+    outline: none;
+  }
+
+  /* マウスホバー時に色を少し濃く */
+  .page_toc details:not([open]):has(summary:hover) {
+    border-color: var(--color-ps-k50);
+    color: var(--color-ps-k100);
+  }
+}
