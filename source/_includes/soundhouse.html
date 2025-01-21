@@ -1,0 +1,30 @@
+{%- comment -%}
+<!--
+
+  書式：
+  {% include soundhouse.html code="<include.code>" text="<include.text>" img="<include.img>" %}
+
+  パラメーター：
+  <include.code> … 商品 URL の最後の数値部分
+  <include.img>  … 任意の商品画像 URL のうち最後の n/filename.jpg の部分（n は filename の最初の 1 字）
+  <include.text> … リンクテキスト、通常は商品名
+
+  -->
+{%- endcomment -%}
+<aside class="affiliate">
+  <h2 class="affiliate-title">商品広告</h2>
+  <div class="affiliate-content">
+    <a href="//h.accesstrade.net/sp/cc?rk=01001xqc00nqgk&url=https%3A%2F%2Fwww.soundhouse.co.jp%2Fproducts%2Fdetail%2Fitem%2F{{ include.code }}%2F" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" class="affiliate-link">
+      <div class="affiliate-thumb">
+        <img alt="" src="//www.soundhouse.co.jp/images/shop/prod_img/{{ include.img }}" class="affiliate-image">
+      </div>
+      <div class="affiliate-texts">
+        <p class="affiliate-name">
+          <b>{{ include.text }}</b>
+          <img alt="" src="//h.accesstrade.net/sp/rr?rk=01001xqc00nqgk" height="1" width="0" class="affiliate-beacon">
+        </p>
+        <p class="affiliate-action"><span class="affiliate-label _for-soundhouse">サウンドハウスで買う</span></p>
+      </div>
+    </a>
+  </div>
+</aside>

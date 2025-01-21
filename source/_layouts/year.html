@@ -11,18 +11,29 @@ layout: base
       </div>
     </header>
     <div class="page_content">
-      {%- assign posts = page.posts | group_by_month %}
-      {%- for month in posts %}
+      {%- assign month_posts = page.posts | group_by_exp: "post", "post.date | date: '%-m'" %}
+      {%- for month_post in month_posts %}
       <section class="page_section">
-        <h1 tabindex="-1" id="archive-{{ year }}-{{ month[0] }}-h" class="page_section-title">{{ month[0] }}月</h1>
+        <h1 tabindex="-1" id="archive-{{ year }}-{{ month_post.name }}-h" class="page_section-title">{{ month_post.name }} 月</h1>
         <ul class="article_list">
-          {%- for post in month[1] %}
+          {%- for post in month_post.items %}
           <li class="article_list-item">
-            <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
-            <p class="article_list-info">
-              {% include icon.html icon="published" alt="公開日:" %}
-              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
-            </p>
+            <a href="{{ post.url }}" class="article_list-link" title="{{ post.title | escape_once }}">
+              <span class="article_list-thumb">
+                <img alt="" src="
+                  {%- if post.og.image -%}
+                    {{ post.og.image }}
+                  {%- else -%}
+                    {{ site.og.image }}
+                  {%- endif -%}
+                " class="article_list-image" />
+              </span>
+              <span class="article_list-title">{{ post.title | escape_once }}</span>
+              <span class="article_list-info">
+                {% include icon.html icon="calendar" alt="公開日:" %}
+                <time datetime="{{ post.date | date_to_xmlschema }}" class="article_list-date">{{ post.date | date: "%Y 年 %-m 月 %-d 日"}}</time>
+              </span>
+            </a>
           </li>
           {%- endfor %}
         </ul>
@@ -34,6 +45,31 @@ layout: base
       {%- endif %}
       {%- endfor %}
     </div>
-    <p class="pager"><a href="/explore/#by-year-h"><span aria-hidden="true">←</span> 年一覧</a></p>
+    <!-- test -->
+    {%- assign archive_paginator = year | get_archive_paginator %}
+    <nav class="pagination">
+      <ul class="pagination-list">
+        {%- if archive_paginator.previous %}
+        <li class="pagination-prev">
+          <a href="/{{ archive_paginator.previous }}/" class="pagination-link _prev">
+            <span class="pagination-texts _prev">
+              <span class="pagination-label">前の年</span>
+              <span class="pagination-title">{{ archive_paginator.previous }} 年の記事一覧</span>
+            </span>
+          </a>
+        </li>
+        {%- endif %}
+        {%- if archive_paginator.next %}
+        <li class="pagination-next">
+          <a href="/{{ archive_paginator.next }}/" class="pagination-link _next">
+            <span class="pagination-texts _next">
+              <span class="pagination-label">次の年</span>
+              <span class="pagination-title">{{ archive_paginator.next }} 年の記事一覧</span>
+            </span>
+          </a>
+        </li>
+        {%- endif %}
+      </ul>
+    </nav>
   </div>
 </main>

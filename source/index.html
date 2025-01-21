@@ -4,24 +4,49 @@ type:   home
 permalink: /
 ---
 <main role="main" class="main">
-  <div class="main-content">{% assign latest = site.posts | first %} 
+  <div class="main-content">
+    {%- assign latest = site.posts | first %} 
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ latest.url }}">{{ latest.title | escape_once }}</a></h1>
+      <h1 class="article_summary-title">
+        <a href="{{ latest.url }}">
+          <img alt="" src="
+            {%- if latest.og.image -%}
+              {{ latest.og.image }}
+            {%- else -%}
+              {{ site.og.image }}
+            {%- endif -%}
+          " class="article_summary-thumb">
+          {{ latest.title | escape_once }}
+        </a>
+      </h1>
       <p class="article_summary-info">
-        {% include icon.html icon="published" alt="公開日:" %}
-        <time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | japanese_date }}</time>
+        {% include icon.html icon="calendar" alt="公開日:" %}
+        <time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
       </p>
       <p class="article_summary-desc">{{ latest.excerpt | excerptalize }}</p>
     </section>
     {% include adsense.html slot=5341752516 %}
-    <ul class="article_list">{% for post in site.posts offset:1 limit:9 %}
+    <ul class="article_list">
+      {%- for post in site.posts offset:1 limit:12 %}
       <li class="article_list-item">
-        <a href="{{ post.url }}">{{ post.title | escape_once }}</a>
-        <p class="article_list-info">
-          {% include icon.html icon="published" alt="公開:" %}
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
-        </p>
-      </li>{% endfor %}
+        <a href="{{ post.url }}" class="article_list-link" title="{{ post.title | escape_once }}">
+          <span class="article_list-thumb">
+            <img alt="" src="
+              {%- if post.og.image -%}
+                {{ post.og.image }}
+              {%- else -%}
+                {{ site.og.image }}
+              {%- endif -%}
+            " class="article_list-image" />
+          </span>
+          <span class="article_list-title">{{ post.title | escape_once }}</span>
+          <span class="article_list-info">
+            {% include icon.html icon="calendar" alt="公開日:" %}
+            <time datetime="{{ post.date | date_to_xmlschema }}" class="article_list-date">{{ post.date | date: "%Y 年 %-m 月 %-d 日"}}</time>
+          </span>
+        </a>
+      </li>
+      {%- endfor %}
     </ul>
     {% include ads_multiplex.html %}
   </div>

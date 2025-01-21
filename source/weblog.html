@@ -6,28 +6,66 @@ permalink: /weblog/
 ---
 <div class="page_content">
   <section class="page_section">
-    <h1 class="page_section-title">比較的新しめの記事</h1>{% assign posts = site.categories.weblog %}{% for post in posts limit: 3 %}
+    <h1 class="page_section-title">比較的新しめの記事</h1>
+    {%- assign posts = site.categories.weblog %}
+    {%- for post in posts limit: 3 %}
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ post.url }}" class="article_summary-link">{{ post.title | escape_once }}</a></h1>
+      <h1 class="article_summary-title">
+        <a href="{{ post.url }}" class="article_summary-link">
+          <img alt="" src="
+            {%- if post.og.image -%}
+              {{ post.og.image }}
+            {%- else -%}
+              {{ site.og.image }}
+            {%- endif -%}
+          " class="article_summary-thumb">
+          {{ post.title | escape_once }}
+        </a>
+      </h1>
       <p class="article_summary-info">
-        {% include icon.html icon="published" alt="公開日:" %}
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date }}</time>
+        {% include icon.html icon="calendar" alt="公開日:" %}
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
       </p>
       <p class="article_summary-desc">{{ post.excerpt | excerptalize }}</p>
-    </section>{% endfor %}
+    </section>
+    {%- endfor %}
   </section>
   {% include adsense.html slot=5341752516 %}
   <section class="page_section">
     <h1 class="page_section-title">もう少し古い記事</h1>
-    <ul class="article_list">{% for post in posts offset:3 limit:10 %}
+    <ul class="article_list">
+      {%- for post in posts offset:3 limit:12 %}
       <li class="article_list-item">
-        <a href="{{ post.url }}" class="article_list-link">{{ post.title | escape_once }}</a>
-        <p class="article_list-info">
-          {% include icon.html icon="published" alt="公開日:" %}
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | japanese_date}}</time>
-        </p>
-      </li>{% endfor %}
+        <a href="{{ post.url }}" class="article_list-link" title="{{ post.title | escape_once }}">
+          <span class="article_list-thumb">
+            <img alt="" src="
+              {%- if post.og.image -%}
+                {{ post.og.image }}
+              {%- else -%}
+                {{ site.og.image }}
+              {%- endif -%}
+            " class="article_list-image" />
+          </span>
+          <span class="article_list-title">{{ post.title | escape_once }}</span>
+          <span class="article_list-info">
+            {% include icon.html icon="calendar" alt="公開日:" %}
+            <time datetime="{{ post.date | date_to_xmlschema }}" class="article_list-date">{{ post.date | date: "%Y 年 %-m 月 %-d 日"}}</time>
+          </span>
+        </a>
+      </li>
+      {%- endfor %}
     </ul>
   </section>
 </div>
-<p class="pager"><a href="{{ page.url }}all/">全記事一覧 <span aria-hidden="true">→</span></a></p>
+<nav class="pagination">
+  <ul class="pagination-list">
+    <li class="pagination-next">
+      <a href="{{ page.url }}all/" class="pagination-link _next">
+        <span class="pagination-texts _next">
+          <span class="pagination-label">{{ page.title }}</span>
+          <span class="pagination-title">全記事一覧</span>
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>

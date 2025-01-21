@@ -1,35 +1,8 @@
 //
-//  component article_list
+//  component article_list (Similar: .related_list)
 //
 
-.article_list {
-  @extend %reset-padding;
-  @extend %reset-liststyle;
-}
-
-.article_list-item {
-  position: relative;
-  margin: (1.75em / 2) -1em;
-  padding: (1.75em / 2) 1em 0;
-
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    border-bottom: 1px dotted #ccc;
-  }
-}
-
-.article_list-info {
-  margin: {
-    top: 0;
-  }
-}
-
-// Similar component: .related_list
-
+.article_list,
 .related_list {
   @extend %reset-padding;
   @extend %reset-liststyle;
@@ -41,22 +14,32 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.related_list-link {
-  text-decoration: none;
-}
-.related_list-image {
-  vertical-align: baseline;
-}
-.related_list-texts {
-  display: flow-root;
-  margin-top: 0;
+.article_list-item,
+.related_list-item {
+  display: flex;
   font-size: 87.5%;
   line-height: 1.5;
 }
+.article_list-link,
+.related_list-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.article_list-image,
+.related_list-image {
+  vertical-align: baseline;
+}
+.article_list-title,
 .related_list-title {
   text-decoration: underline;
 }
+.article_list-info,
 .related_list-info {
-  display: block;
+  margin-top: auto;
   color: canvastext;
+}
+.related_list-ad {
+  width: 100%;
+  min-height: 100%;
 }

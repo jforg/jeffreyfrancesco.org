@@ -63,4 +63,19 @@
     color: #C3151B;
     text-transform: uppercase;
   }
+
+  &._for-soundhouse {
+    background-color: #795284;
+    color: $ps-k00;
+  }
+
+  &._for-mercari {
+    background-color: #EE000E;
+    color: $ps-k00;
+  }
+
+  &._for-flexispot {
+    background-color: #004DF2;
+    color: $ps-k00;
+  }
 }

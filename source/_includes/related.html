@@ -1,41 +1,42 @@
 <aside class="related_section">
   <h2 class="related_section-title">関連してそうな記事<small>（β版）</small></h2>
   <ul class="related_list">
-  {%- for post in site.related_posts limit: 5 %}
+  {%- for post in site.related_posts limit: 10 %}
     <li class="related_list-item">
       <a href="{{ post.url }}" class="related_list-link" title="{{ post.title | escape_once }}">
-        <div class="related_list-thumb">
+        <span class="related_list-thumb">
           <img alt="" src="
             {%- if post.og.image -%}
               {{ post.og.image }}
             {%- else -%}
-              /images/ogp_default.jpg
+              {{ site.og.image }}
             {%- endif -%}
           " class="related_list-image" />
-        </div>
-        <p class="related_list-texts">
-          <span class="related_list-title">{{ post.title | truncate: 40 | escape_once }}</span>
-          <span class="related_list-info">
-            {% include icon.html icon="published" alt="公開日:" %}
-            <time datetime="{{ post.date | date_to_xmlschema }}" class="related_list-date">{{ post.date | japanese_date}}</time>
-          </span>
-        </p>
+        </span>
+        <span class="related_list-title">{{ post.title | escape_once }}</span>
+        <span class="related_list-info">
+          {% include icon.html icon="calendar" alt="公開日:" %}
+          <time datetime="{{ post.date | date_to_xmlschema }}" class="related_list-date">{{ post.date | date: "%Y 年 %-m 月 %-d 日"}}</time>
+        </span>
       </a>
     </li>
-    {%- if forloop.last %}
+    {%- assign checker = forloop.index | modulo: 4 %}
+    {%- if checker == 0 %}
     <li class="related_list-item">
       {%- if jekyll.environment == 'production' %}
-      <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-8470388415032156"
-        data-ad-slot="1872744396"
-        data-ad-format="fluid"
-        data-ad-layout-key="-7w+eo+1+2-5"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <div class="related_list-ad">
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-8470388415032156"
+          data-ad-slot="1872744396"
+          data-ad-format="fluid"
+          data-ad-layout-key="-7w+dw+2x-13-40"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
       {%- else %}
-      <div style="display:flex;align-items:center;justify-content:center;height:100%;background:#ccc;color:#666">
+      <div style="display:flex;align-items:center;justify-content:center;flex-grow:1;background:#ccc;color:#666">
         <span style="padding:1rem;text-align:center;text-transform:uppercase">adsense placeholder</span>
       </div>
       {%- endif %}

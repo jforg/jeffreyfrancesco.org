@@ -1,0 +1,104 @@
+// 
+//  component pagination
+// 
+
+.pagination {
+  margin: (1.75em * 2) -1rem;
+}
+.pagination-list {
+  @extend %reset-margin;
+  @extend %reset-padding;
+  @extend %reset-liststyle;
+
+  display: grid;
+  gap: 2px;
+}
+@media not all and (min-width: 35em) {
+  .pagination-prev {
+    margin-right: 1rem;
+  }
+  .pagination-next {
+    margin-left: 1rem;
+  }
+}
+@media (min-width: 35em) {
+  .pagination-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pagination-prev {
+    grid-column: 1 / 2;
+  }
+  .pagination-next {
+    grid-column: -1 / -2;
+  }
+}
+.pagination-link {
+  display: flex;
+  gap: 2px;
+  height: 100%;
+  text-decoration: none;
+
+  &::before {
+    flex: 0 0 calc(1rem - 2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: hsl(220, 75%, 45%);
+    color: $ps-k00;
+  }
+
+  &._prev {
+    flex-direction: row;
+
+    &::before {
+      content: "\25C2";
+
+      @media (min-width: 50em) {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+  }
+  &._next {
+    flex-direction: row-reverse;
+
+    &::before {
+      content: "\25B8";
+
+      @media (min-width: 50em) {
+        border-radius: 0 8px 8px 0;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .pagination-texts {
+      background-color: hsl(220, 75%, 45%);
+      color: $ps-k00;
+    }
+    .pagination-label {
+      color: inherit;
+    }
+  }
+}
+.pagination-texts {
+  flex-grow: 1;
+  padding: .375rem .5rem;
+  background-color: $ps-k10;
+  color: inherit;
+  font-size: 87.5%;
+  line-height: 1.5;
+
+  transition-property: background-color, color;
+  transition-duration: .1s;
+  transition-timing-function: ease-in;
+
+  &._next {
+    text-align: right;
+  }
+}
+.pagination-label {
+  display: block;
+  color: $ps-k75;
+  font-weight: 650;
+}

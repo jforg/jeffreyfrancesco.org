@@ -9,6 +9,10 @@ url: "https://jeffreyfrancesco.org" # the base hostname & protocol for your site
 
 timezone: "Asia/Tokyo"
 
+# OGP default
+og:
+  image: /images/ogp_default.jpg
+
 # Build settings
 source: source
 destination: public
@@ -31,21 +35,21 @@ defaults:
 # Markdown converter settings
 markdown: kramdown
 kramdown:
-  auto_ids: false
+  auto_ids: true
   entity_output: numeric
   hard_wrap: true
   syntax_highlighter: nil
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  transliterated_header_ids: true
 
 # Archive-pages settings
 jekyll-archives:
-  enabled: [year, tags, categories]
+  enabled: [year, categories]
   layouts:
     year:  'year'
-    tag: 'tag'
     category: 'category'
   permalinks:
     year:  '/:year/'
-    tag: '/tag/:name/'
     category: '/:name/all/'
 
 # auto_title plugin settings
@@ -53,7 +57,6 @@ auto_title:
   separator: '/'
   templates:
     year: 'Archives: #{year}年に公開された記事一覧'
-    tag:  'Archives: タグ「#{page_title}」が付けられた記事一覧'
     category:  'Archives: #{category_name} の記事一覧'
 auto_description:
   truncate:
@@ -61,5 +64,4 @@ auto_description:
     omission: '…'
   templates:
     year: 'JeffreyFrancesco.org のコンテンツのうち、#{year}年に公開された記事のタイトル一覧です。日付の新しいものから順に、月ごとにセクションを分けて表示しています。'
-    tag:  'JeffreyFrancesco.org のコンテンツのうち、タグ「#{title}」が付けられた記事のタイトル一覧です。日付の新しいものから順に、年ごとにセクションを分けて表示しています。'
     category: 'JeffreyFrancesco.org のコンテンツのうち、「#{category_name}」に公開された記事のタイトル一覧です。日付の新しいものから順に、年ごとにセクションを分けて表示しています。'

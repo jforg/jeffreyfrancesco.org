@@ -1,21 +1,32 @@
 .identity {
-  color: #333;
-  font-size: 1rem;
-  font-weight: 400;
+  display: inline-flex;
+  align-items: baseline;
+  color: $ps-k100;
+  font-size: 125%;
+  font-weight: 700;
 
   &[href] {
-    display: inline-block;
     text-decoration: none;
+    transition-property: color;
+    transition-duration: .3s;
+
+    &:hover {
+      color: hsl(220, 75%, 45%);
+    }
   }
 }
 
-.identity-symbol {
-  margin-right: $_base-vunit * 1 / get_fs(4) + em;
-  width: $_base-vunit * 4 / get_fs(4) + em;
-  height: $_base-vunit * 4 / get_fs(4) + em;
-  vertical-align: bottom;
+.identity > abbr {
+  width: 2em;
+  border-radius: 50%;
+  background-color: $ps-k100;
+  color: $ps-k00;
+  font-size: 140%;
+  line-height: 2;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color ease-in .3s;
 }
-
-.identity-sitename {
-  font-weight: inherit;
+.identity[href]:hover > abbr {
+  background-color: hsl(220, 75%, 45%);
 }

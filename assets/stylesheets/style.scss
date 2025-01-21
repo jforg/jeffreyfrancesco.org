@@ -2,6 +2,7 @@
 //= require normalize-css
 //= require_self
 
+@import 'base/variables';
 @import 'base/base';
 @import 'base/typography';
 @import 'base/helper';
@@ -22,9 +23,8 @@
 @import 'module/article_summary';
 @import 'module/article_list';
 @import 'module/archive_list';
-@import 'module/tag_list';
-@import 'module/tag';
-@import 'module/pager';
+@import 'module/pagination';
+@import 'module/reactions';
 @import 'module/cse';
 @import 'module/search_unit';
 @import 'module/search_results';

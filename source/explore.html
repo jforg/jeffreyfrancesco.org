@@ -2,13 +2,13 @@
 layout:  html_page
 title:   Explore
 marked_title: 'Explore <abbr title="Jeffrey Francesco">JF</abbr>.org'
-excerpt: 記事を探すためのページです。Google カスタム検索によるサイト内検索フォームと、年別およびタグ別のアーカイブページの一覧が置いてあります。
+excerpt: 記事を探すためのページです。Google カスタム検索によるサイト内検索フォームと、年別アーカイブページの一覧が置いてあります。
 permalink: /explore/
 ---
 <div class="page_content">
   <section>
     <div class="search_unit">
-      <h1 tabindex="-1" id="by-keyword-h" class="search_unit-title">検索</h1>
+      <h1 tabindex="-1" id="by-keyword-h" class="search_unit-title">記事検索</h1>
       <div class="search_unit-content">
         {% include cse.html btn_label = '検索' %}
       </div>
@@ -16,40 +16,29 @@ permalink: /explore/
   </section>
   {% include adsense.html slot=5341752516 %}
   <section class="page_section">
-    <h1 tabindex="-1" id="by-year-h" class="page_section-title">年別</h1>
-    {%- assign year_posts = site.posts | group_by_year %}
+    <h1 tabindex="-1" id="by-year-h" class="page_section-title">年別アーカイブ</h1>
+    {%- assign year_posts = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
     <ul class="archive_list">
       {%- for year_post in year_posts %}
-      {%- assign year = year_post[0] %}
+      {%- assign year = year_post.name %}
       <li class="archive_list-year">
-        <a href="/{{ year_post[0] }}/">
-          {% include icon.html icon="published" hidden=true %}
-          {{ year }}年
+        <a href="/{{ year }}/" class="archive_list-link _has-icon">
+          {% include icon.html icon="calendar" hidden=true %}
+          {{ year }} 年
         </a>
-        {%- assign month_posts = year_post[1] | group_by_month %}
+        {%- assign month_posts = year_post.items | group_by_exp: "post", "post.date | date: '%-m'" %}
         <ul class="archive_list-months">
           {%- for month in (1..12) reversed %}
-          {%- assign size = month_posts[month] | size %}
-          <li{% if size == 0 %} aria-hidden="true"{% endif %} class="archive_list-month">
-            {% if size != 0 %}<a href="/{{ year_post[0] }}/#archive-{{ year }}-{{ month }}-h">{% endif %}{{ month }}月{% if size != 0 %}</a>{% endif %}
+          {%- assign month_post = month_posts | find: "name", month %}
+          <li class="archive_list-month">
+            {%- if month_post.size -%}
+            <a href="/{{ year }}/#archive-{{ year }}-{{ month }}-h" class="archive_list-link _has-post">{{ month }} 月</a>
+            {%- else -%}
+            <a class="archive_list-link _no-posts">{{ month }} 月</a>
+            {%- endif -%}
           </li>
           {%- endfor %}
         </ul>
-      </li>
-      {%- endfor %}
-    </ul>
-  </section>
-  <section class="page_section">
-    <h1 tabindex="-1" id="by-tag-h" class="page_section-title">タグ別</h1>
-    {%- assign selected = site.archives | where: 'type', 'tag' | sort_by_name %}
-    <ul class="tag_list">
-      {%- for item in selected %}
-      <li class="tag_list-tag tag">
-        <a href="{{ item.url }}" class="tag-link">
-          {% include icon.html icon="tag" hidden=true %}
-          {{ item.title }}
-          <span class="tag-count"><span class="tag-bracket">(</span>{{ item.posts.size }}<span class="tag-bracket">)</span></span>
-        </a>
       </li>
       {%- endfor %}
     </ul>

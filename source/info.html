@@ -9,8 +9,19 @@ permalink: /info/
     <h1 class="page_section-title">最新のお知らせ</h1>{% if newer.size == 0 %}
     <p>今のところ、近日中に出演予定の Live・Event はありません。</p>{% else %}{% assign next = newer | first %}
     <section class="article_summary">
-      <h1 class="article_summary-title"><a href="{{ next.url }}">{{ next.title | escape_once }}</a></h1>
-      <p class="article_summary-info"><time datetime="{{ next.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ next.schema.start_at | japanese_datetime }}</time> @ {{ next.schema.place }}</p>
+      <h1 class="article_summary-title">
+        <a href="{{ next.url }}">
+          <img alt="" src="
+            {%- if next.og.image -%}
+              {{ next.og.image }}
+            {%- else -%}
+              {{ site.og.image }}
+            {%- endif -%}
+          " class="article_summary-thumb">
+          {{ next.title | escape_once }}
+        </a>
+      </h1>
+      <p class="article_summary-info"><time datetime="{{ next.schema.start_at | date_to_xmlschema }}">{{ next.schema.start_at | date: "%Y 年 %-m 月 %-d 日 %H 時 %M 分" }}</time> @ {{ next.schema.place }}</p>
       <p class="article_summary-desc">{{ next.excerpt | excerptalize }}</p>
     </section>
     {% if newer.size > 1 %}
@@ -18,7 +29,7 @@ permalink: /info/
       <li class="article_list-item">
         <a href="{{ event.url }}">{{ event.title | escape_once }}</a>
         <p class="article_list-info">
-          <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
+          <time datetime="{{ event.schema.start_at | date_to_xmlschema }}">{{ event.schema.start_at | date: "%Y 年 %-m 月 %-d 日 %H 時 %M 分" }}</time> @ {{ event.schema.place }}
         </p>
       </li>{% endfor %}
     </ul>{% endif %}{% endif %}
@@ -26,14 +37,40 @@ permalink: /info/
   {% include adsense.html slot=5341752516 %}
   <section class="page_section">
     <h1 class="page_section-title">過去のお知らせ一覧</h1>
-    <ul class="article_list">{% assign older = site.categories.info | select_older %}{% for event in older limit:10 %}
+    <ul class="article_list">
+      {%- assign older = site.categories.info | select_older %}
+      {%- for event in older limit:12 %}
       <li class="article_list-item">
-        <a href="{{ event.url }}">{{ event.title | escape_once }}</a>{% if event.schema %}
-        <p class="article_list-info">
-          <time datetime="{{ event.schema.start_at | convert_datetime | date_to_xmlschema }}">{{ event.schema.start_at | japanese_datetime }}</time> @ {{ event.schema.place }}
-        </p>{% endif %}
-      </li>{% endfor %}
+        <a href="{{ event.url }}" class="article_list-link" title="{{ event.title | escape_once }}">
+          <span class="article_list-thumb">
+            <img alt="" src="
+              {%- if event.og.image -%}
+                {{ event.og.image }}
+              {%- else -%}
+                {{ site.og.image }}
+              {%- endif -%}
+            " class="article_list-image" />
+          </span>
+          <span class="article_list-title">{{ event.title | escape_once }}</span>
+          <span class="article_list-info">
+            {% include icon.html icon="calendar" alt="公開日:" %}
+            <time datetime="{{ event.date | date_to_xmlschema }}" class="article_list-date">{{ event.date | date: "%Y 年 %-m 月 %-d 日"}}</time>
+          </span>
+        </a>
+      </li>
+      {%- endfor %}
     </ul>
   </section>
 </div>
-<p class="pager"><a href="{{ page.url }}all/">全お知らせ一覧 <span aria-hidden="true">→</span></a></p>
+<nav class="pagination">
+  <ul class="pagination-list">
+    <li class="pagination-next">
+      <a href="{{ page.url }}all/" class="pagination-link _next">
+        <span class="pagination-texts _next">
+          <span class="pagination-label">{{ page.title }}</span>
+          <span class="pagination-title">全お知らせ一覧</span>
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
