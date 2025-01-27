@@ -16,7 +16,6 @@ og:
 # Build settings
 source: source
 destination: public
-lsi: true
 plugins:
 - jekyll-sitemap
 - jekyll-archives
