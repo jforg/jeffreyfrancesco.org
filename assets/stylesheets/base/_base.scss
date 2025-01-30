@@ -459,7 +459,6 @@ del {
 img {
   @extend %embedded-content;
   max-width: 100%;
-  width: auto;
   height: auto;
 }
 
@@ -479,6 +478,9 @@ object {
 
 video {
   @extend %embedded-content;
+  max-width: 100%;
+  height: auto;
+  border-style: none;
 }
 
 audio {
