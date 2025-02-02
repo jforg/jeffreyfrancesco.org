@@ -1,6 +1,4 @@
 <figure class="movie">
-  <div class="movie-content">
-    <iframe class="movie-source" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" width="560" height="315" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-  </div>
+  <iframe class="movie-source _youtube" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" width="560" height="315" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
   <figcaption class="movie-caption"><a href="https://youtu.be/{{ include.id }}">{{ include.title }}</a></figcaption>
 </figure>
