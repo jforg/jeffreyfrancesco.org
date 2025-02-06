@@ -35,6 +35,7 @@ defaults:
 markdown: kramdown
 kramdown:
   entity_output: numeric
+  gfm_quirks: []
   hard_wrap: true
   syntax_highlighter: nil
   smart_quotes: ["apos", "apos", "quot", "quot"]
