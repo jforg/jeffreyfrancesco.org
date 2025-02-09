@@ -8,7 +8,7 @@
 //  ------------------------------
 
 $_base-fontsize: 16px !default;
-$_base-lineheight: 28px !default;
+$_base-lineheight: 32px !default;
 
 $_base-vunit: $_base-lineheight / 4;
 $_base-leading: $_base-lineheight - $_base-fontsize;
@@ -97,7 +97,7 @@ h3 {
     top: $_base-vunit * 8 / get_fs(5) + em;
     bottom: $_base-vunit * 4 / get_fs(5) + em;
   }
-  font-weight: 400;
+  font-weight: 375;
   @include auto_scaling(5);
 
 }
@@ -118,7 +118,7 @@ h5 {
     top: $_base-vunit * 4 / 18px + em;
     bottom: $_base-vunit * 4 / 18px + em;
   }
-  font-weight: 400;
+  font-weight: 375;
   font-size: set_relative_fs(18px);
   line-height: set_relative_lh(get_lh(4), 18px);
 }

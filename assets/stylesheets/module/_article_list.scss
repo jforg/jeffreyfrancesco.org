@@ -8,7 +8,7 @@
   @extend %reset-liststyle;
 
   display: grid;
-  gap: 1.75em 1em;
+  gap: 2em 1em;
 
   @media (min-width: 35em) {
     grid-template-columns: repeat(2, 1fr);

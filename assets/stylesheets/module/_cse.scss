@@ -8,8 +8,8 @@
   appearance: none;
   flex-grow: 1;
   width: 12.5em;
-  height: (1.75em / 4 * 5);
-  padding: 0 (1.75em / 4);
+  height: ($_base-lineheight / 4 * 5);
+  padding: 0 ($_base-lineheight / 4);
   border: 1px solid #ccc;
   border-radius: 0;
   // Safari だけテキストずれる対策
@@ -23,7 +23,7 @@
 
 .cse-submit {
   flex-basis: 25%;
-  height: (1.75em / 4 * 5);
+  height: ($_base-lineheight / 4 * 5);
   margin-left: -1px;
   padding: 0 1em;
   border: 1px solid #999;
@@ -34,7 +34,6 @@
 
   &:hover,
   &:focus {
-    outline: 0;
     border-color: hsl(220, 75%, 45%);
     background: hsl(220, 75%, 45%);
     color: #fff;

@@ -8,7 +8,7 @@
   margin: {
     top: $_base-vunit * 8 / get_fs(5) + em;
   }
-  font-weight: 400;
+  font-weight: 375;
   @include auto_scaling(5);
 }
 
@@ -24,6 +24,6 @@
 
 .article_summary-desc {
   margin: {
-    top: (1.75em / 4)
+    top: 1em
   }
 }

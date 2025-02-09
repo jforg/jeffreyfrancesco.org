@@ -8,7 +8,7 @@
   position: relative;
   max-width: 46em;
   margin: auto;
-  padding: 1.75em 1em;
+  padding: 2em 1em;
 
   &:before {
     content: '';
@@ -27,7 +27,7 @@
 }
 
 .toc-list {
-  margin-top: (1.75em / 4 * 3);
+  margin-top: (2em / 4 * 3);
   padding: {
     left: 0;
   }
@@ -37,7 +37,7 @@
   margin: {
     top: ($_base-vunit * 2 / 16px + em);
   }
-  font-weight: 400;
+  font-weight: 375;
 
   & abbr {
     text-decoration: none;
@@ -49,7 +49,7 @@
 }
 
 .toc-summary {
-  padding: (1.75em / 4) 0;
+  padding: (2em / 4) 0;
 }
 
 @supports (display: flex) {

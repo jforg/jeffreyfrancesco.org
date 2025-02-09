@@ -3,7 +3,8 @@
   align-items: baseline;
   color: $ps-k100;
   font-size: 125%;
-  font-weight: 700;
+  font-size-adjust: none;
+  font-weight: 650;
 
   &[href] {
     text-decoration: none;
