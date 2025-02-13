@@ -3,10 +3,61 @@
 //  set font family.
 //  ==============================
 
+// Fix font-weight of Hiragino Sans being inconsistent depending on browser
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 100;
+  src: local("Hiragino Sans W0");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 200;
+  src: local("Hiragino Sans W1");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 250;
+  src: local("Hiragino Sans W2");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 300;
+  src: local("Hiragino Sans W3");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 400;
+  src: local("Hiragino Sans W4");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 500;
+  src: local("Hiragino Sans W5");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 600;
+  src: local("Hiragino Sans W6");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 700;
+  src: local("Hiragino Sans W7");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 800;
+  src: local("Hiragino Sans W8");
+}
+@font-face {
+  font-family: Hiragino Sans;
+  font-weight: 900;
+  src: local("Hiragino Sans W9");
+}
+
 html {
-  font-family: 'Source Sans 3', 'Hiragino Kaku Gothic ProN', 'Noto Sans CJK JP', Meiryo, sans-serif;
-  font-size-adjust: .545;
-  font-weight: 375;
+  font-family: Inter, Hiragino Sans, sans-serif;
+  font-weight: 400;
 }
 
 pre, code, var, samp, kbd {

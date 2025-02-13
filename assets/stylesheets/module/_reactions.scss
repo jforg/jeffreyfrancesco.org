@@ -20,7 +20,7 @@
   align-items: center;
   margin-bottom: 1em;
   color: $ps-k75;
-  font-weight: 650;
+  font-weight: 700;
 
   &::before,
   &::after {
@@ -61,7 +61,7 @@
   @extend %reset-margin;
   color: $ps-k90;
   font-size: 100%;
-  font-weight: 650;
+  font-weight: 700;
 
   @media not all and (min-width: 35em) {
     text-align: center;

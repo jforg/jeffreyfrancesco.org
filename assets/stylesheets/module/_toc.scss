@@ -21,6 +21,7 @@
 }
 
 .toc-title {
+  font-family: Rubik, Hiragino Sans, sans-serif;
   text-align: center;
   text-transform: uppercase;
   @include auto_scaling(5);
@@ -37,7 +38,7 @@
   margin: {
     top: ($_base-vunit * 2 / 16px + em);
   }
-  font-weight: 375;
+  font-weight: 400;
 
   & abbr {
     text-decoration: none;

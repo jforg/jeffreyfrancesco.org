@@ -2,9 +2,10 @@
   display: inline-flex;
   align-items: baseline;
   color: $ps-k100;
+  font-family: Rubik, sans-serif;
   font-size: 125%;
   font-size-adjust: none;
-  font-weight: 650;
+  font-weight: 450;
 
   &[href] {
     text-decoration: none;
@@ -23,6 +24,7 @@
   background-color: $ps-k100;
   color: $ps-k00;
   font-size: 140%;
+  font-weight: 600;
   line-height: 2;
   text-align: center;
   text-decoration: none;
