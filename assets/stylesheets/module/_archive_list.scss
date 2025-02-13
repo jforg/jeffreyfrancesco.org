@@ -38,7 +38,7 @@
     grid-template-columns: repeat(6, 1fr);
   }
 
-  @media (min-width: 35em) {
+  @media (min-width: 38em) {
     grid-template-columns: repeat(12, auto);
   }
 
@@ -49,6 +49,8 @@
 .archive_list-link {
   display: block;
   padding: .5em;
+  font-feature-settings: "tnum";
+  letter-spacing: -.2px;
 
   &._has-icon {
     order: 1;
