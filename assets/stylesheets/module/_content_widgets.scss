@@ -82,3 +82,38 @@ strong.sad {
   background-color: $ps-k10;
   color: $ps-k100;
 }
+
+// quote
+.quote {
+  position: relative;
+  padding: 2rem 2rem 2rem calc(2rem - 4px);
+  border-left: 4px solid $ps-k50;
+  background: {
+    color: $ps-k10;
+    image: url(../images/quotes-left.svg), url(../images/quotes-right.svg);
+    position: left .5rem top .25rem, right .5rem bottom .25rem;
+    repeat: no-repeat;
+    size: 2rem;
+  }
+  color: $ps-k90;
+
+  & > blockquote {
+    margin: 0;
+    padding: 0;
+  }
+
+  & > figcaption {
+    display: flex;
+    gap: .5rem;
+    align-items: first baseline;
+    margin: 2rem 0 0;
+  }
+
+  & > figcaption::before {
+    content: "\2014";
+  }
+
+  & > figcaption > cite {
+    quotes: none;
+  }
+}

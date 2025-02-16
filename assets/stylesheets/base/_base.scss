@@ -214,41 +214,8 @@ blockquote {
     left: 0;
     right: 0;
   }
-  padding: {
-    top: $_base-vunit * 4 / get_fs(4) + em;
-    bottom: $_base-vunit * 4 / get_fs(4) + em;
-  }
-  position: relative;
-  background: darken(#fff, 5%);
-  color: #333;
-
   & > :first-child {
     margin-top: 0;
-  }
-
-  & > footer:last-child {
-    margin-top: $_base-vunit * 4 / 14px + em;
-    font-size: set_relative_fs(14px);
-    line-height: set_relative_lh(get_lh(3), 14px);
-
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 0;
-      width: 1em;
-      margin-right: .5em;
-      border-top: 1px solid;
-      vertical-align: .5ex;
-    }
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    border-right: 4px solid #ccc;
   }
 }
 
