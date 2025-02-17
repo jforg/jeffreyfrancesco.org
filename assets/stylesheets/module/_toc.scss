@@ -35,6 +35,7 @@
 }
 
 .toc-name {
+  display: initial;
   margin: {
     top: ($_base-vunit * 2 / 16px + em);
   }
