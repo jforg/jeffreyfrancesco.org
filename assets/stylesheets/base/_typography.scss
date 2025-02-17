@@ -60,6 +60,12 @@ html {
   font-weight: 400;
 }
 
-pre, code, var, samp, kbd {
+pre, code, samp,
+pre var,
+pre kbd {
   font-family: Menlo, Consolas, 'Courier New', monospace;
+}
+
+kbd {
+  font-family: inherit;
 }

@@ -366,20 +366,26 @@ dfn {
 // data {}
 // time {}
 
-code {
-  @extend small;
+code, samp {
+  font-size: set_relative_fs(15px);
+  line-height: set_relative_lh(get_lh(3), 15px);
 }
 
 var {
-  @extend small;
+  font-style: italic;
 }
 
-samp {
-  @extend small;
-}
-
-kbd {
-  @extend small;
+:not(pre) kbd {
+  display: inline-block;
+  min-width: 1em;
+  padding: .125em .25em;
+  border: 1px solid;
+  border-radius: 2px;
+  box-shadow: 1px 1px $ps-k80;
+  background-color: #fff;
+  color: $ps-k90;
+  line-height: 1.25;
+  text-align: center;
 }
 
 // sub {}
