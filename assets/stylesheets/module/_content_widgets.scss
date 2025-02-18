@@ -33,6 +33,25 @@
 //  footnotes
 //
 
+sup[role=doc-noteref] {
+  top: -.75em;
+  font-size: calc(1/1.5 * 100%);
+}
+
+.footnote {
+  margin-inline: 2px;
+  text-decoration: none;
+  
+  &::before {
+    content: '[';
+    margin-right: 1px;
+  }
+
+  &::after {
+    content: ']';
+    margin-left: 1px;
+  }
+}
 .footnotes {
   position: relative;
   margin-top: 4em;
