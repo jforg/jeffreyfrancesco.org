@@ -88,6 +88,25 @@ sup[role=doc-noteref] {
   }
 }
 
+// .photo, .picture
+.photo-content,
+.picture-content {
+  text-align: center;
+
+  img {
+    vertical-align: baseline;
+  }
+}
+ul.photo-content,
+ul.picture-content {
+  padding-left: 0;
+  list-style-type: none;
+}
+.photo-caption,
+.picture-caption {
+  margin-top: 0;
+}
+
 // strong another styles
 .sad {
   color: hsl(220, 75%, 30%);
