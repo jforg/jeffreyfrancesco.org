@@ -88,9 +88,14 @@ sup[role=doc-noteref] {
   }
 }
 
-// strong another color
-strong.sad {
+// strong another styles
+.sad {
   color: hsl(220, 75%, 30%);
+}
+.shout {
+  display: block;
+  margin: 1rem 0;
+  font-size: 120%;
 }
 
 // note
