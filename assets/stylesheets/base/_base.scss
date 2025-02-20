@@ -350,7 +350,10 @@ dfn {
   border-bottom: double #333;
 }
 
-// abbr {}
+abbr[title] {
+  text-decoration-style: dotted;
+}
+
 // data {}
 // time {}
 
@@ -377,7 +380,10 @@ var {
 }
 
 // sub {}
-// sup {}
+sup {
+  vertical-align: super;
+  font-size: 62.5%;
+}
 
 i {
   @extend %normal-style-if-japanese;
@@ -462,12 +468,13 @@ svg {
 //  Tabular data
 //  ------------------------------
 
-$_base-table-vpad: $_base-vunit * 2 / get_fs(4) + em;
+$_base-table-vpad: $_base-vunit / get_fs(4) + em;
 
 table {
   @extend %paragraph;
   margin-bottom: -1px;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px solid $ps-k50;
+  border-collapse: collapse;
 }
 
 caption {
@@ -483,9 +490,10 @@ caption {
 // tr {}
 
 %table-cell {
-  padding: $_base-table-vpad 2em $_base-table-vpad 0;
+  padding: $_base-table-vpad;
   padding-bottom: calc(#{$_base-table-vpad} - 1px);
-  border-top: 1px dotted #ccc;
+  border-top: 1px dotted $ps-k50;
+  font-variant-numeric: tabular-nums;
   vertical-align: baseline;
 
   & > :first-child {
@@ -496,7 +504,7 @@ caption {
     border-top-style: solid;
 
     thead > & {
-      border-top-color: #333;
+      border-top-color: $ps-k75;
     }
   }
 }
