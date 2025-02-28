@@ -472,9 +472,7 @@ $_base-table-vpad: $_base-vunit / get_fs(4) + em;
 
 table {
   @extend %paragraph;
-  margin-bottom: -1px;
-  border-bottom: 1px solid $ps-k50;
-  border-collapse: collapse;
+  border-spacing: 2px 0;
 }
 
 caption {
@@ -503,9 +501,16 @@ caption {
   tr:first-child > & {
     border-top-style: solid;
 
-    thead > & {
-      border-top-color: $ps-k75;
+    thead > &,
+    :not(thead) + tbody > &,
+    tbody:first-child > & {
+      border-top-width: 3px;
     }
+  }
+
+  tbody:not(:has(+ tfoot)) > tr:last-child > &,
+  tfoot > tr:last-child > & {
+    border-bottom: 3px solid $ps-k50;
   }
 }
 

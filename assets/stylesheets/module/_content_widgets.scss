@@ -107,6 +107,23 @@ ul.picture-content {
   margin-top: 0;
 }
 
+// .tabular
+.tabular {
+  & > table {
+    min-width: 75%;
+    margin: auto;
+  }
+
+  thead > tr,
+  tfoot > tr {
+    background-color: #EFF8FE;
+  }
+
+  tbody > :nth-child(even) {
+    background-color: $ps-k05;
+  }
+}
+
 // strong another styles
 .sad {
   color: hsl(220, 75%, 30%);
