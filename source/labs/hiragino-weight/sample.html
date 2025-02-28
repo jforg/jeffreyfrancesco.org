@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ヒラギノ角ゴシックの font-weight が環境によってまちまちなのを Fix する</title>
+  <style>
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 100;
+      src: local("Hiragino Sans W0");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 200;
+      src: local("Hiragino Sans W1");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 250;
+      src: local("Hiragino Sans W2");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 300;
+      src: local("Hiragino Sans W3");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 400;
+      src: local("Hiragino Sans W4");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 500;
+      src: local("Hiragino Sans W5");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 600;
+      src: local("Hiragino Sans W6");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 700;
+      src: local("Hiragino Sans W7");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 800;
+      src: local("Hiragino Sans W8");
+    }
+    @font-face {
+      font-family: "Fixed Hiragino Sans";
+      font-weight: 900;
+      src: local("Hiragino Sans W9");
+    }
+    html {
+      font-family: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+      font-synthesis: style;
+    }
+    body {
+      max-width: 40rem;
+      margin: auto;
+      padding: 0 1rem;
+    }
+    code {
+      font-family: Menlo, Consolas, monospace;
+    }
+    h1 {
+      margin: 1rem 0;
+    }
+    h2 {
+      margin: 2rem 0 0;
+    }
+    ul:not([class]) {
+      font-weight: 300;
+    }
+    .before {
+      font-family: Hiragino Sans, sans-serif;
+    }
+    .after {
+      font-family: "Fixed Hiragino Sans", sans-serif;
+    }
+    .w100 { font-weight: 100 }
+    .w200 { font-weight: 200 }
+    .w250 { font-weight: 250 }
+    .w300 { font-weight: 300 }
+    .w400 { font-weight: 400 }
+    .w500 { font-weight: 500 }
+    .w600 { font-weight: 600 }
+    .w700 { font-weight: 700 }
+    .w800 { font-weight: 800 }
+    .w900 { font-weight: 900 }
+  </style>
+</head>
+<body>
+  <h1>ヒラギノ角ゴシックの <code>font-weight</code> が環境によってまちまちなのを Fix する</h1>
+  <ul>
+    <li>上が CSS 適用前、下が CSS 適用後の表示です</li>
+    <li>実際にどのウエイトが表示に使われているかは開発者ツールで確認してください</li>
+    <li>Safari のウエイトに合わせているので当然 Safari ではどちらの表示も一緒です😇</li>
+  </ul>
+  <hr>
+  <h2>Before Fix</h2>
+  <ul class="before">
+    <li class="w100">[w100] I need ヒラギノ角ゴシック W0</li>
+    <li class="w200">[w200] I need ヒラギノ角ゴシック W1</li>
+    <li class="w250">[w250] I need ヒラギノ角ゴシック W2</li>
+    <li class="w300">[w300] I need ヒラギノ角ゴシック W3</li>
+    <li class="w400">[w400] I need ヒラギノ角ゴシック W4</li>
+    <li class="w500">[w500] I need ヒラギノ角ゴシック W5</li>
+    <li class="w600">[w600] I need ヒラギノ角ゴシック W6</li>
+    <li class="w700">[w700] I need ヒラギノ角ゴシック W7</li>
+    <li class="w800">[w800] I need ヒラギノ角ゴシック W8</li>
+    <li class="w900">[w900] I need ヒラギノ角ゴシック W9</li>
+  </ul>
+  <h2>After Fix</h2>
+  <ul class="after">
+    <li class="w100">[w100] I need ヒラギノ角ゴシック W0</li>
+    <li class="w200">[w200] I need ヒラギノ角ゴシック W1</li>
+    <li class="w250">[w250] I need ヒラギノ角ゴシック W2</li>
+    <li class="w300">[w300] I need ヒラギノ角ゴシック W3</li>
+    <li class="w400">[w400] I need ヒラギノ角ゴシック W4</li>
+    <li class="w500">[w500] I need ヒラギノ角ゴシック W5</li>
+    <li class="w600">[w600] I need ヒラギノ角ゴシック W6</li>
+    <li class="w700">[w700] I need ヒラギノ角ゴシック W7</li>
+    <li class="w800">[w800] I need ヒラギノ角ゴシック W8</li>
+    <li class="w900">[w900] I need ヒラギノ角ゴシック W9</li>
+  </ul>
+</body>
+</html>
