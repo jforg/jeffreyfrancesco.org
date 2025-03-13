@@ -16,9 +16,6 @@
   li {
     display: inline;
 
-    // &:not(:last-child)::after {
-    //   content: ' / ';
-    // }
     &:before {
       content: ' / ';
     }
@@ -73,7 +70,7 @@
   }
 }
 .reversefootnote {
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Noto Emoji", emoji;
+  font-family: Backlink Icon, Segoe UI Symbol, Lucida Sans Unicode, Lucida Grande, Apple Symbols, sans-serif;
   text-decoration: none;
 }
 
