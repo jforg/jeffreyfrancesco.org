@@ -26,7 +26,7 @@
           {%- if include.keyword %}
             {%- assign keyword = include.keyword %}
           {%- else %}
-            {%- capture keyword %}{{ include.title | split: " " | push: include.artist | push: include.media | join: " " }}{% endcapture %}
+            {%- capture keyword %}{{ include.title }} {{ include.artist }}{% endcapture %}
           {%- endif %}
           <li class="affiliate-item">
             <a href="https://www.amazon.co.jp/gp/search?keywords={{ keyword | cgi_escape }}&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&tag=jforg08-22" class="affiliate-link _for-amazon">Amazon</a>
