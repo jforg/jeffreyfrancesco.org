@@ -1,17 +1,54 @@
 <aside class="affiliate">
   <h2 class="affiliate-title">商品広告</h2>
   <div class="affiliate-content">
-    <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=890458793&vc_url={{ include.url | cgi_escape }}" rel="nofollow" class="affiliate-link">
-      <div class="affiliate-thumb">
-        <img alt="" src="{{ include.img }}" class="affiliate-image">
-      </div>
-      <div class="affiliate-texts">
-        <p class="affiliate-name">
-          <b>{{ include.text }}</b>
-          <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=890458793" height="1" width="0" class="affiliate-beacon">
-        </p>
-        <p class="affiliate-action"><span class="affiliate-label _for-tower">Tower Records Online で買う</span></p>
-      </div>
-    </a>
+    {%- capture main_link %}//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=890458793&vc_url={{ include.url | cgi_escape }}{% endcapture %}
+    <div class="affiliate-thumb">
+      <a href="{{ main_link }}" rel="nofollow"><img alt="「{{ include.title | escape_once }} [{{ include.media | escape_once }}]」({{ include.artist | escape_once }}) を Tower Records Online で買う" src="{{ include.img }}" class="affiliate-image" /></a>
+    </div>
+    <div class="affiliate-texts">
+      <p class="affiliate-info">
+        <a href="{{ main_link }}" rel="nofollow">
+          <b class="affiliate-name">{{ include.title | escape_once }} <small>[{{ include.media | escape_once }}]</small></b>
+          <small>{{ include.artist | escape_once }}</small>
+        </a>
+      </p>
+      <p class="affiliate-action">
+        <a href="{{ main_link }}" class="affiliate-link _for-tower" rel="nofollow">Tower Records Online で買う
+          {%- if jekyll.environment == 'production' -%}
+          <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=890458793" height="1" width="0" />
+          {%- endif -%}
+        </a>
+      </p>
+      <!-- links -->
+      <section class="affiliate-seealso">
+        <h3 class="affiliate-subtitle">他のショッピング・サイトで探す</h3>
+        <ul class="affiliate-list">
+          {%- if include.keyword %}
+            {%- assign keyword = include.keyword %}
+          {%- else %}
+            {%- capture keyword %}{{ include.title | split: " " | push: include.artist | push: include.media | join: " " }}{% endcapture %}
+          {%- endif %}
+          <li class="affiliate-item">
+            <a href="https://www.amazon.co.jp/gp/search?keywords={{ keyword | cgi_escape }}&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&tag=jforg08-22" class="affiliate-link _for-amazon">Amazon</a>
+          </li>
+          <li class="affiliate-item">
+            {%- capture result_r %}https://search.rakuten.co.jp/search/mall/{{ keyword | cgi_escape }}/{% endcapture %}
+            <a href="//af.moshimo.com/af/c/click?a_id=4873257&p_id=54&pc_id=54&pl_id=616&url={{ result_r | cgi_escape }}" class="affiliate-link _for-rakuten" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc="">楽天市場
+              {%- if jekyll.environment == 'production' -%}
+              <img alt="" src="//i.moshimo.com/af/i/impression?a_id=4873257&p_id=54&pc_id=54&pl_id=616" height="1" width="0" loading="lazy" />
+              {%- endif -%}
+            </a>
+          </li>
+          <li class="affiliate-item">
+            {%- capture result_y -%}https://shopping.yahoo.co.jp/search/{{ keyword | cgi_escape}}/0/{%- endcapture %}
+            <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=891285380&vc_url={{ result_y | cgi_escape }}" class="affiliate-link _for-yahoo" rel="nofollow">Yahoo! ショッピング
+              {%- if jekyll.environment == 'production' -%}
+              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" />
+              {%- endif -%}
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </aside>

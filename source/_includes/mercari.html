@@ -3,20 +3,24 @@
   <h2 class="affiliate-title">商品広告</h2>
   {%- endif %}
   <div class="affiliate-content">
-    <a href="https://jp.mercari.com/item/{{ include.code }}?afid=2797345815" class="affiliate-link">
-      <div class="affiliate-thumb">
-        <img alt="" src="
-          {%- if include.img -%}
-            {{ include.img }}
-          {%- else -%}
-            https://ambassador-system.mercari.com/v1/i?id={{ include.code }}&svc=m
-          {%- endif -%}
-        " class="affiliate-image">
-      </div>
-      <div class="affiliate-texts">
-        <p class="affiliate-name"><b>{{ include.text }}</b><br><small class="affiliate-hashtags">#PR #メルカリアンバサダー</small></p>
-        <p class="affiliate-action"><span class="affiliate-label _for-mercari">メルカリで買う</span></p>
-      </div>
-    </a>
+    {%- capture main_link %}https://jp.mercari.com/item/{{ include.code }}?afid=2797345815{% endcapture %}
+    <div class="affiliate-thumb">
+      <a href="{{ main_link }}"><img alt="「{{ include.text | escape_once }}」をメルカリで買う" src="
+        {%- if include.img -%}
+          {{ include.img }}
+        {%- else -%}
+          https://ambassador-system.mercari.com/v1/i?id={{ include.code }}&svc=m
+        {%- endif -%}
+      " class="affiliate-image" /></a>
+    </div>
+    <div class="affiliate-texts">
+      <p class="affiliate-info">
+        <a href="{{ main_link }}">
+          <b class="affiliate-name">{{ include.text | escape_once }}</b>
+          <small class="affiliate-info">#PR #メルカリアンバサダー</small>
+        </a>
+      </p>
+      <p class="affiliate-action"><a href="{{ main_link }}" class="affiliate-link _for-mercari">メルカリで買う</a></p>
+    </div>
   </div>
 </aside>

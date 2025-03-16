@@ -1,14 +1,46 @@
 <aside class="affiliate">
   <h2 class="affiliate-title">商品広告</h2>
   <div class="affiliate-content">
-    <a href="https://www.amazon.co.jp/dp/{{ include.asin }}/ref=nosim?tag=jforg08-22" class="affiliate-link">
-      <div class="affiliate-thumb">
-        <img alt="" src="{{ include.img }}" class="affiliate-image">
-      </div>
-      <div class="affiliate-texts">
-        <p class="affiliate-name"><b>{{ include.text }}</b></p>
-        <p class="affiliate-action"><span class="affiliate-label _for-amazon">Amazon で買う</span></p>
-      </div>
-    </a>
+    {%- capture main_link %}https://www.amazon.co.jp/dp/{{ include.asin }}/ref=nosim?tag=jforg08-22{% endcapture %}
+    <!-- image -->
+    <div class="affiliate-thumb">
+      <a href="{{ main_link }}"><img alt="「{{ include.text | escape_once }}」を Amazon で買う" src="{{ include.img }}" class="affiliate-image" /></a>
+    </div>
+    <!-- texts -->
+    <div class="affiliate-texts">
+      <p class="affiliate-info">
+        <a href="{{ main_link }}">
+          <b class="affiliate-name">{{ include.text | escape_once }}</b>
+        </a>
+      </p>
+      <p class="affiliate-action"><a href="{{ main_link }}" class="affiliate-link _for-amazon">Amazon で買う</a></p>
+      <!-- links -->
+      <section class="affiliate-seealso">
+        <h3 class="affiliate-subtitle">他のショッピング・サイトで探す</h3>
+        <ul class="affiliate-list">
+          {%- if include.keyword %}
+            {%- assign keyword = include.keyword %}
+          {%- else %}
+            {%- assign keyword = include.text %}
+          {%- endif %}
+          <li class="affiliate-item">
+            {%- capture result_r %}https://search.rakuten.co.jp/search/mall/{{ keyword | cgi_escape }}/{% endcapture %}
+            <a href="//af.moshimo.com/af/c/click?a_id=4873257&p_id=54&pc_id=54&pl_id=616&url={{ result_r | cgi_escape }}" class="affiliate-link _for-rakuten" rel="nofollow" referrerpolicy="no-referrer-when-downgrade" attributionsrc="">楽天市場
+              {%- if jekyll.environment == 'production' -%}
+              <img alt="" src="//i.moshimo.com/af/i/impression?a_id=4873257&p_id=54&pc_id=54&pl_id=616" height="1" width="0" loading="lazy" />
+              {%- endif -%}
+            </a>
+          </li>
+          <li class="affiliate-item">
+            {%- capture result_y -%}https://shopping.yahoo.co.jp/search/{{ keyword | cgi_escape}}/0/{%- endcapture %}
+            <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=891285380&vc_url={{ result_y | cgi_escape }}" class="affiliate-link _for-yahoo" rel="nofollow">Yahoo! ショッピング
+              {%- if jekyll.environment == 'production' -%}
+              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" />
+              {%- endif -%}
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </aside>

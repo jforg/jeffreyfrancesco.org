@@ -1,11 +1,13 @@
 .affiliate {
   position: relative;
   margin: 3em 0;
+  padding: 1rem;
+  border: 1px solid $ps-k50;
 }
 .affiliate-title {
   position: absolute;
-  left: 1px;
-  top: 1px;
+  left: 0;
+  top: 0;
   margin: 0;
   padding: 0 .375em;
   font-size: 100%;
@@ -13,45 +15,48 @@
   background: $ps-k25;
   color: $ps-k100;
 }
-.affiliate-content {
-  border: 1px solid $ps-k50;
-}
-.affiliate-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-  padding: 1em;
-  text-decoration: none;
-
-  @media (min-width: 30em) {
-    flex-direction: row;
-    min-height: 12em;
+@media (min-width: 40rem) {
+  .affiliate-content {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    grid-template-columns: 1fr calc(100% * 2/3);
   }
 }
-.affiliate-thumb {
-  flex: 0 0 33%;
-  max-width: 15em;
+@media not all and (min-width: 40rem) {
+  .affiliate-thumb {
+    max-width: 360px;
+    width: fit-content;
+    margin: auto;
+  }
+  .affiliate-image {
+    vertical-align: baseline;
+  }
 }
-// .affiliate-image {}
-.affiliate-texts {
-  flex: auto;
-  width: 100%;
+.affiliate-thumb > a,
+.affiliate-info > a {
+  display: block;
+}
+.affiliate-info {
+  margin-top: 0;
+  text-align: center;
+  text-wrap: balance;
 }
 .affiliate-name {
-  margin-top: 0;
-  text-decoration: underline;
+  & + small {
+    display: block;
+  }
 }
 .affiliate-action {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
-.affiliate-label {
+.affiliate-link {
   display: block;
-  box-sizing: border-box;
-  padding: .625em 1em;
+  padding: .5rem 0;
   font-weight: 700;
+  font-feature-settings: "palt";
   text-align: center;
+  text-decoration: none;
 
   &._for-amazon {
     background-color: #ff9900;
@@ -78,4 +83,45 @@
     background-color: #004DF2;
     color: $ps-k00;
   }
+
+  &._for-rakuten {
+    background-color: #bf0000;
+    color: $ps-k00;
+  }
+
+  &._for-yahoo {
+    background-color: #6000D3;
+    color: $ps-k00;
+  }
+}
+.affiliate-seealso {
+  font-size: 87.5%;
+  line-height: 2.2857;
+}
+.affiliate-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin: .5rem 0;
+  color: $ps-k75;
+  font-size: 100%;
+  font-weight: 700;
+  line-height: 2.2857;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: "";
+    flex-grow: 1;
+    border-top: 1px dotted;
+  }
+}
+.affiliate-list {
+  @extend %reset-margin;
+  @extend %reset-padding;
+  @extend %reset-liststyle;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
 }
