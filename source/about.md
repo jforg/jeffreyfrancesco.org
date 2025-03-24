@@ -5,6 +5,9 @@ excerpt:   JeffreyFrancesco.org という Web サイトについて。いわゆ�
 permalink: /about/
 ---
 
+{% include page_toc.html %}
+
+
 概略 {#Outline}
 --------------------
 
@@ -203,7 +206,7 @@ Google アドセンスに関する詳細
 
 #### Amazon アソシエイト・プログラム {#Associate}
 
-当サイトは、Amazon.co.jp を宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである <dfn>Amazon アソシエイト・プログラム</dfn>の参加者であり、Amazon のアソシエイトとして Jeffrey Francesco は、適格販売により収入を得ています。
+当サイトは、Amazon.co.jp を宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである <dfn>Amazon アソシエイト・プログラム</dfn>の参加者であり、Amazon のアソシエイトとして Jeffrey Francesco は、適格販売により収入を得ています。Amazon および Amazon ロゴは、Amazon.com, Inc. またはその関連会社の商標です。
 
 
 ### プライバシー・ポリシーの変更について {#Update}
