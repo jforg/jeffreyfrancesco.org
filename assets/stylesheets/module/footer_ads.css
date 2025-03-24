@@ -41,11 +41,6 @@
   position: relative;
   text-align: center;
 
-  & + img {
-    position: absolute;
-    top: 0;
-  }
-
   &._to-soundhouse {
     background-color: #795284;
     color: #fff;
