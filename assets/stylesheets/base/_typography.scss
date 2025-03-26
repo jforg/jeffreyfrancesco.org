@@ -9,14 +9,20 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('../fonts/InterVariable.woff2') format('woff2');
+  src:
+    local(InterVariable),
+    local('Inter Variable'),
+    url('../fonts/InterVariable.woff2') format('woff2');
 }
 @font-face {
   font-family: Inter;
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url('../fonts/InterVariable-Italic.woff2') format('woff2');
+  src:
+    local(InterVariableItalic),
+    local('Inter Variable Italic'),
+    url('../fonts/InterVariable-Italic.woff2') format('woff2');
 }
 @font-feature-values Inter {
   @character-variant {
@@ -111,8 +117,10 @@
 }
 
 html {
-  font-family: Inter, Helvetica Neue, Hiragino Sans, Arial, Meiryo, sans-serif;
-  font-variant-alternates: styleset(disambiguation);
+  font-family: Inter, Roboto, Helvetica Neue, Arial, Hiragino Sans, sans-serif;
+  font-variant-alternates:
+    character-variant(uc-i-with-serif, alt-double-s)
+    styleset(open-digits, round-quotes-and-commas);
   font-weight: 400;
 }
 
