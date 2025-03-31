@@ -38,9 +38,8 @@
     @include auto_scaling(7);
   }
 
-  font-family: Rubik, Hiragino Sans, sans-serif;
   font-feature-settings: "palt";
-  font-size-adjust: .52;
+  font-size-adjust: .5156;
   & > abbr {
     text-decoration: none;
     color: hsl(10, 75%, 45%);
