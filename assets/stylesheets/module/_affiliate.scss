@@ -42,10 +42,9 @@
   text-align: center;
   text-wrap: balance;
 }
-.affiliate-name {
-  & + small {
-    display: block;
-  }
+.affiliate-author,
+.affiliate-artist {
+  display: block;
 }
 .affiliate-action {
   margin-top: 1rem;

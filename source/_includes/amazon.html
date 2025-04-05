@@ -11,6 +11,9 @@
       <p class="affiliate-info">
         <a href="{{ main_link }}">
           <b class="affiliate-name">{{ include.text | escape_once }}</b>
+          {%- if include.author %}
+          <small class="affiliate-author">{{ include.author | escape_once }}</small>
+          {%- endif %}
         </a>
       </p>
       <p class="affiliate-action"><a href="{{ main_link }}" class="affiliate-link _for-amazon">Amazon で買う</a></p>
