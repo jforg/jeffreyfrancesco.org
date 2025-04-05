@@ -54,16 +54,6 @@
   }
 }
 
-// Icon font for footnote backlink mark
-@font-face {
-  font-family: Backlink Icon;
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('../fonts/backlink.woff') format('woff');
-  unicode-range: U+21A9;
-}
-
 // Fix font-weight of Hiragino Sans being inconsistent depending on browser
 @font-face {
   font-family: Hiragino Sans;
