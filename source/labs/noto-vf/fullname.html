@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Noto Sans CJK JP VF 1 : Add Full Name (only)</title>
+    <style>
+      @font-face {
+        font-family: Noto Sans CJK JP;
+        font-weight: 100 900;
+        src: local("Noto Sans CJK JP");
+      }
+      html {
+        font-family: Noto Sans CJK JP, Hiragino Sans, sans-serif;
+        line-height: 2;
+      }
+      body {
+        max-width: 48rem;
+        margin-inline: auto;
+        padding-inline: 1rem;
+      }
+      form {
+        margin-block: 2rem;
+      }
+      input, select {
+        font-size: inherit;
+      }
+      input, button, output {
+        vertical-align: middle;
+      }
+      button {
+        width: 2rem;
+        aspect-ratio: 1 /1;
+      }
+      figure, blockquote {
+        margin-inline: 0;
+      }
+      p {
+        margin-block: 0;
+        font-size: 200%;
+      }
+      figcaption::before {
+        content: "—";
+        margin-inline-end: .25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="direct">ウェイト:</label>
+      <input id="direct" type="number" min="100" max="900" value="400">
+      <button type="button" id="minus">-</button>
+      <input id="slider" type="range" min="100" max="900" step="10" value="400">
+      <button type="button" id="plus">+</button>
+    </form>
+    <hr>
+    <figure>
+      <blockquote>
+        <p id="target"><abbr title="HyperText Markup Language">HTML</abbr> (HyperText Markup Language) はウェブのもっとも基本的な構成要素です。 <abbr>HTML</abbr> はウェブページの基本レイアウトに従ってウェブページのコンテンツを記述し定義するものです。 <abbr>HTML</abbr> に隣接する他の技術としては、ウェブページの表示や表現を記述するもの (<abbr title="Cascading Style Sheets">CSS</abbr>) または機能や振る舞いを記述するもの (JavaScript) があります。</p>
+      </blockquote>
+      <figcaption><cite><a href="https://developer.mozilla.org/ja/docs/Web/HTML">HTML: ハイパーテキストマークアップ言語 | MDN</a></cite> より引用</figcaption>
+    </figure>
+
+    <script>
+      // Elements
+      const rootElement = document.documentElement;
+      const targetP = document.getElementById('target')
+      const slider = document.getElementById('slider')
+      const direct = document.getElementById('direct')
+
+      // Set Font Weight
+      const setFontWeight = weight => {
+        targetP.style.fontWeight = weight
+        direct.value = weight
+        slider.value = weight
+      }
+
+      // Button Handler
+      const handleBtns = offset => {
+        const weight = +(direct.value) + offset
+        if ((100 <= weight) && (weight <= 900))
+          setFontWeight(weight)
+      }
+      // Input Handler
+      const handleInputs = e => setFontWeight(e.target.value)
+
+      // Reset font-weight
+      setFontWeight(400, 1)
+
+      // Direct input
+      direct.addEventListener('input', e => handleInputs(e))
+
+      // Slider
+      slider.addEventListener('input', e => handleInputs(e))
+
+      // Minus button
+      document.getElementById('minus')
+              .addEventListener('click', () => handleBtns(-1))
+      // Plus button
+      document.getElementById('plus')
+              .addEventListener('click', () => handleBtns(1))
+    </script>
+  </body>
+</html>
