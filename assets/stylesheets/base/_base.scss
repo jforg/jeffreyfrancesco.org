@@ -356,11 +356,8 @@ abbr[title] {
 
 // data {}
 // time {}
-
-code, samp {
-  font-size: set_relative_fs(15px);
-  line-height: set_relative_lh(get_lh(3), 15px);
-}
+// code
+// samp {}
 
 var {
   font-style: italic;
