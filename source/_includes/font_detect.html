@@ -1,0 +1,24 @@
+<div id="detector" style="position:fixed;top:-10em;font-family:AdobeBlank2">J</div>
+<script>
+(d => {
+  const detectFont = (element, font) => {
+    element.style.fontFamily = `${font}, AdobeBlank2`
+    return getComputedStyle(element).width !== '0px'
+  }
+  const root = d.documentElement
+  const detector = d.getElementById('detector')
+  const checkList = {
+    hs: detectFont(detector, 'Hiragino Sans, ヒラギノ角ゴシック'),
+    w4: detectFont(detector, 'Hiragino Sans W4, ヒラギノ角ゴシック W4')
+  }
+  if (checkList.hs) {
+    root.classList.add('_has-hiragino')
+    if (!checkList.w4) {
+      root.classList.add('_no-w4')
+    }
+  } else {
+    root.classList.add ('_no-hiragino')
+  }
+  detector.remove()
+})(document)
+</script>

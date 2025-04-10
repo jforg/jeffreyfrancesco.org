@@ -58,66 +58,111 @@
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 100;
-  src: local("Hiragino Sans W0");
+  src:
+    local(HiraginoSans-W0),
+    local("Hiragino Sans W0");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 200;
-  src: local("Hiragino Sans W1");
+  src:
+    local(HiraginoSans-W1),
+    local("Hiragino Sans W1");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 250;
-  src: local("Hiragino Sans W2");
+  src:
+    local(HiraginoSans-W2),
+    local("Hiragino Sans W2");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 300;
-  src: local("Hiragino Sans W3");
+  src:
+    local(HiraginoSans-W3),
+    local("Hiragino Sans W3");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 400;
-  src: local("Hiragino Sans W4");
+  src:
+    local(HiraginoSans-W4),
+    local("Hiragino Sans W4");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 500;
-  src: local("Hiragino Sans W5");
+  src:
+    local(HiraginoSans-W5),
+    local("Hiragino Sans W5");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 600;
-  src: local("Hiragino Sans W6");
+  src:
+    local(HiraginoSans-W6),
+    local("Hiragino Sans W6");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 700;
-  src: local("Hiragino Sans W7");
+  src:
+    local(HiraginoSans-W7),
+    local("Hiragino Sans W7");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 800;
-  src: local("Hiragino Sans W8");
+  src:
+    local(HiraginoSans-W8),
+    local("Hiragino Sans W8");
 }
 @font-face {
   font-family: Hiragino Sans;
   font-weight: 900;
-  src: local("Hiragino Sans W9");
+  src:
+    local(HiraginoSans-W9),
+    local("Hiragino Sans W9");
+}
+
+:root {
+  --font-stack-sans: Inter, Roboto, Helvetica Neue, Arial, Hiragino Sans;
+  --font-stack-mono: ui-monospace, Menlo, Consolas;
+  --font-stack-symbol: Inter, Segoe UI Symbol, Lucida Sans Unicode, Lucida Grande, Apple Symbols;
+  
+  --font-weight-text: 400;
+  --font-weight-code: 400;
+  --font-weight-marking: 500;
+  --font-weight-emphasis: 700;
+  --font-weight-heading: 700;
+  --font-weight-heading-sub: 400;
+  --font-weight-heading-heavy: 900;
+
+  &._has-hiragino {
+    --font-weight-heading-sub: 500;
+  }
+  &._has-hiragino._no-w4 {
+    --font-weight-text: 320;
+  }
 }
 
 html {
-  font-family: Inter, Roboto, Helvetica Neue, Arial, Hiragino Sans, sans-serif;
+  font-family: var(--font-stack-sans), sans-serif;
   font-variant-alternates:
     character-variant(uc-i-with-serif, alt-double-s)
     styleset(open-digits, round-quotes-and-commas);
-  font-weight: 400;
+  font-weight: var(--font-weight-text);
+}
+
+pre {
+  font-weight: var(--font-weight-code);
 }
 
 pre, code, samp,
 pre var,
 pre kbd {
-  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-family: var(--font-stack-mono), monospace;
 }
 
 kbd {

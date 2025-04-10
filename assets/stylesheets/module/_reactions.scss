@@ -11,7 +11,7 @@
 .reactions-title {
   @extend %reset-margin;
   color: #133986;
-  font: 400 225%/1.3333 Lobster, Brush Script MT, cursive;
+  font: 225%/1.3333 Lobster, Brush Script MT, cursive;
   font-size-adjust: cap-height .748;
   text-wrap: balance;
 }
@@ -20,7 +20,7 @@
   align-items: center;
   margin-bottom: 1em;
   color: $ps-k75;
-  font-weight: 700;
+  font-weight: var(--font-weight-heading);
 
   &::before,
   &::after {
@@ -61,7 +61,7 @@
   @extend %reset-margin;
   color: $ps-k90;
   font-size: 100%;
-  font-weight: 700;
+  font-weight: var(--font-weight-heading);
 
   @media not all and (min-width: 35em) {
     text-align: center;
