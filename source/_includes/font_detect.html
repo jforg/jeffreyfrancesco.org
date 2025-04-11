@@ -1,24 +1,35 @@
-<div id="detector" style="position:fixed;top:-10em;font-family:AdobeBlank2">J</div>
+<div id="detector" style="position:fixed;top:-10em">JF</div>
 <script>
 (d => {
-  const detectFont = (element, font) => {
-    element.style.fontFamily = `${font}, AdobeBlank2`
-    return getComputedStyle(element).width !== '0px'
-  }
-  const root = d.documentElement
-  const detector = d.getElementById('detector')
-  const checkList = {
-    hs: detectFont(detector, 'Hiragino Sans, ヒラギノ角ゴシック'),
-    w4: detectFont(detector, 'Hiragino Sans W4, ヒラギノ角ゴシック W4')
-  }
-  if (checkList.hs) {
-    root.classList.add('_has-hiragino')
-    if (!checkList.w4) {
-      root.classList.add('_no-w4')
+  const JFBlank = new FontFace('JFBlank', 'url(data:font/woff2;base64,d09GMk9UVE8AAAJQAAkAAAAABIgAAAIKAAELhQAAAAAAAAAAAAAAAAAAAAAAAAAADYFwBmAAPAE2AiQDCgQGBYNQByAb5QMRFYwvgB8Jti2clVSPirl8EDXJP3EQ8XOfs3k5ACLHaJEU+yspQCPq6/tVkRIAP7/OIZUXxxPToAT17yNj3M/fDDSST554Yv81lycQti3gxEp0DczGwkjuDvR8dx/7wI8seGaJrrTzCrogIjZGamAIhumxhJ8+P333bP1/+slPf23vj+1vfutm/t76gG2Ar6XYBv9odfjRZRv2Y9g29EefE2Yi5vbtQ9OSWFum2Br4cuI/8QDFPK4lXiqUyE8DPgniUIGdtaPip4F+MU27xSUnpmYBVFADgBJRSQ+0ZwSyotXPANvwix8Lzn8O93zNyvfMX1u/tvn9zk0pkxxjBtqu1gnU1ItIP8m8xZOFnyoqLW6gkHKq1bSxDWqaZdy6gQBogAJcUQjgik4kYI6OoFFOtWFAhxkvjWcIACCA2GzsPIq9HXDI/WaplAl4U3v64uatG9tqXE0DCg0AAa14E4JgPZmBYHQZANAICrCgG4XoVsA5bSS4c4407LlDinSepXUcMmOe90eZ4yoOfMiLsQpF0MAfNEXVN/5NJuxojhm8x7phaQ23jORVkVeoYRQWQdMUniz33JGQREmanZ/KS2ml8n2CsvjFRNv3qUqVFMP0d8f93ad4AMyX7/vTj1V1mGcgKevx7nUHeUPwWhf/veRofopiljdcSkKsSaZk6YZi6WXNGZXxWAMAAA==)')
+  d.fonts.add(JFBlank)
+  JFBlank.load().then(
+    (ffo) => {
+      console.log(`${ffo.family}: ${ffo.status}`)
+      const detectFont = (element, font) => {
+        element.style.fontFamily = `${font}, JFBlank`
+        return getComputedStyle(element).width !== '0px'
+      }
+      const root = d.documentElement
+      const detector = d.getElementById('detector')
+      const checkList = {
+        hs: detectFont(detector, 'Hiragino Sans, ヒラギノ角ゴシック'),
+        w4: detectFont(detector, 'Hiragino Sans W4, ヒラギノ角ゴシック W4')
+      }
+      if (checkList.hs) {
+        root.classList.add('_has-hiragino')
+        if (!checkList.w4) {
+          root.classList.add('_no-w4')
+        }
+      } else {
+        root.classList.add ('_no-hiragino')
+      }
+      detector.remove()
+      console.log('Done.')
+    },
+    (err) => {
+      console.log(err)
     }
-  } else {
-    root.classList.add ('_no-hiragino')
-  }
-  detector.remove()
+  )
 })(document)
 </script>
