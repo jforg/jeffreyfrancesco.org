@@ -21,7 +21,7 @@
 }
 
 .toc-title {
-  font-weight: 900;
+  font-weight: var(--font-weight-heading-heavy);
   text-align: center;
   text-transform: uppercase;
   @include auto_scaling(5);
@@ -39,7 +39,7 @@
   margin: {
     top: ($_base-vunit * 2 / 16px + em);
   }
-  font-weight: 400;
+  font-weight: var(--font-weight-heading-sub);
 
   & abbr {
     text-decoration: none;

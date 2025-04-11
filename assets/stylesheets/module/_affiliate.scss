@@ -52,7 +52,7 @@
 .affiliate-link {
   display: block;
   padding: .5rem 0;
-  font-weight: 700;
+  font-weight: var(--font-weight-emphasis);
   font-feature-settings: "palt";
   text-align: center;
   text-decoration: none;
@@ -104,7 +104,7 @@
   margin: .5rem 0;
   color: $ps-k75;
   font-size: 100%;
-  font-weight: 700;
+  font-weight: var(--font-weight-heading);
   line-height: 2.2857;
   text-align: center;
 
