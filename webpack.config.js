@@ -3,7 +3,7 @@ const path = require('path');
 
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const AssetsManifest = require('webpack-assets-manifest');
+const { WebpackAssetsManifest } = require('webpack-assets-manifest');
 
 const publicPath = '/assets/';
 
@@ -89,7 +89,7 @@ const buildConfig = {
     new MiniCSSExtractPlugin({
       filename: 'style-[contenthash].css'
     }),
-    new AssetsManifest({
+    new WebpackAssetsManifest({
       output: path.resolve(__dirname, 'source', '_data', 'manifest.json'),
       publicPath: publicPath
     })
