@@ -20,7 +20,7 @@ const baseConfig = {
   module: {
     rules: [
       {
-        test: /\.(gif|jpg|png|svg)$/,
+        test: /\.(gif|jpg|png|svg|woff2)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {

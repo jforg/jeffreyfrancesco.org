@@ -8,14 +8,13 @@
 {% include analytics.html %}
 {% if jekyll.environment == 'production' %}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8470388415032156" crossorigin="anonymous"></script>{% endif %}
+<script defer src="{% if jekyll.environment == 'production' %}{{ site.data.manifest['main.js'] }}{% else %}/assets/main.js{% endif %}"></script>
 </head>
 <body>
-{% include font_detect.html %}
 {% include svgdefs.svg %}
 {% include banner.html %}
 {{ content }}
 {% include breadcrumbs.html %}
 {% include footer.html %}
-<script src="{% if jekyll.environment == 'production' %}{{ site.data.manifest['main.js'] }}{% else %}/assets/main.js{% endif %}"></script>
 </body>
 </html>
