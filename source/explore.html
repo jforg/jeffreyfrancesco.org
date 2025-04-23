@@ -28,7 +28,7 @@ permalink: /explore/
         </a>
         {%- assign month_posts = year_post.items | group_by_exp: "post", "post.date | date: '%-m'" %}
         <ul class="archive_list-months">
-          {%- for month in (1..12) reversed %}
+          {%- for month in (1..12) %}
           {%- assign month_post = month_posts | find: "name", month %}
           <li class="archive_list-month">
             {%- if month_post.size -%}

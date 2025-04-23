@@ -12,7 +12,7 @@
   border-top: 1px solid $ps-k30;
 
   @media (min-width: 48em) {
-    grid-template-columns: max-content 1em 1fr;
+    grid-template-columns: max-content 18px 1fr;
   }
 
   &::before {
@@ -22,7 +22,7 @@
     border-top: 1px dotted $ps-k30;
 
     @media (min-width: 48em) {
-      border-top-width: 2px;
+      border-top-width: 3px;
     }
   }
 }
@@ -30,11 +30,11 @@
   @extend %reset-liststyle;
 
   display: grid;
-  grid-template-columns: repeat(6, max-content);
+  grid-template-columns: repeat(4, 1fr);
   order: 3;
   padding: 0 .5em;
 
-  @media (min-width: 21em) {
+  @media (min-width: 23em) {
     grid-template-columns: repeat(6, 1fr);
   }
 
@@ -50,7 +50,6 @@
   display: block;
   padding: .5em;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.2px;
 
   &._has-icon {
     order: 1;
@@ -58,16 +57,21 @@
     padding-right: 1em;
   }
 
-  &._has-post,
-  &._no-posts {
-    text-align: center;
-  }
   &._no-posts {
     color: $ps-k70;
   }
+
   &[href]:hover,
   &[href]:focus {
     background-color: $ps-k10;
   }
 }
-
+@media not all and (min-width: 38em) {
+  .archive_list-month:nth-last-of-type(n + 4)
+   > .archive_list-link::before {
+    content: '';
+    display: inline-block;
+    height: 1em;
+    width: 1ch;
+  }
+}
