@@ -29,7 +29,7 @@
     text-align: center;
   }
 
-  ol[id] {
+  ul[id] {
     margin: 0 1rem 1.75rem;
     padding-top: .75rem;
     border-top: 3px double var(--color-ps-k25);
