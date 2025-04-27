@@ -67,7 +67,7 @@
   }
 }
 @media not all and (min-width: 38em) {
-  .archive_list-month:nth-last-of-type(n + 4)
+  .archive_list-month:nth-last-child(n + 4)
    > .archive_list-link::before {
     content: '';
     display: inline-block;
