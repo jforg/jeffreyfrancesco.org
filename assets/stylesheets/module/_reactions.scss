@@ -82,11 +82,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2.2em;
+  height: 3rem;
   border-radius: 4px;
   background-color: $ps-k80;
   color: $ps-k00;
-  font-size: 125%;
+  font-size: 150%;
+  line-height: 1;
 }
 .share-link._to-x {
   background-color: $brand-x;
@@ -97,6 +98,7 @@
 .save-link._to-hatena {
   background-color: $brand-hatena;
 }
-.save-link._to-pocket {
-  background-color: $brand-pocket;
+.save-link._to-raindrop {
+  background-color: $brand-raindrop;
+  font-size: 156.25%;
 }
