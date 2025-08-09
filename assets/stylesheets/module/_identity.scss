@@ -1,14 +1,8 @@
 .identity {
-  display: inline-flex;
-  align-items: baseline;
+  display: inline-block;
   color: $ps-k100;
-  font-family: Rubik, sans-serif;
-  font-size: 125%;
-  font-size-adjust: none;
-  font-weight: 500;
 
   &[href] {
-    text-decoration: none;
     transition-property: color;
     transition-duration: .3s;
 
@@ -16,20 +10,8 @@
       color: hsl(220, 75%, 45%);
     }
   }
-}
 
-.identity > abbr {
-  width: 2em;
-  border-radius: 50%;
-  background-color: $ps-k100;
-  color: $ps-k00;
-  font-size: 140%;
-  font-weight: 600;
-  line-height: 2;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color ease-in .3s;
-}
-.identity[href]:hover > abbr {
-  background-color: hsl(220, 75%, 45%);
+  & > svg {
+    vertical-align: bottom;
+  }
 }
