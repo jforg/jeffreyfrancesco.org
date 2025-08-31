@@ -487,7 +487,7 @@ caption {
 // tr {}
 
 %table-cell {
-  padding: $_base-table-vpad;
+  padding: $_base-table-vpad 1em;
   padding-bottom: calc(#{$_base-table-vpad} - 1px);
   border-top: 1px dotted $ps-k50;
   font-variant-numeric: tabular-nums;

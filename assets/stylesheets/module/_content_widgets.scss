@@ -105,9 +105,12 @@ ul.picture-content {
 }
 
 // .tabular
-.tabular {
-  & > table {
-    min-width: 75%;
+.tabular-content {
+  overflow-x: auto;
+  margin-inline: -2px;
+
+  table {
+    min-inline-size: 100%;
     margin: auto;
   }
 
@@ -118,6 +121,10 @@ ul.picture-content {
 
   tbody > :nth-child(even) {
     background-color: $ps-k05;
+  }
+
+  th, td {
+    white-space: nowrap;
   }
 }
 
