@@ -498,16 +498,18 @@ caption {
   }
 
   tr:first-child > & {
-    border-top-style: solid;
+    border-top-style: double;
+    border-top-width: 3px;
 
     thead > &,
-    :not(thead) + tbody > &,
+    :not(:where(thead, tbody)) + tbody > &,
     tbody:first-child > & {
-      border-top-width: 3px;
+      border-top-style: solid;
     }
+
   }
 
-  tbody:not(:has(+ tfoot)) > tr:last-child > &,
+  tbody:not(:has(+ :where(tbody, tfoot))) > tr:last-child > &,
   tfoot > tr:last-child > & {
     border-bottom: 3px solid $ps-k50;
   }
