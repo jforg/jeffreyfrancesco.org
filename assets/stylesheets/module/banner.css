@@ -1,0 +1,163 @@
+/*
+ *  banner.css (component)
+ *  ハンバーガーメニュー付きの新ヘッダー
+ */
+
+:root:has(dialog:modal) {
+  overflow: hidden;
+}
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-inline-size: 46rem;
+  margin-inline: auto;
+  padding: 1rem;
+  border-block-end: 1px solid var(--color-ps-k25);
+  line-height: 1.5;
+
+  & a {
+    text-decoration: none;
+  }
+
+  & svg {
+    vertical-align: bottom;
+  }
+}
+.banner-identity {
+  display: inline flow-root;
+  color: inherit;
+}
+.banner-logo {
+  block-size: 3rem;
+  inline-size: auto;
+}
+@media (min-width: 40em) {
+  .banner-logo {
+    block-size: 4rem;
+  }
+}
+.banner-button {
+  block-size: 44px;
+  inline-size: 44px;
+  margin-inline-end: 2px;
+  padding: 0;
+  border: 1px solid var(--color-ps-k50);
+  border-radius: 3px;
+  background-color: var(--color-ps-k10);
+  color: var(--color-ps-k80);
+
+  &:focus-visible {
+    outline: auto;
+    outline-color: -webkit-focus-ring-color;
+  }
+}
+.banner-nav_icon {
+  fill: currentColor;
+
+  &._close {
+    stroke: currentColor;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+}
+.banner-nav_dialog {
+  position: fixed;
+  inset-block-end: auto;
+  inline-size: -webkit-fill-available;
+  inline-size: -moz-available;
+  inline-size: stretch;
+  max-inline-size: 48rem;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+
+  &::backdrop {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, .8);
+  }
+}
+.banner-nav_content {
+  position: relative;
+  padding-block-start: .5rem;
+
+  dialog[open] > & {
+    padding-block-end: 1rem;
+    padding-inline: 1rem;
+  }
+}
+.banner-nav_title {
+  margin-block: 1rem 1.5rem;
+  margin-inline-start: 1rem;
+  line-height: 1.3333;
+  text-shadow: 0 0 8px rgba(255, 255, 255, .8);
+
+  dialog:not([open]) & {
+    margin: 0;
+  }
+
+  @media (min-width: 40em) {
+    margin-block: 1.5rem 2rem;
+  }
+}
+.banner-nav_list {
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+.banner-nav_item {
+  border-block-end-style: solid;
+  border-color: var(--color-ps-k25);
+  border-width: 1px;
+
+  &:first-child {
+    border-block-start-style: solid
+  }
+}
+.banner-nav_link {
+  display: block flow;
+  padding: 1rem;
+}
+.banner-button._close {
+  position: absolute;
+  inset-block-start: calc(1em + 2px);
+  inset-inline-end: 1em;
+
+  @media (min-width: 40em) {
+    inset-block-start: calc(1.5em + 2px);
+  }
+}
+/* 画面幅が広い時 */
+@media (min-width: 40em) {
+  .banner-nav_dialog {
+    display: contents;
+  }
+  .banner-button._open {
+    display: none;
+  }
+  .banner-nav_list {
+    display: flex;
+
+    dialog[open] & {
+      border-block-start: 1px solid var(--color-ps-k25);
+    }
+  }
+  .banner-nav_item {
+    border-width: 0;
+  }
+  dialog:not([open]) {
+    .banner-nav_title {
+      all: unset;
+      position: absolute;
+      clip-path: inset(50%);
+      block-size: 4px;
+      inline-size: 4px;
+      z-index: calc(-1/0);
+    }
+    .banner-button._close {
+      display: none;
+    }
+  }
+}
+
+/* TODO: hover できるかそうでないかでスタイルを分ける */
