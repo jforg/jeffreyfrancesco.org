@@ -1,0 +1,50 @@
+/*
+ *  properties.css
+ *  ベースのカスタムプロパティを宣言する
+ */
+
+:root {
+  /* カラー関連 */
+  /* CMYK をベースにしたグレースケール */
+  --color-ps-k100: #221815;
+  --color-ps-k95: #2f2725;
+  --color-ps-k90: #3e3a39;
+  --color-ps-k85: #4c4948;
+  --color-ps-k80: #595757;
+  --color-ps-k75: #666464;
+  --color-ps-k70: #727171;
+  --color-ps-k65: #7d7d7d;
+  --color-ps-k60: #898989;
+  --color-ps-k55: #949495;
+  --color-ps-k50: #9fa0a0;
+  --color-ps-k45: #aaabab;
+  --color-ps-k40: #b5b5b6;
+  --color-ps-k35: #bfc0c0;
+  --color-ps-k30: #c9caca;
+  --color-ps-k25: #d3d3d4;
+  --color-ps-k20: #dcdddd;
+  --color-ps-k15: #e6e6e6;
+  --color-ps-k10: #efefef;
+  --color-ps-k05: #f7f8f8;
+  --color-ps-k00: #fff;
+
+  /* タイポグラフィ関連 */
+  --font-stack-sans: Inter, Roboto, Helvetica Neue, Arial, Hiragino Sans;
+  --font-stack-mono: ui-monospace, Menlo, Consolas;
+  --font-stack-symbol: Inter, Segoe UI Symbol, Lucida Sans Unicode, Lucida Grande, Apple Symbols;
+  
+  --font-weight-text: 400;
+  --font-weight-code: 400;
+  --font-weight-marking: 500;
+  --font-weight-emphasis: 700;
+  --font-weight-heading: 700;
+  --font-weight-heading-sub: 400;
+  --font-weight-heading-heavy: 900;
+
+  &._has-hiragino {
+    --font-weight-heading-sub: 500;
+  }
+  &._has-hiragino._no-w4 {
+    --font-weight-text: 320;
+  }
+}

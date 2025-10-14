@@ -2,11 +2,6 @@
  *  component page_toc 記事目次
  */
 .page_toc {
-  --color-ps-k10: #efefef;
-  --color-ps-k25: #d3d3d4;
-  --color-ps-k50: #9fa0a0;
-  --color-ps-k75: #666464;
-  --color-ps-k100:  #221815;
 
   details {
     margin: auto;
