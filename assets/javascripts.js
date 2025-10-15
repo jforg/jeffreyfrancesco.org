@@ -1,6 +1,7 @@
 import { initFontDetector } from './javascripts/font-detector'
 import hljs from "highlight.js/lib/common"
 import { processBq } from "./javascripts/process_bq"
+import { dialogFixes } from './javascripts/dialog-fixes'
 
 async function detectAll () {
   const detector = await initFontDetector
@@ -14,3 +15,4 @@ detectAll()
 
 hljs.highlightAll()
 processBq()
+dialogFixes()

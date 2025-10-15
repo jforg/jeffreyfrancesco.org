@@ -68,7 +68,7 @@
   inline-size: -moz-available;
   inline-size: stretch;
   max-inline-size: 48rem;
-  padding: 0;
+  padding-block: 0;
   border: 0;
   background-color: transparent;
 
@@ -78,13 +78,7 @@
   }
 }
 .banner-nav_content {
-  position: relative;
   padding-block-start: .5rem;
-
-  dialog[open] > & {
-    padding-block-end: 1rem;
-    padding-inline: 1rem;
-  }
 }
 .banner-nav_title {
   margin-block: 1rem 1.5rem;
