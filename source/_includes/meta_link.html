@@ -1,12 +1,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-{% auto_description meta xml %}
-{% if page.noindex == true %}<meta name="robots" content="noindex,follow" />{% endif %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+{%- auto_description meta xml %}
+{%- if page.noindex == true %}
+<meta name="robots" content="noindex,follow" />
+{%- endif %}
+{%- if jekyll.environment == 'production' %}
+<link rel="preload" as="font" crossorigin="" href="{{ site.data.manifest['InterVariable.woff2'] }}" type="font/woff2" />
+<link rel="preload" as="font" crossorigin="" href="{{ site.data.manifest['InterVariable-Italic.woff2'] }}" type="font/woff2" />
+{%- endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&text=%20!Iabcdehinoprstuvy%E2%80%99&display=swap" media="all" />
-{% if jekyll.environment == 'production' %}
+{%- if jekyll.environment == 'production' %}
 <link rel="stylesheet" href="{{ site.data.manifest['main.css'] }}" media="all" />
-{% endif %}
+{%- endif %}
 <link rel="alternate" href="{{ site.url }}/index.rss" type="application/rss+xml" />
 <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}" />
 <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon" />

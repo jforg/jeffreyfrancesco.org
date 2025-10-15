@@ -11,8 +11,7 @@ const baseConfig = {
   entry: ['javascripts', 'stylesheets'],
   output: {
     path: path.resolve(__dirname, 'public', 'assets'),
-    publicPath: publicPath,
-    assetModuleFilename: '[name]-[hash][ext][query]'
+    publicPath: publicPath
   },
   resolve: {
     modules: [path.resolve(__dirname, 'assets'), 'node_modules']
@@ -34,7 +33,8 @@ const baseConfig = {
 const watchConfig = {
   mode: 'development',
   output: {
-    filename: '[name].js'
+    filename: '[name].js',
+    assetModuleFilename: '[name][ext][query]'
   },
   module: {
     rules: [
@@ -65,7 +65,8 @@ const watchConfig = {
 const buildConfig = {
   mode: 'production',
   output: {
-    filename: '[name]-[chunkhash].js'
+    filename: '[name]-[chunkhash].js',
+    assetModuleFilename: '[name]-[hash][ext][query]'
   },
   module: {
     rules: [
