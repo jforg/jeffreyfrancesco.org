@@ -121,8 +121,8 @@
     inset-block-start: calc(1.5em + 2px);
   }
 }
-/* 画面幅が広い時 */
-@media (min-width: 40em) {
+/* 画面幅が広く、高さも十分にある場合はハンバーガーメニュー解除 */
+@media (min-width: 40em) and (min-height: 30em) {
   .banner-nav_dialog {
     display: contents;
   }
