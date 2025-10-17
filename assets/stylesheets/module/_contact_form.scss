@@ -77,7 +77,12 @@
   line-height: 1.375;
   vertical-align: bottom;
 }
-// .contact_form-checkbox {}
+@supports (-webkit-touch-callout: none) {
+  .contact_form-checkbox {
+    position: relative;
+    top: 1.5px;
+  }
+}
 .contact_form-button {
   padding: .625em 1em;
   border: 0;
