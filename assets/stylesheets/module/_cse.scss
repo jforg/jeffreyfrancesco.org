@@ -3,17 +3,17 @@
   margin-top: 0;
 }
 
+.cse-query,
+.cse-submit {
+  min-width: 0;
+  padding: calc(.5em - 1px);
+  line-height: 1.5;
+}
+
 .cse-query {
-  -webkit-appearance: none;
-  appearance: none;
   flex-grow: 1;
-  width: 12.5em;
-  height: ($_base-lineheight / 4 * 5);
-  padding: 0 ($_base-lineheight / 4);
   border: 1px solid #ccc;
   border-radius: 0;
-  // Safari だけテキストずれる対策
-  line-height: normal;
 
   &:focus {
     border-color: hsl(220, 75%, 45%);
@@ -22,15 +22,13 @@
 }
 
 .cse-submit {
+  flex-shrink: 0;
   flex-basis: 25%;
-  height: ($_base-lineheight / 4 * 5);
   margin-left: -1px;
-  padding: 0 1em;
   border: 1px solid #999;
   border-radius: 0;
   background: darken(#fff, 5%);
   color: #666;
-  vertical-align: bottom;
 
   &:hover,
   &:focus {
