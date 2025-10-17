@@ -62,7 +62,6 @@
   }
 }
 .banner-nav_dialog {
-  position: fixed;
   inset-block-end: auto;
   inline-size: -webkit-fill-available;
   inline-size: -moz-available;
@@ -73,6 +72,7 @@
   background-color: transparent;
 
   &::backdrop {
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     background-color: rgba(255, 255, 255, .8);
   }
