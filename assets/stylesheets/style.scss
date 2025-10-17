@@ -1,9 +1,6 @@
-//
-//= require normalize-css
-//= require_self
-
 @import 'base/variables';
 @import 'base/properties';
+@import 'base/pure-normalize';
 @import 'base/typography';
 @import 'base/base';
 @import 'base/helper';

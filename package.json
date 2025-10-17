@@ -23,8 +23,7 @@
     "build": "npm-run-all clean build:*"
   },
   "dependencies": {
-    "highlight.js": "^11.9.0",
-    "normalize.css": "^7.0.0"
+    "highlight.js": "^11.9.0"
   },
   "devDependencies": {
     "ajv": "^8.12.0",

@@ -61,7 +61,9 @@ html {
 //  Sections
 //  ------------------------------
 
-// body {}
+body {
+  margin: 0;
+}
 // article {}
 // section {}
 // nav {}
@@ -378,10 +380,8 @@ var {
   text-align: center;
 }
 
-// sub {}
-sup {
-  vertical-align: super;
-  font-size: 62.5%;
+sub, sup {
+  font-size: 75%;
 }
 
 i {
@@ -529,6 +529,10 @@ td {
 //  Forms
 //  ------------------------------
 
+:is(input, button, select, textarea) {
+  font-family: inherit;
+  font-size: 100%;
+}
 // form {}
 // label {}
 // input {}

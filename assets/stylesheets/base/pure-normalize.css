@@ -1,0 +1,64 @@
+/* Pure Normalize v0.1.0 */
+
+/* 1. Document
+   line-height は自分の CSS で設定してて無駄になるので省略 */
+:where(html) {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 2. Sections */
+/* ルールは以下だが、制作者 CSS で再設定しており無駄なので省略
+:where(h1) {
+  font-size: 2em;
+  margin-block-end: 0.67em;
+  margin-block-start: 0.67em;
+} */
+
+/* 5. Text-level semantics (pt.2)
+   monospace 繰り返しは若干ハックっぽくはあるので少し弄った */
+:where(code, kbd, pre, samp) {
+  font-family: ui-monospace, monospace;
+  font-size: 1em;
+}
+
+/* Text-level semantics (optional)
+   上付き・下付き文字の挿入で行間が広がるのを抑制する */
+:where(sub, sup) {
+  line-height: 0;
+}
+
+/* 7. Tabular data */
+:where(table) {
+  border-color: currentColor;
+}
+
+/* 8. Forms (pt.1) */
+:where(input[type=checkbox]) {
+  margin: 3px 3px 3px 4px;
+}
+
+:where(input[type=radio]) {
+  margin: 3px 3px 0 5px;
+}
+
+/* 11. Forms (pt.4) */
+:where(textarea) {
+  margin: 0;
+}
+
+/* 12. Forms (pt.5) */
+::-webkit-input-placeholder {
+  color: color-mix(in srgb, currentColor 54%, transparent);
+}
+
+/* 13. Forms (pt.6) */
+:where(input:is([type=button i], [type=reset i], [type=submit i])), ::-webkit-file-upload-button {
+  appearance: button;
+}
+
+/* 14. Forms (pt.7)
+   TODO: iOS Safari v18 以下の境界線問題 */
+:where(input[type=search i]) {
+  appearance: textfield;
+}
