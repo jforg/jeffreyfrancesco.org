@@ -46,11 +46,6 @@
   border-radius: 3px;
   background-color: var(--color-ps-k10);
   color: var(--color-ps-k80);
-
-  &:focus-visible {
-    outline: auto;
-    outline-color: -webkit-focus-ring-color;
-  }
 }
 .banner-nav_icon {
   fill: currentColor;
