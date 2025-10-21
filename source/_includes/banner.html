@@ -7,15 +7,19 @@
     </svg>
   </{{ identity_tag }}>
   <button aria-label="トップメニューを開く" class="banner-button _open" command="show-modal" commandfor="gNavDialog" id="gNavOpenBtn" type="button">
-    <svg class="banner-nav_icon _open" width="24" height="24" viewBox="0 0 24 24">
+    <svg role="img" aria-hidden="true" class="banner-nav_icon _open" width="24" height="24" viewBox="0 0 24 24">
       <rect x="0" y="1" rx="1" width="24" height="4" />
       <rect x="0" y="10" rx="1" width="24" height="4" />
       <rect x="0" y="19" rx="1" width="24" height="4" />
     </svg>
   </button>
-  <dialog aria-labelledby="gNavTitle" class="banner-nav_dialog" closedby="any" id="gNavDialog">
-    <nav class="banner-nav_content" id="gNavContent">
-      <h2 class="banner-nav_title" id="gNavTitle">Top Menu</h2>
+  <dialog class="banner-nav_dialog" closedby="any" id="gNavDialog">
+    <nav aria-label="Top Menu" class="banner-nav_content">
+      <button aria-label="トップメニューを閉じる" autofocus="" class="banner-button _close" command="close" commandfor="gNavDialog" id="gNavClose" type="button">
+        <svg role="img" aria-hidden="true" class="banner-nav_icon _close" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M2 2L22 22M22 2L2 22"/>
+        </svg>
+      </button>
       <ul class="banner-nav_list">
         <li class="banner-nav_item"><a href="/weblog/" class="banner-nav_link">Weblog</a></li>
         <li class="banner-nav_item"><a href="/info/" class="banner-nav_link">Information</a></li>
@@ -23,11 +27,6 @@
         <li class="banner-nav_item"><a href="/about/" class="banner-nav_link">About</a></li>
         <li class="banner-nav_item"><a href="/contact/" class="banner-nav_link">Contact</a></li>
       </ul>
-      <button aria-label="トップメニューを閉じる" class="banner-button _close" command="close" commandfor="gNavDialog" id="gNavClose" type="button">
-        <svg class="banner-nav_icon _close" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M2 2L22 22M22 2L2 22"/>
-        </svg>
-      </button>
     </nav>
   </dialog>
 </div>
