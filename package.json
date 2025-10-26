@@ -18,9 +18,12 @@
     "watch:contents": "bundle exec jekyll build -w --future --drafts",
     "build:assets": "webpack",
     "build:contents": "JEKYLL_ENV=production bundle exec jekyll build --lsi",
+    "fndev:assets": "webpack",
+    "fndev:server": "netlify dev",
     "clean": "rm -rf public/*",
     "start": "npm-run-all clean -p watch:*",
-    "build": "npm-run-all clean build:*"
+    "build": "npm-run-all clean build:*",
+    "fndev": "npm-run-all clean fndev:*"
   },
   "dependencies": {
     "highlight.js": "^11.9.0"

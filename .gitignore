@@ -5,3 +5,6 @@ _drafts/
 node_modules/
 public/
 tests/
+
+# Local Netlify folder
+.netlify
