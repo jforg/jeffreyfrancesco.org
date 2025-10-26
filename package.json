@@ -26,7 +26,8 @@
     "fndev": "npm-run-all clean fndev:*"
   },
   "dependencies": {
-    "highlight.js": "^11.9.0"
+    "highlight.js": "^11.9.0",
+    "microcms-js-sdk": "^3.2.0"
   },
   "devDependencies": {
     "ajv": "^8.12.0",
