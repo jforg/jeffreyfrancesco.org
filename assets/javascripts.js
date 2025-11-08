@@ -13,7 +13,9 @@ async function detectAll () {
   detector.destroy()
 }
 detectAll()
-
+hljs.configure({
+  cssSelector: 'pre > :is(code, samp)'
+})
 hljs.highlightAll()
 processBq()
 dialogFixes()
