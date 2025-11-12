@@ -18,7 +18,7 @@
     {%- capture main_link %}//h.accesstrade.net/sp/cc?rk=01001xqc00nqgk&url=https%3A%2F%2Fwww.soundhouse.co.jp%2Fproducts%2Fdetail%2Fitem%2F{{ include.code }}%2F{% endcapture %}
     <!-- image -->
     <div class="affiliate-thumb">
-      <a href="{{ main_link }}" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img alt="「{{ include.text | escape_once }}」をサウンドハウスで買う" src="//www.soundhouse.co.jp/images/shop/prod_img/{{ include.img }}" class="affiliate-image" /></a>
+      <a href="{{ main_link }}" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img alt="「{{ include.text | escape_once }}」をサウンドハウスで買う" src="//www.soundhouse.co.jp/images/shop/prod_img/{{ include.img }}" class="affiliate-image" loading="lazy" /></a>
     </div>
     <!-- texts -->
     <div class="affiliate-texts">
@@ -30,7 +30,7 @@
       <p class="affiliate-action">
         <a href="{{ main_link }}" class="affiliate-link _for-soundhouse" rel="nofollow" referrerpolicy="no-referrer-when-downgrade">サウンドハウスで買う
           {%- if jekyll.environment == 'production' -%}
-          <img alt="" src="//h.accesstrade.net/sp/rr?rk=01001xqc00nqgk" height="1" width="0" />
+          <img alt="" src="//h.accesstrade.net/sp/rr?rk=01001xqc00nqgk" height="1" width="0" loading="lazy" />
           {%- endif -%}
         </a>
       </p>
@@ -58,7 +58,7 @@
             {%- capture result_y -%}https://shopping.yahoo.co.jp/search/{{ keyword | cgi_escape}}/0/{%- endcapture %}
             <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=891285380&vc_url={{ result_y | cgi_escape }}" class="affiliate-link _for-yahoo" rel="nofollow">Yahoo! ショッピング
               {%- if jekyll.environment == 'production' -%}
-              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" />
+              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" loading="lazy" />
               {%- endif -%}
             </a>
           </li>

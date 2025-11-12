@@ -4,7 +4,7 @@
     {%- capture main_link %}https://www.amazon.co.jp/dp/{{ include.asin }}/ref=nosim?tag=jforg08-22{% endcapture %}
     <!-- image -->
     <div class="affiliate-thumb">
-      <a href="{{ main_link }}"><img alt="「{{ include.text | escape_once }}」を Amazon で買う" src="{{ include.img }}" class="affiliate-image" /></a>
+      <a href="{{ main_link }}"><img alt="「{{ include.text | escape_once }}」を Amazon で買う" src="{{ include.img }}" class="affiliate-image" loading="lazy" /></a>
     </div>
     <!-- texts -->
     <div class="affiliate-texts">
@@ -39,7 +39,7 @@
             {%- capture result_y -%}https://shopping.yahoo.co.jp/search/{{ keyword | cgi_escape}}/0/{%- endcapture %}
             <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=891285380&vc_url={{ result_y | cgi_escape }}" class="affiliate-link _for-yahoo" rel="nofollow">Yahoo! ショッピング
               {%- if jekyll.environment == 'production' -%}
-              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" />
+              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" loading="lazy" />
               {%- endif -%}
             </a>
           </li>

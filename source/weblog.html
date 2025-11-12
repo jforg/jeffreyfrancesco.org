@@ -18,7 +18,7 @@ permalink: /weblog/
             {%- else -%}
               {{ site.og.image }}
             {%- endif -%}
-          " class="article_summary-thumb">
+          " class="article_summary-thumb" width="1200" height="630" loading="lazy" />
           {{ post.title | escape_once }}
         </a>
       </h1>
@@ -44,7 +44,7 @@ permalink: /weblog/
               {%- else -%}
                 {{ site.og.image }}
               {%- endif -%}
-            " class="article_list-image" />
+            " class="article_list-image" width="1200" height="630" loading="lazy" />
           </span>
           <span class="article_list-title">{{ post.title | escape_once }}</span>
           <span class="article_list-info">

@@ -3,7 +3,7 @@
   <div class="affiliate-content">
     {%- capture main_link %}//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=890458793&vc_url={{ include.url | cgi_escape }}{% endcapture %}
     <div class="affiliate-thumb">
-      <a href="{{ main_link }}" rel="nofollow"><img alt="「{{ include.title | escape_once }} [{{ include.media | escape_once }}]」({{ include.artist | escape_once }}) を Tower Records Online で買う" src="{{ include.img }}" class="affiliate-image" /></a>
+      <a href="{{ main_link }}" rel="nofollow"><img alt="「{{ include.title | escape_once }} [{{ include.media | escape_once }}]」({{ include.artist | escape_once }}) を Tower Records Online で買う" src="{{ include.img }}" class="affiliate-image" loading="lazy" /></a>
     </div>
     <div class="affiliate-texts">
       <p class="affiliate-info">
@@ -15,7 +15,7 @@
       <p class="affiliate-action">
         <a href="{{ main_link }}" class="affiliate-link _for-tower" rel="nofollow">Tower Records Online で買う
           {%- if jekyll.environment == 'production' -%}
-          <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=890458793" height="1" width="0" />
+          <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=890458793" height="1" width="0" loading="lazy" />
           {%- endif -%}
         </a>
       </p>
@@ -43,7 +43,7 @@
             {%- capture result_y -%}https://shopping.yahoo.co.jp/search/{{ keyword | cgi_escape}}/0/{%- endcapture %}
             <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3717578&pid=891285380&vc_url={{ result_y | cgi_escape }}" class="affiliate-link _for-yahoo" rel="nofollow">Yahoo! ショッピング
               {%- if jekyll.environment == 'production' -%}
-              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" />
+              <img alt="" src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3717578&pid=891285380" height="1" width="0" loading="lazy" />
               {%- endif -%}
             </a>
           </li>
