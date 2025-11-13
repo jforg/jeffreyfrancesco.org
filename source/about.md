@@ -24,7 +24,7 @@ JeffreyFrancesco.org はその名の通り、主に北近畿（というより�
 
 <figure class="photo">
   <div class="photo-content">
-    <img alt="" src="/images/profile-202402.jpg" width="736" height="480" />
+    <img alt="" src="/images/profile-202402.jpg" width="736" height="480" loading="lazy" />
   </div>
   <figcaption class="photo-caption">近影（2023年2月11日 @ 岩滝町 Fiddle）</figcaption>
 </figure>
