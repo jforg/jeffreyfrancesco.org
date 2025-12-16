@@ -1,0 +1,127 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport" content="width=device-width" />
+    <title>System Color Viewer by JF.org</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="canonical" href="https://jeffreyfrancesco.org/works/system-color-viewer/" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+    <script type="module" src="theme.js"></script>
+    {%- if jekyll.environment == 'production' %}
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8470388415032156" crossorigin="anonymous"></script>
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT68WWWKD5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LT68WWWKD5');
+    </script>
+    {%- endif %}
+    <meta name="description" content="Check how your browser renders each of the 17 system color keywords" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="System Color Viewer" />
+    <meta property="og:description" content="Check how your browser renders each of the 17 system color keywords" />
+    <meta property="og:url" content="https://jeffreyfrancesco.org/works/system-color-viewer/" />
+    <meta property="og:site_name" content="JeffreyFrancesco.org" />
+    <meta property="og:image" content="https://jeffreyfrancesco.org/works/system-color-viewer/system-color-viewer-post_thumbnail.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JForg" />
+  </head>
+  <body>
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+      <defs>
+        <symbol id="icon-facebook" viewBox="0 0 32 32">
+          <path d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16c0 7.504 5.166 13.8 12.135 15.529v-10.639h-3.299v-4.889h3.299v-2.107c0-5.446 2.465-7.97 7.811-7.97 1.014 0 2.763 0.199 3.478 0.397v4.432c-0.378-0.040-1.034-0.060-1.848-0.060-2.624 0-3.637 0.994-3.637 3.578v1.729h5.226l-0.898 4.889h-4.328v10.993c7.922-0.957 14.062-7.702 14.062-15.883z" />
+        </symbol>
+        <symbol id="icon-hatena" viewBox="0 0 32 32">
+          <path d="M12.941 23.87c-0.71 0.436-1.934 0.65-3.65 0.65h-2.54v-5.825h2.649c1.763 0 2.982 0.222 3.63 0.665 0.659 0.443 0.983 1.226 0.983 2.349 0 1.005-0.355 1.727-1.072 2.161zM6.751 8.581h1.561c1.804 0 3.015 0.204 3.64 0.609 0.617 0.408 0.932 1.11 0.932 2.112 0 0.964-0.335 1.643-0.997 2.041-0.671 0.391-1.894 0.588-3.685 0.588h-1.451zM19.302 16.952c-1.063-1.188-2.54-1.855-4.435-1.999 1.686-0.46 2.91-1.132 3.685-2.030 0.771-0.886 1.153-2.089 1.153-3.603 0-1.198-0.262-2.259-0.77-3.175-0.52-0.91-1.269-1.639-2.251-2.185-0.86-0.473-1.882-0.807-3.073-1.003-1.197-0.191-3.293-0.287-6.299-0.287h-7.311v26.663h7.532c3.026 0 5.208-0.106 6.542-0.309 1.333-0.21 2.452-0.562 3.357-1.046 1.12-0.591 1.974-1.432 2.571-2.512 0.6-1.084 0.898-2.334 0.898-3.763 0-1.977-0.533-3.566-1.599-4.751zM28.622 22.572c1.866 0 3.378 1.511 3.378 3.377s-1.512 3.378-3.378 3.378c-1.864 0-3.377-1.512-3.377-3.378s1.513-3.377 3.377-3.377zM25.69 2.667h5.866v17.775h-5.866z" />
+        </symbol>
+        <symbol id="icon-raindrop" viewBox="0 0 32 32">
+          <path d="M16 28.667h-8c-4.418 0-8-3.582-8-8 0-3.345 2.053-6.211 4.968-7.405-0.004 0.121-0.006 0.243-0.006 0.365 0 3.131 1.349 5.946 3.505 7.905l0.4 0.467 7.133 6.668z" />
+          <path fill-opacity="0.85" d="M16 28.667l-7.133-6.668-0.4-0.467c-2.156-1.959-3.505-4.774-3.505-7.905 0-0.122 0.002-0.244 0.006-0.365 0.935-0.384 1.959-0.595 3.032-0.595 4.418 0 8 3.582 8 8v7.999z" />
+          <path fill-opacity="0.65" d="M4.968 13.262c0.193-5.722 4.892-10.302 10.661-10.302 3.13 0 5.945 1.348 7.897 3.496l0.008 0.009-0.001 0.002c1.732 1.731 2.871 4.054 3.087 6.64-0.821-0.285-1.704-0.44-2.623-0.44-4.347 0-7.885 3.469-7.997 7.8v0.2c0-4.418-3.582-8-8-8-1.073 0-2.097 0.211-3.032 0.595z" />
+          <path fill-opacity="0.4" d="M16 28.667v-8.2c0.112-4.331 3.65-7.8 7.997-7.8 0.919 0 1.802 0.155 2.623 0.44 0.025 0.298 0.038 0.599 0.038 0.903 0 3.14-1.357 5.963-3.516 7.915l-0.009 0.008-7.133 6.733z" />
+          <path fill-opacity="0.5" d="M26.62 13.107c3.13 1.086 5.377 4.061 5.377 7.56 0 4.418-3.58 7.999-7.997 8l-8-0.001 7.142-6.741c2.159-1.952 3.516-4.775 3.516-7.915 0-0.304-0.013-0.605-0.038-0.903z" />
+        </symbol>
+        <symbol id="icon-x" viewBox="0 0 32 32">
+          <path d="M18.283 14.122l8.935-10.386h-2.117l-7.758 9.018-6.196-9.018h-7.147l9.37 13.636-9.37 10.891h2.117l8.193-9.523 6.544 9.523h7.147l-9.717-14.142zM15.383 17.493l-8.503-12.163h3.252l14.969 21.412h-3.252l-6.466-9.249z" />
+        </symbol>
+      </defs>
+    </svg>
+    <div role="banner">
+      <a href="/">
+        <svg class="logo" aria-labelledby="sitename" role="img" viewbox="0 0 204 128" width="102" height="64">
+          <title id="sitename">JeffreyFrancesco.org</title>
+          <circle class="logo-base" cx="64" cy="64" r="62" fill="#231f20" />
+          <path class="logo-text" d="M45.832 84.859q-3.2 0-6.08-.812t-5.142-2.44a12.1 12.1 0 0 1-3.58-4.028Q29.71 75.177 29.633 72q0-.505.343-.868a1.14 1.14 0 0 1 .868-.364h7.56q.806 0 1.218.388.414.388.679 1.173.33 1.547 1.11 2.534a4.57 4.57 0 0 0 1.977 1.449q1.197.462 2.723.462 2.794 0 4.309-1.82t1.516-5.341V53.464H33.792q-.596 0-1.001-.406a1.36 1.36 0 0 1-.406-1.001v-5.551q0-.596.406-1.001.405-.406 1.001-.406h27.104q.615 0 1.022.406.406.405.406 1.022v23.387q0 4.857-2.111 8.2-2.11 3.343-5.824 5.044t-8.557 1.701M71.193 84.299q-.596 0-1.002-.406a1.36 1.36 0 0 1-.406-1.001l.001-36.365q0-.617.405-1.022a1.36 1.36 0 0 1 1.001-.406h25.746q.617 0 1.022.406.406.405.406 1.022v5.635q0 .594-.406 1.001-.405.406-1.022.406H79.683v8.239h16.135q.617 0 1.022.406.406.405.406 1.022v5.6q0 .594-.406 1.001-.405.406-1.022.406H79.683v12.649q0 .594-.406 1.001-.405.405-1.022.406h-7.063Z" fill="#fff" />
+          <path class="logo-base" d="M130.283 84.301a.95.95 0 0 1-.702-.281.95.95 0 0 1-.281-.701v-4.503q0-.421.281-.712a.94.94 0 0 1 .701-.29h4.504a.97.97 0 0 1 .711.29q.29.29.29.712v4.503q0 .42-.29.701a.98.98 0 0 1-.711.281h-4.504ZM150.074 84.701q-3.29 0-5.528-1.097-2.237-1.098-3.421-3.137t-1.325-4.783a35 35 0 0 1-.04-1.793q0-1.029.04-1.772.141-2.785 1.376-4.804 1.236-2.02 3.473-3.116 2.238-1.098 5.425-1.098t5.425 1.098q2.237 1.097 3.472 3.116t1.377 4.804q.06.743.06 1.772 0 1.03-.06 1.793-.142 2.744-1.326 4.783-1.183 2.039-3.421 3.137t-5.527 1.097m0-4.411q1.959 0 2.961-1.216t1.101-3.59q.04-.6.04-1.583 0-.982-.04-1.582-.099-2.354-1.101-3.58-1.002-1.227-2.961-1.227-1.94 0-2.951 1.227-1.011 1.226-1.111 3.58-.04.6-.04 1.582t.04 1.583q.1 2.375 1.111 3.59 1.011 1.216 2.951 1.216M165.579 84.301a.95.95 0 0 1-.701-.281.95.95 0 0 1-.281-.701V64.503q0-.42.281-.711a.93.93 0 0 1 .701-.291h3.9q.42 0 .711.291a.97.97 0 0 1 .291.711v1.614a6.8 6.8 0 0 1 2.48-1.936q1.473-.68 3.37-.68h1.706q.42 0 .701.281a.95.95 0 0 1 .281.702v3.471q0 .42-.281.701a.95.95 0 0 1-.701.281h-3.484q-1.785 0-2.775.99t-.99 2.775v10.617q0 .42-.29.701a.98.98 0 0 1-.711.281zM191.791 93.101q-2.99 0-4.938-.772-1.949-.772-3.084-1.875-1.136-1.104-1.619-2.186t-.523-1.703a.82.82 0 0 1 .271-.711 1 1 0 0 1 .712-.291h4.27q.382 0 .632.181t.41.638a7.4 7.4 0 0 0 .586 1.019q.366.542 1.094.905.729.364 1.989.364 1.38 0 2.296-.406t1.389-1.365.473-2.598v-2.699q-.96 1.073-2.425 1.748-1.466.675-3.578.675-2.094 0-3.663-.656t-2.61-1.881q-1.04-1.226-1.603-2.946-.561-1.719-.643-3.87a29 29 0 0 1 0-2.137q.081-2.067.633-3.798t1.603-2.986a7.1 7.1 0 0 1 2.62-1.953q1.569-.697 3.663-.697 2.214 0 3.772.838 1.558.839 2.538 2.097v-1.533q0-.42.281-.711a.94.94 0 0 1 .702-.291h3.9q.42 0 .71.291a.97.97 0 0 1 .291.711l.021 19.254q0 2.97-1.15 5.05t-3.407 3.187-5.613 1.107m-.226-13.774q1.46 0 2.358-.65a3.93 3.93 0 0 0 1.332-1.665 6.3 6.3 0 0 0 .494-2.142q.04-.458.04-1.266t-.04-1.245a6.3 6.3 0 0 0-.494-2.143 3.93 3.93 0 0 0-1.332-1.665q-.899-.65-2.358-.649-1.5 0-2.388.65a3.6 3.6 0 0 0-1.273 1.736 8.7 8.7 0 0 0-.465 2.391q-.06.935 0 1.871.08 1.305.465 2.39a3.6 3.6 0 0 0 1.273 1.736q.888.651 2.388.651" fill="#231f20" />
+        </svg>
+      </a>
+    </div>
+    <main>
+      <hgroup>
+        <h1>System Color Viewer</h1>
+        <p>Check how your browser renders each of the 17 system color keywords</p>
+      </hgroup>
+      <p class="selector">Color Scheme:
+        <label><input type="radio" name="scheme" value="light" /> Light</label>
+        <label><input type="radio" name="scheme" value="dark" /> Dark</label>
+        <label><input checked type="radio" name="scheme" value="system" /> System</label>
+        <small class="selector-notice">⚠️ Preview only (not saved)</small>
+      </p>
+      <ul class="color">
+        <li class="color-set" style="--system-color-keyword: AccentColor">AccentColor: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: AccentColorText">AccentColorText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: ActiveText">ActiveText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: ButtonBorder">ButtonBorder: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: ButtonFace">ButtonFace: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: ButtonText">ButtonText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: Canvas">Canvas: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: CanvasText">CanvasText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: Field">Field: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: FieldText">FieldText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: GrayText">GrayText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: Highlight">Highlight: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: HighlightText">HighlightText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: LinkText">LinkText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: Mark">Mark: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: MarkText">MarkText: <span class="color-chip"></span></li>
+        <li class="color-set" style="--system-color-keyword: VisitedText">VisitedText: <span class="color-chip"></span></li>
+      </ul>
+    </main>
+    <aside class="adsense">
+      {%- if jekyll.environment == 'production' %}
+      <ins
+        class="adsbygoogle"
+        style="display:block;text-align:center"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-8470388415032156"
+        data-ad-slot="{{ include.slot | default: 4720985151 }}"></ins>
+      {%- else %}
+      <div data-ad-status="unfilled"></div>
+      {%- endif %}
+      <div class="alt_ad">
+        <h2 class="alt_ad-title">PR</h2>
+        <p><a class="alt_ad-link" href="https://h.accesstrade.net/sp/cc?rk=0100pto400nqgk" target="_blank" rel="nofollow" referrerpolicy="no-referrer-when-downgrade"><img alt="Soundhouse" src="https://h.accesstrade.net/sp/rr?rk=0100pto400nqgk" loading="lazy" width="300" height="250" /></a></p>
+      </div>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </aside>
+    <footer>
+      <ul class="share">
+        <li class="share-item"><a class="share-link" href="https://x.com/intent/post?url=https%3A%2F%2Fjeffreyfrancesco.org%2Fworks%2Fsystem-color-viewer%2F&amp;text=System%20Color%20Viewer" target="_blank"><svg role="img" aria-labelledby="x-title" class="icon" width="32" height="32"><title id="x-title">share on X (Twitter)</title><use href="#icon-x" /></svg></a></li>
+        <li class="share-item"><a class="share-link" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjeffreyfrancesco.org%2Fworks%2Fsystem-color-viewer%2F" target="_blank"><svg role="img" aria-labelledby="facebook-title" class="icon" width="32" height="32"><title id="facebook-title">share on Facebook</title><use href="#icon-facebook" /></svg></a></li>
+        <li class="share-item"><a class="share-link" href="https://b.hatena.ne.jp/add?mode=confirm&url=https%3A%2F%2Fjeffreyfrancesco.org%2Fworks%2Fsystem-color-viewer%2F" target="_blank"><svg role="img" aria-labelledby="hatena-title" class="icon" width="32" height="32"><title id="hatena-title">save to Hatena Bookmark</title><use href="#icon-hatena" /></svg></a></li>
+        <li class="share-item"><a class="share-link" href="https://app.raindrop.io/add?link=https%3A%2F%2Fjeffreyfrancesco.org%2Fworks%2Fsystem-color-viewer%2F&amp;title=System%20Color%20Viewer" target="_blank"><svg role="img" aria-labelledby="raindrop-title" class="icon" width="32" height="32"><title id="raindrop-title">save to Raindrop.io</title><use href="#icon-raindrop" /></svg></a></li>
+      </ul>
+      <p class="created">Created by <a href="/">Jeffrey Francesco</a></p>
+    </footer>
+  </body>
+</html>

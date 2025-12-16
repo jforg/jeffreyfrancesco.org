@@ -1,0 +1,249 @@
+@layer base {
+  html {
+    --logo-black: #231f20;
+    --logo-white: #fff;
+
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  body {
+    inline-size: 90%;
+    max-inline-size: 80em;
+    margin: auto;
+  }
+  h1 {
+    margin-block: 0;
+    font-size: 200%;
+  }
+  h2 {
+    font-size: 100%;
+  }
+  h1, h2, h3 {
+    line-height: calc((1em + (1rlh - 1rem)) / 1em);
+    @supports not (zoom: calc(1Q/1Q)) {
+      line-height: calc(1em + (1rlh - 1rem));
+    }
+  }
+  p, ul {
+    margin-block: 1lh;
+  }
+  ul {
+    padding-inline-start: 0;
+  }
+  img, svg {
+    vertical-align: bottom;
+  }
+  input {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.5;
+  }
+}
+@layer theme {
+  :root {
+    --logo-base-color: var(--logo-black);
+    --logo-text-color: var(--logo-white);
+
+    color-scheme: light dark;
+
+    &[data-user-theme=light] {
+      color-scheme: light;
+    }
+
+    @media print {
+      color-scheme: light;
+    }
+
+    @media screen {
+      &[data-user-theme=dark] {
+        --logo-base-color: var(--logo-white);
+        --logo-text-color: var(--logo-black);
+
+        color-scheme: dark;
+      }
+    }
+
+    @media screen and (prefers-color-scheme: dark) {
+      &:not([data-user-theme=light]) {
+        --logo-base-color: var(--logo-white);
+        --logo-text-color: var(--logo-black);
+      }
+    }
+  }
+}
+@layer components {
+  /* banner */
+  [role=banner] {
+    padding-block: 1rem;
+    border-block-end: 1px solid #808080;
+
+    & > a {
+      display: inline-block;
+    }
+  }
+  .logo-base {
+    fill: var(--logo-base-color);
+  }
+  .logo-text {
+    fill: var(--logo-text-color);
+  }
+  @media (forced-colors) {
+    .logo-base {
+      fill: CanvasText;
+    }
+    .logo-text {
+      fill: Canvas;
+    }
+  }
+  /* title */
+  hgroup {
+    margin-block: 2rlh;
+    color: var(--logo-base-color);
+
+    & > h1 {
+      font-weight: 900;
+    }
+    & > p {
+      margin-block: 0;
+    }
+  }
+  /* theme selector */
+  .selector-notice {
+    display: block;
+  }
+  input[type=radio] {
+    margin-block: calc((1ex - 1cap) / 2) 0;
+    margin-inline: 5px 3px;
+    vertical-align: middle;
+  }
+  /* color list */
+  .color {
+    container-type: inline-size;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(auto-fill, minmax(22em, 1fr));
+    border: 1px solid CanvasText;
+    background-color: CanvasText;
+  }
+  .color-set {
+    display: flex;
+    align-items: end;
+    padding: .5em;
+    background-color: Canvas;
+    color: CanvasText;
+  }
+  .color-code {
+    margin-inline: auto .5ch;
+    font-family: ui-monospace, monospace;
+    font-size: smaller;
+    line-height: 1.575;
+  }
+  .color-chip {
+    box-sizing: border-box;
+    aspect-ratio: 1;
+    block-size: 1.5em;
+    border: 1px solid light-dark(#000, #fff);
+    background-color: var(--system-color-keyword);
+  }
+  @media (width < calc((22em + 2px) / .9)) {
+    .color {
+      grid-template-columns: none;
+    }
+    .color-set {
+      display: grid;
+      grid-template-columns: 1fr auto;
+    }
+    .color-code {
+      grid-column-start: 1;
+    }
+  }
+  @container (width >= calc(44em + 1px)) {
+    .color::after {
+      content: "";
+      background-color: Canvas;
+    }
+  }
+  /* icon */
+  .icon {
+    height: 2em;
+    width: 2em;
+    fill: currentColor;
+  }
+  /* footer */
+  footer {
+    margin-block: 2rlh;
+    @media (width < 30em) {
+      text-align: center;
+    }
+  }
+  @media (width >= 30em) {
+    footer {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    footer > * {
+      margin-block: initial;
+    }
+  }
+  /* share */
+  .share {
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+    inline-size: fit-content;
+    @media (width < 30em) {
+      margin-inline: auto;
+    }
+  }
+  .share-item {
+    list-style-type: "";
+  }
+  .share-link {
+    display: block;
+  }
+  /* adsense */
+  .adsense {
+    margin-block: 2rlh;
+  }
+  .adsense > [data-ad-status=unfilled] {
+    display: none !important;
+  }
+  /* alternate ad */
+  .alt_ad {
+    display: none;
+
+    [data-ad-status=unfilled] + & {
+      position: relative;
+      display: block;
+      text-align: center;
+    }
+
+    & > * {
+      margin-block: 0
+    }
+  }
+  .alt_ad-title {
+    display: flex;
+    gap: 1ch;
+    align-items: center;
+
+    &::before, &::after {
+      content: "";
+      flex: 1;
+      border-block-start: 1px solid gray;
+    }
+  }
+  .alt_ad-link {
+    display: block;
+    background-color: #774D84;
+    color: #fff;
+    forced-color-adjust: none;
+
+    & > img {
+      clip-path: inset(2px);
+    }
+  }
+}
