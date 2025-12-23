@@ -2,6 +2,7 @@
  *  component page_toc 記事目次
  */
 .page_toc {
+  margin-block: 1lh;
 
   details {
     margin: auto;
