@@ -7,13 +7,19 @@
   overflow: hidden;
 }
 .banner {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: calc(infinity);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-inline-size: 46rem;
-  margin-inline: auto;
   padding: 1rem;
   border-block-end: 1px solid var(--color-ps-k25);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, .9);
+  color: var(--color-ps-k100);
   line-height: 1.5;
 
   & a {

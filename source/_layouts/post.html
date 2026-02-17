@@ -2,6 +2,15 @@
 layout: base
 ---
 <main role="main" class="main hentry">
+  <div class="main-visual">
+    <img alt="" src="
+      {%- if page.og.image -%}
+        {{ page.og.image }}
+      {%- else -%}
+        {{ site.og.image }}
+      {%- endif -%}
+    " width="1200" height="630" />
+  </div>
   <div class="main-content">
     <header class="page_header">
       <div class="page_header-content">

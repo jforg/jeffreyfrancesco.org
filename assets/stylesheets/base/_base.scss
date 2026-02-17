@@ -62,7 +62,10 @@ html {
 //  ------------------------------
 
 body {
+  position: relative;
   margin: 0;
+  container-name: site;
+  container-type: inline-size;
 }
 // article {}
 // section {}

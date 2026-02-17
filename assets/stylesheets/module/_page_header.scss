@@ -29,20 +29,30 @@
   &:after {
     right: -3em;
   }
+
+  .hentry & {
+    padding-top: 0;
+  }
 }
 
 .page_header-title {
-  @include auto_scaling(6);
+  @include auto_scaling(5);
 
   @media (min-width: 48em) {
     @include auto_scaling(7);
   }
 
   font-feature-settings: "palt";
+  text-wrap-style: pretty;
+  word-break: auto-phrase;
 
   & > abbr {
     text-decoration: none;
     color: hsl(10, 75%, 45%);
+  }
+
+  .hentry & {
+    margin-top: calc((1lh - 1cap) / 2);
   }
 }
 

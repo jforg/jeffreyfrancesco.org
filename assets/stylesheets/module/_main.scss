@@ -9,3 +9,13 @@
   margin: 0 auto 4em;
   padding: 0 1em;
 }
+@container site (min-width: 0) {
+  .main-visual {
+    height: clamp(200px, calc(100cqi / 40 * 21), 1008px);
+  }
+}
+.main-visual > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
