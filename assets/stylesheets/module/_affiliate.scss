@@ -20,7 +20,7 @@
     display: grid;
     align-items: center;
     gap: 1rem;
-    grid-template-columns: 1fr calc(100% * 2/3);
+    grid-template-columns: 1fr 1.9fr;
   }
 }
 @media not all and (min-width: 40rem) {
@@ -37,17 +37,40 @@
 .affiliate-info > a {
   display: block;
 }
-.affiliate-info {
-  margin-top: 0;
+.affiliate-info,
+.affiliate-instruction {
   text-align: center;
   text-wrap: balance;
 }
+.affiliate-info,
+.affiliate-note {
+  margin-top: 0;
+}
 .affiliate-author,
-.affiliate-artist {
+.affiliate-artist,
+.affiliate-promocode {
   display: block;
 }
+.affiliate-promotext {
+  font-weight: var(--font-weight-marking);
+}
+.affiliate-promocode {
+  font-size: 150%;
+}
+.affiliate-instruction,
+.affiliate-note {
+  font-size: 87.5%;
+}
+.affiliate-instruction {
+  margin-top: calc(1rlh - 1lh);
+}
+.affiliate-note {
+  padding-left: 1em;
+  color: var(--color-ps-k75);
+  text-indent: -1em;
+}
 .affiliate-action {
-  margin-top: 1rem;
+  margin-top: calc((1lh - 1cap) / 2);
 }
 .affiliate-onsale {
   display: block;
@@ -97,6 +120,11 @@
   &._for-yahoo {
     background-color: #6000D3;
     color: $ps-k00;
+  }
+
+  &._for-ubereats {
+    background-color: #06C167;
+    color: #000;
   }
 }
 .affiliate-seealso {
