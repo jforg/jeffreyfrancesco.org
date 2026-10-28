@@ -1,7 +1,7 @@
 export async function amazonMicrocopy () {
   const targets = document.querySelectorAll('.affiliate-action > .affiliate-link._for-amazon')
   if (targets.length >= 1) {
-    console.log(`${targets.length} affiliate link(s) found`)
+    console.log(`amazonMicrocopy: ${targets.length} affiliate link(s) found`)
     const endpoint = '/.netlify/functions/amazon-sale'
     const response = await fetch(endpoint)
     const data = await response.json()
@@ -17,11 +17,11 @@ export async function amazonMicrocopy () {
         target.insertAdjacentElement('beforebegin', injectElm)
       })
     } else if (data.totalCount === -1) {
-      console.log(`Some error occurred: ${data.error}`)
+      console.log(`amazonMicrocopy: Some error occurred: ${data.error}`)
     } else {
-      console.log('No sale found')
+      console.log('amazonMicrocopy: No sale found')
     }
   } else {
-    console.log('No affiliate link found')
+    console.log('amazonMicrocopy: No affiliate link found')
   }
 }

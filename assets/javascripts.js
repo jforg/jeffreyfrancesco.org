@@ -3,6 +3,7 @@ import hljs from "highlight.js/lib/common"
 import { processBq } from "./javascripts/process_bq"
 import { dialogFixes } from './javascripts/dialog-fixes'
 import { amazonMicrocopy } from './javascripts/amazon-microcopy'
+import { uberPromotion } from './javascripts/uber-promotion'
 
 async function detectAll () {
   const detector = await initFontDetector
@@ -20,3 +21,4 @@ hljs.highlightAll()
 processBq()
 dialogFixes()
 amazonMicrocopy()
+uberPromotion()
